@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('friends','FriendController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
