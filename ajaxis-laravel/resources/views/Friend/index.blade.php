@@ -60,14 +60,17 @@
    });
        
       $('.action').click(function(){
+
         var id = $(this).data('id');
+        var tr = $(this).parent().parent();
        $('.remove').click(function(){
         $.ajax({
-          method: get,
-          url: 'localhost:8000/'+ $(this).data('route') + '/' + $(this).data('action') + '/' + id,
+          method: 'get',
+          url: 'http://localhost:8000/'+ $(this).data('route') + '/' + $(this).data('action') + '/' + id,
           success:function(response){
-            console.log(responses);
-
+            console.log(response);
+            $('#modal1').closeModal();
+           tr.remove();
           }});
        });  
      });
