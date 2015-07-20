@@ -11,7 +11,10 @@
 <body>
 	
 	<div class = 'container'>
-	<h2>Persons</h2>
+    <div class = 'row'>
+	   <div class = 'col s4'><h2>Persons</h2></div>
+     <div class = 'col s2'><a href = '#modal2' class = 'btn blue modal-trigger' style = 'position:absolute;'>Add New</a href = '#modal2'></div>
+     </div>
       <table class = 'hoverable'>
       <thead>
       	<th>FirstName</th>
@@ -48,6 +51,46 @@
       <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
     </div>
   </div>
+<!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+ <div id="modal2" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Add</h4>
+      <p>Add New Friend</p>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input  id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="text" class="validate">
+          <label for="password">Birthday</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="text" class="validate">
+          <label for="email">phone</label>
+        </div>
+      </div>
+    </form>
+  </div>
+
+    </div>
+    <div class="modal-footer">
+      
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+      <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
+    </div>
+  </div>
+
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 
