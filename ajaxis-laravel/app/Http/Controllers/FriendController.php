@@ -83,6 +83,10 @@ class FriendController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $f = Friend::findOrfail($id);
+        $f->remove();
+
+        return 'Done';
+        
     }
 }

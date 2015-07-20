@@ -13,7 +13,7 @@
 
 
 Route::get('friends','FriendController@index');
-
+Route::get('friends/remove/{id}','FriendController@destroy');
 Route::get('/', function () {
     return view('welcome');
 });
