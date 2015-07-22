@@ -32,7 +32,7 @@
       		<td>{{$person->phone}}</td>
                   <td>
                       <a href = '#modal1' class = 'action btn red  modal-trigger' data-id = '{{$person->id}}'>Delete</a>
-
+                      <a href = '#modal3' class = 'btn green modal-trigger' data-id = '{{$person->id}}'>Edit</a>
                   </td>
       	</tr>
       	@endforeach
@@ -91,6 +91,17 @@
     </div>
   </div>
 
+ <div id="modal3" class="modal">
+    <div class="modal-content">
+      <h4>Edit</h4>
+      <p>update</p>
+    </div>
+    <div class="modal-footer">
+      
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+      <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
+    </div>
+  </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 
