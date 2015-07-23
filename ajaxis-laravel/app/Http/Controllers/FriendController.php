@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Request;
+//use Illuminate\Http\Request;
 use App\Friend;
-use App\Http\Requests;
+//use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class FriendController extends Controller
@@ -60,7 +60,12 @@ class FriendController extends Controller
      */
     public function edit($id)
     {
-        //
+        $friend = Friend::findOrfail($id);
+        if(Request::ajax()){
+           return $friend;
+          }
+          $k = '<h1>Hello</h1><p>cava</p>';
+          return $k;
     }
 
     /**

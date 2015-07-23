@@ -32,7 +32,7 @@
       		<td>{{$person->phone}}</td>
                   <td>
                       <a href = '#modal1' class = 'action btn red  modal-trigger' data-id = '{{$person->id}}'>Delete</a>
-                      <a href = '#modal3' class = 'btn green modal-trigger' data-id = '{{$person->id}}'>Edit</a>
+                      <a href = '#modal3' class = 'edit btn green modal-trigger' data-id = '{{$person->id}}'>Edit</a>
                   </td>
       	</tr>
       	@endforeach
@@ -128,6 +128,21 @@
           }});
        });  
      });
+
+      $(document).on('click' , '.edit' , function(){
+        var id = $(this).data('id');
+       $.ajax({
+           method: 'get',
+           url: 'http://localhost:8000/friends/edit/'+id,
+          success:function(response){
+           console.log(response); 
+           
+          }
+
+         })
+
+
+      })
      </script>
   
 </html>
