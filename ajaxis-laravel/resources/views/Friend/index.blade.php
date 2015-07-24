@@ -80,21 +80,24 @@
           <label for="email">phone</label>
         </div>
       </div>
-    </form>
-  </div>
-
-    </div>
-    <div class="modal-footer">
+          <div class="modal-footer">
       
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
       <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
     </div>
+    </form>
+  </div>
+
+    </div>
+
   </div>
 
  <div id="modal3" class="modal">
     <div class="modal-content">
       <h4>Edit</h4>
-      <p>update</p>
+      <div class = "row editModal">
+      
+      </div>
     </div>
     <div class="modal-footer">
       
@@ -136,7 +139,7 @@
            url: 'http://localhost:8000/friends/edit/'+id,
           success:function(response){
            console.log(response); 
-           
+           $('.editModal').html(response);
           }
 
          })

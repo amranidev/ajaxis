@@ -61,9 +61,36 @@ class FriendController extends Controller
     public function edit($id)
     {
         $friend = Friend::findOrfail($id);
+        $k = '<form class="col s12">
+               <div class="row">
+          <div class="input-field col s6">
+           <input  id="first_name" type="text" class = "validate" value = "'.$friend->firstname.'">
+          <label for="first_name" class="active">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate" value = "'.$friend->lastname.'">
+          <label for="last_name"class="active">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="birthday" type="text" class="validate" value = "'.$friend->birthday.'">
+          <label for="birthday"class="active">Birthday</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="phone" type="text" class="validate" value = "'.$friend->phone.'">
+          <label for="phone"class="active">phone</label>
+        </div>
+      </div>
+    </form>
+';
         if(Request::ajax()){
-           return $friend;
+            //$k = json_encode($k);
+           return $k;
           }
+
           $k = '<h1>Hello</h1><p>cava</p>';
           return $k;
     }
