@@ -80,18 +80,18 @@
           <label for="email">phone</label>
         </div>
       </div>
-          <div class="modal-footer">
-      
+      <div class = "row">
+      <div class="modal-footer col s11">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
       <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
     </div>
+  </div>
+  
     </form>
   </div>
 
     </div>
-
-  </div>
-
+</div>
  <div id="modal3" class="modal">
     <div class="modal-content">
       <h4>Edit</h4>

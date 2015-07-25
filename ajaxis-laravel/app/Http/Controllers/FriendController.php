@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Request;
+use Session;
 //use Illuminate\Http\Request;
 use App\Friend;
 //use App\Http\Requests;
@@ -61,8 +62,10 @@ class FriendController extends Controller
     public function edit($id)
     {
         $friend = Friend::findOrfail($id);
-        $k = '<form class="col s12">
-               <div class="row">
+        $k = '<form class="col s12 id = "friendForm" method = "PATCH">
+        <input type = "hidden"  name = "_token" value = "' . Session::token() . '">
+        <input type = "hidden" name = "method" value = "patch">    
+            <div class="row">
           <div class="input-field col s6">
            <input  id="first_name" type="text" class = "validate" value = "'.$friend->firstname.'">
           <label for="first_name" class="active">First Name</label>
