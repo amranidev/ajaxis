@@ -68,16 +68,51 @@ class FriendController extends Controller
      */
     public function edit($id) {
         $friend = Friend::findOrfail($id);
-        $k = '<form class="col s12 id = "friendForm" method = "post">
-        <input type = "hidden" name = "_token" value = "'.Session::token().'">
+        
+        function generateInput($var, $name, $type) {
+            $l = '<div class="row">
+          <div class="input-field col s12">
+           <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
+          <label for="' . $name . '" class="active">First Name</label>
+        </div>
+        </div>
+        ';
+            return $l;
+        };
+        function startGenerate() {
+            $l = '<form class="col s12 id = "friendForm" method = "post">
+        <input type = "hidden" name = "_token" value = "' . Session::token() . '">
         <div class="modal-content">
             <h4>Edit</h4>
+            ';
+            return $l;
+        }
+        
+        function endGenerate($id) {
+            
+             $l = '</div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat closeModal">close</a>
+            <a href="#!" class="waves-effect waves-green btn-flat update" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
+        </div>
+    </form>
+    ';
+         return $l;
+        }
+        /*
+        $k = '<form class="col s12 id = "friendForm" method = "post">
+        <input type = "hidden" name = "_token" value = "' . Session::token() . '">
+        <div class="modal-content">
+            <h4>Edit</h4>
+
            <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s12">
            <input  name="firstname" type="text" class = "validate" value = "' . $friend->firstname . '">
           <label for="firstname" class="active">First Name</label>
         </div>
-        <div class="input-field col s6">
+        </div>
+        <div class = "row">
+        <div class="input-field col s12">
           <input name="lastname" type="text" class="validate" value = "' . $friend->lastname . '">
           <label for="lastname"class="active">Last Name</label>
         </div>
@@ -95,13 +130,21 @@ class FriendController extends Controller
         </div>
       </div>
     
+
     </div>
-            <div class="modal-footer">
+        <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat closeModal">close</a>
-            <a href="#!" class="waves-effect waves-green btn-flat update" data-id = "'. $id .'" data-route = "friends" data-action = "update">agree</a>
+            <a href="#!" class="waves-effect waves-green btn-flat update" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
         </div>
     </form>
-';
+';*/
+          $k = startGenerate();
+          $k .= generateInput($friend->firstname,'firstname','text');
+          //return $k;
+          $k .= generateInput($friend->lastname,'lastname','text');
+          $k .= generateInput($friend->birthday,'birthday','date');
+          $k .= generateInput($friend->phone,'phone','text');
+          $k .= endGenerate($id);
         if (Request::ajax()) {
             
             //$k = json_encode($k);
@@ -123,15 +166,16 @@ class FriendController extends Controller
         
         $friend = Friend::findOrfail($id);
         $input = Request::except('_token');
-        //return $fried->firstname; 
-        $friend->firstname = $input['firstname'];  
-        $friend->lastname = $input['lastname'];  
-        $friend->birthday = $input['birthday'];  
-        $friend->phone = $input['phone'];  
+        
+        //return $fried->firstname;
+        $friend->firstname = $input['firstname'];
+        $friend->lastname = $input['lastname'];
+        $friend->birthday = $input['birthday'];
+        $friend->phone = $input['phone'];
         
         $friend->save();
-        if(Request::ajax()){
-
+        if (Request::ajax()) {
+            
             return 'Vrais';
         }
         
