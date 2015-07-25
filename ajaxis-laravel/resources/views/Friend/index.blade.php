@@ -140,7 +140,7 @@
                url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
                data: postData, 
                 success:function(response){
-                  console.log(response);
+                  //console.log(response);
                   $(this).parent().parent().parent().parent().closeModal();                 
                  }
                });
