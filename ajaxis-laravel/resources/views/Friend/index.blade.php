@@ -90,16 +90,10 @@
             </div>
         </form>
     </div>
+<!--***********************************************************************************************************-->
     <div id="modal3" class="modal">
-        <div class="modal-content">
-            <h4>Edit</h4>
             <div class = "row editModal">
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
-        </div>
+           </div>
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
@@ -134,5 +128,23 @@
                 }
                 })
             })
+            $(document).on("click" , ".closeModal", function(){
+               $(this).parent().parent().parent().parent().closeModal();
+
+            });
+            $(document).on("click" , ".update" , function(){
+              postData = $(this).parent().parent().serializeArray();
+              console.log(postData);
+              $.ajax({
+               type: 'post',
+               url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
+               data: postData, 
+                success:function(response){
+                  console.log(response);
+                  $(this).parent().parent().parent().parent().closeModal();                 
+                 }
+               });
+
+            });
     </script>
 </html>
