@@ -1,4 +1,22 @@
-<?php
+<?php 
+
+ class AjaxisGenerate {
+
+     function __construct($input,$id){
+     $k = startGenerate();
+     foreach ($input as $val) {
+         $k .= generateInput($val['value'],$val['name'],$val['type']);
+     }
+     $k .= endGenerate($id);
+     //dd($k);
+     return $k;
+    }
+     public function __toString()
+    {
+        return $this;
+    }
+
+}
 function generateInput($var, $name, $type) {
     $l = '<div class="row">
             <div class="input-field col s12">
@@ -8,15 +26,15 @@ function generateInput($var, $name, $type) {
         </div>
         ';
     return $l;
-};
-function startGenerate() {
+}
+ function startGenerate() {
     $l = '<form class="col s12 id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
                     <h4>Edit</h4>
                     ';
             return $l;
-        };
+        }
         function endGenerate($id) {
             
         $l = '</div>
@@ -27,4 +45,5 @@ function startGenerate() {
     </form>
     ';
     return $l;
-};
+}
+

@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Request;
 use Session;
-//use AjaxisGenerate;
+use AjaxisGenerate;
 //use Illuminate\Http\Request;
 use App\Friend;
 
@@ -19,6 +19,7 @@ class FriendController extends Controller
      */
     public function index() {
         $friends = Friend::all();
+        //return $friends;
         return view('Friend.index', compact('friends'));
     }
     
@@ -68,13 +69,21 @@ class FriendController extends Controller
      */
     public function edit($id) {
         $friend = Friend::findOrfail($id);
-        
+
+          $k = new AjaxisGenerate(
+            array(
+               array("value" => $friend->firstname,"name" => 'firstname', "type" =>"text"),
+               array("value" => $friend->lastname,"name" => 'lastname', "type" =>"text")
+            ),$friend->id
+            );
+          return $k->toString();
+          /*
           $k = startGenerate();
           $k .= generateInput($friend->firstname,'firstname','text');
           $k .= generateInput($friend->lastname,'lastname','text');
           $k .= generateInput($friend->birthday,'birthday','date');
           $k .= generateInput($friend->phone,'phone','text');
-          $k .= endGenerate($id);
+          $k .= endGenerate($id);*/
         
         if (Request::ajax()) {
             return $k;
