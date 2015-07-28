@@ -1,20 +1,19 @@
 <?php 
 
  class AjaxisGenerate {
-
-     function __construct($input,$id){
-     $k = startGenerate();
+      public $k;
+     public function __construct(){
+     $this->k='';
+    }
+public function generate($input,$id){
+ $this->k = startGenerate();
      foreach ($input as $val) {
-         $k .= generateInput($val['value'],$val['name'],$val['type']);
+         $this->k .= generateInput($val['value'],$val['name'],$val['type']);
      }
-     $k .= endGenerate($id);
-     //dd($k);
-     return $k;
-    }
-     public function __toString()
-    {
-        return $this;
-    }
+     $this->k .= endGenerate($id);
+     //dd($this->k);
+ return $this->k;
+}
 
 }
 function generateInput($var, $name, $type) {

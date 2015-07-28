@@ -70,13 +70,14 @@ class FriendController extends Controller
     public function edit($id) {
         $friend = Friend::findOrfail($id);
 
-          $k = new AjaxisGenerate(
-            array(
+          $k = new AjaxisGenerate();
+
+          $k= $k->generate(array(
                array("value" => $friend->firstname,"name" => 'firstname', "type" =>"text"),
                array("value" => $friend->lastname,"name" => 'lastname', "type" =>"text")
             ),$friend->id
             );
-          return $k->toString();
+          return $k;
           /*
           $k = startGenerate();
           $k .= generateInput($friend->firstname,'firstname','text');
