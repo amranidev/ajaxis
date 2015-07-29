@@ -1,20 +1,19 @@
-<?php 
+<?php
 
- class AjaxisGenerate {
-      public $k;
-     public function __construct(){
-     $this->k='';
+class AjaxisGenerate
+{
+    public $k;
+    public function __construct() {
+        $this->k = '';
     }
-public function generate($input,$id){
- $this->k = startGenerate();
-     foreach ($input as $val) {
-         $this->k .= generateInput($val['value'],$val['name'],$val['type']);
-     }
-     $this->k .= endGenerate($id);
-     //dd($this->k);
- return $this->k;
-}
-
+    public function ModalForm($input, $id) {
+        $this->k = startGenerate();
+        foreach ($input as $val) {
+            $this->k.= generateInput($val['value'], $val['name'], $val['type']);
+        }
+        $this->k.= endGenerate($id);
+        return $this->k;
+    }
 }
 function generateInput($var, $name, $type) {
     $l = '<div class="row">
@@ -26,17 +25,17 @@ function generateInput($var, $name, $type) {
         ';
     return $l;
 }
- function startGenerate() {
+function startGenerate() {
     $l = '<form class="col s12 id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
                     <h4>Edit</h4>
                     ';
-            return $l;
-        }
-        function endGenerate($id) {
-            
-        $l = '</div>
+    return $l;
+}
+function endGenerate($id) {
+    
+    $l = '</div>
             <div class="modal-footer">
                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat closeModal">close</a>
                     <a href="#!" class="waves-effect waves-green btn-flat update" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
