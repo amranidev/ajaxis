@@ -74,9 +74,11 @@ class FriendController extends Controller
         
         $k = new AjaxisGenerate();
         
-        $k = $k->ModalForm([
-            ["value" => $friend->firstname, "name" => 'firstname', "type" => "text"],
-             ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"]
+        $k = $k->simpleModalForm([
+             ["value" => $friend->firstname, "name" => 'firstname', "type" => "text"],
+             ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"],
+             ["value" => $friend->birthday , "name" => 'birthday',"type"=>'date'],
+             ["value" =>$friend->phone , "name" => "phone","type" =>"text"] 
              ], 
              $friend->id);
         if (Request::ajax()) {

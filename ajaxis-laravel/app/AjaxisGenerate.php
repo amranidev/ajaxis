@@ -6,7 +6,7 @@ class AjaxisGenerate
     public function __construct() {
         $this->k = '';
     }
-    public function ModalForm($input, $id) {
+    public function simpleModalForm($input, $id) {
         $this->k = startGenerate();
         foreach ($input as $val) {
             $this->k.= generateInput($val['value'], $val['name'], $val['type']);
