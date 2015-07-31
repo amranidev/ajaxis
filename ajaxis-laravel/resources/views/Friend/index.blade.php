@@ -134,14 +134,15 @@
             });
             $(document).on("click" , ".update" , function(){
               postData = $(this).parent().parent().serializeArray();
-              console.log(postData);
               $.ajax({
                type: 'post',
                url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
                data: postData, 
                 success:function(response){
                   //console.log(response);
-                  $(this).parent().parent().parent().parent().closeModal();                 
+                  $(this).parent().parent().parent().parent().closeModal();
+                  console.log(response);  
+                  $('a[class=edit]').parent().parent().html(response);               
                  }
                });
 

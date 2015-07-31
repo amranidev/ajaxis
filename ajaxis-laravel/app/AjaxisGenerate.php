@@ -14,6 +14,20 @@ class AjaxisGenerate
         $this->k.= endGenerate($id);
         return $this->k;
     }
+    
+    public function generateRow($input){
+     $this->k = '<tr>';    
+     foreach ($input as $val) {
+        $this->k .= generateTD($val);
+     }
+     $this->k .= '</tr>';
+     return $this->k;
+    }
+}
+
+function generateTD($value){
+$l = '<td>'.$value.'</td>';
+return $l;
 }
 function generateInput($var, $name, $type) {
     $l = '<div class="row">
@@ -25,6 +39,7 @@ function generateInput($var, $name, $type) {
         ';
     return $l;
 }
+
 function startGenerate() {
     $l = '<form class="col s12 id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">

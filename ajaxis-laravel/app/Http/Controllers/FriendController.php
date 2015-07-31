@@ -81,12 +81,11 @@ class FriendController extends Controller
              ["value" =>$friend->phone , "name" => "phone","type" =>"text"] 
              ], 
              $friend->id);
+        
+
         if (Request::ajax()) {
             return $k;
         }
-        
-        $k = '<h1>Hello</h1><p>cava</p>';
-        return $k;
     }
     
     /**
@@ -106,11 +105,16 @@ class FriendController extends Controller
         $friend->lastname = $input['lastname'];
         $friend->birthday = $input['birthday'];
         $friend->phone = $input['phone'];
-        
         $friend->save();
+        
+        $k = new AjaxisGenerate();
+         
+         $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone]);
+
+
         if (Request::ajax()) {
             
-            return 'Vrais';
+            return $Request;
         }
         
         return 'false';
