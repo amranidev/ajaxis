@@ -107,8 +107,12 @@ class FriendController extends Controller
         
         $k = new AjaxisGenerate();
          
-         $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone,'BNV']);
-
+         $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone]);
+         
+         $Request .=$k->generateRowBtn([
+            ['link'=>'#modal1','class'=>'action btn red  modal-trigger','value' => 'delete'],
+            ['link' => '#', 'class'=>'edit btn green modal-trigger','value' =>'edit']
+            ]);
 
         if (Request::ajax()) {
             

@@ -84,7 +84,7 @@
             </div>
             <div class = "row">
                 <div class="modal-footer col s11">
-                    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
                     <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
                 </div>
             </div>
@@ -141,8 +141,10 @@
                 success:function(response){
                   //console.log(response);
     
-                  //console.log(response);  
-                  $('a[data-id=11]').parent().parent().html(response);               
+                  console.log(response); 
+                  var k = response;
+                  k += ''; 
+                  $('a[data-id=11]').parent().parent().html(k);               
                  }
                });
 
