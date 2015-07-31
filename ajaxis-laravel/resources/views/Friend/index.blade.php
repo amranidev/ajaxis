@@ -14,14 +14,14 @@
                 <div class = 'col s2'><a href = '#modal2' class = 'btn blue modal-trigger' style = 'position:absolute;'>Add New</a href = '#modal2'></div>
             </div>
             <table class = 'hoverable'>
-                <thead>
+                <tr>
                     <th>FirstName</th>
                     <th>LastName</th>
                     <th>Birthday</th>
                     <th>Phone</th>
                     <th>Options</th>
-                </thead>
-                <tbody>
+                </tr>
+                
                     @foreach ($friends as $person)
                     <tr>
                         <td>{{$person->firstname}}</td>
@@ -30,11 +30,11 @@
                         <td>{{$person->phone}}</td>
                         <td>
                             <a href = '#modal1' class = 'action btn red  modal-trigger' data-id = '{{$person->id}}'>Delete</a>
-                            <a href = '#modal3' class = 'edit btn green modal-trigger' data-id = '{{$person->id}}'>Edit</a>
+                            <a id = 'RR' href = '#modal3' class = 'edit btn green modal-trigger' data-id = '{{$person->id}}'>Edit</a>
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
+                
             </table>
         </div>
     </body>
@@ -140,9 +140,9 @@
                data: postData, 
                 success:function(response){
                   //console.log(response);
-                  $(this).parent().parent().parent().parent().closeModal();
-                  console.log(response);  
-                  $('a[class=edit]').parent().parent().html(response);               
+    
+                  //console.log(response);  
+                  $('a[data-id=11]').parent().parent().html(response);               
                  }
                });
 

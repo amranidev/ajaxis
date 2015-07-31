@@ -99,8 +99,6 @@ class FriendController extends Controller
         
         $friend = Friend::findOrfail($id);
         $input = Request::except('_token');
-        
-        //return $fried->firstname;
         $friend->firstname = $input['firstname'];
         $friend->lastname = $input['lastname'];
         $friend->birthday = $input['birthday'];
@@ -109,7 +107,7 @@ class FriendController extends Controller
         
         $k = new AjaxisGenerate();
          
-         $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone]);
+         $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone,'BNV']);
 
 
         if (Request::ajax()) {

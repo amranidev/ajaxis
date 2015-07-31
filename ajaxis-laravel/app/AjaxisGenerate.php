@@ -16,7 +16,7 @@ class AjaxisGenerate
     }
     
     public function generateRow($input){
-     $this->k = '<tr>';    
+     $this->k = '';    
      foreach ($input as $val) {
         $this->k .= generateTD($val);
      }
@@ -53,7 +53,7 @@ function endGenerate($id) {
     $l = '</div>
             <div class="modal-footer">
                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat closeModal">close</a>
-                    <a href="#!" class="waves-effect waves-green btn-flat update" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
+                    <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
             </div>
     </form>
     ';
