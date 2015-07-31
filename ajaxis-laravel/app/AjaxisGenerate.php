@@ -19,7 +19,7 @@ function generateInput($var, $name, $type) {
     $l = '<div class="row">
             <div class="input-field col s12">
                 <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
-                <label for="' . $name . '" class="active">First Name</label>
+                <label for="' . $name . '" class="active">'.$name.'</label>
             </div>
         </div>
         ';
