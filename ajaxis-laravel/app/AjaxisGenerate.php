@@ -14,31 +14,31 @@ class AjaxisGenerate
         return $this->k;
     }
     
-    public function generateRow($input){
+    public function generateRow($input) {
         $this->k = '';
-    foreach ($input as $val) {
-        $this->k .= generateTD($val);
+        foreach ($input as $val) {
+            $this->k.= generateTD($val);
+        }
+        return $this->k;
     }
-    return $this->k;
-    }
-    public function generateRowBtn($input){
-    $this->k= '<td>';
-    foreach ($input as $key) {
-            $this->k .= '<a href="'.$key['link'].'" class="'.$key['class'].'">'.$key['value'].'</a>';
-    }
-    $this->k .= '</td>';
-    return $this->k;
+    public function generateRowBtn($input) {
+        $this->k = '<td>';
+        foreach ($input as $key) {
+            $this->k.= '<a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">' . $key['value'] . '</a>';
+        }
+        $this->k.= '</td>';
+        return $this->k;
     }
 }
-function generateTD($value){
-$l = '<td>'.$value.'</td>';
-return $l;
+function generateTD($value) {
+    $l = '<td>' . $value . '</td>';
+    return $l;
 }
 function generateInput($var, $name, $type) {
     $l = '<div class="row">
             <div class="input-field col s12">
                     <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
-                    <label for="' . $name . '" class="active">'.$name.'</label>
+                    <label for="' . $name . '" class="active">' . $name . '</label>
             </div>
         </div>
         ';
@@ -50,10 +50,10 @@ function startGenerate() {
             <div class="modal-content">
                         <h4>Edit</h4>
                         ';
-        return $l;
-    }
-    function endGenerate($id) {
-        
+    return $l;
+}
+function endGenerate($id) {
+    
     $l = '</div>
             <div class="modal-footer">
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat closeModal">close</a>

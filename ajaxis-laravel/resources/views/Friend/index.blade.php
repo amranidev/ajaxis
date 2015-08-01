@@ -117,7 +117,8 @@
                 }});
             });
             });
-            $(document).on('click' , '.edit' , function(){
+            $("body").on('click' , '.edit' , function(){
+                $('.modal-trigger').leanModal();
                 var id = $(this).data('id');
             $.ajax({
                 method: 'get',
@@ -143,7 +144,7 @@
     
                   console.log(response); 
                   var k = response;
-                  k += ''; 
+                  k += '<!-- Modal Response-->'; 
                   $('a[data-id=11]').parent().parent().html(k);               
                  }
                });
