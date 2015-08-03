@@ -22,11 +22,11 @@ class AjaxisGenerate
         return $this->k;
     }
     public function generateRowBtn($input) {
-        $this->k = '<td>';
+        $this->k = '';
         foreach ($input as $key) {
-            $this->k.= '<a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">' . $key['value'] . '</a>';
+            $this->k.= '<td><a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">'.$key['value'].'</a></td>';
         }
-        $this->k.= '</td>';
+        //$this->k.= '</td>';
         return $this->k;
     }
 }

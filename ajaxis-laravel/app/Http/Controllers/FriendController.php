@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Request;
 use Session;
 use AjaxisGenerate;
-
+use Response;
 //use Illuminate\Http\Request;
 use App\Friend;
 
@@ -110,8 +110,8 @@ class FriendController extends Controller
          $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone]);
          
          $Request .=$k->generateRowBtn([
-            ['link'=>'#modal1','class'=>'action btn red  modal-trigger','value' => 'delete' , 'id' => 0],
-            ['link' => '#modal3', 'class'=>'edit btn green modal-trigger','value' =>'edit','id'=>$friend->id]
+            ['link'=>'#modal1','class'=>'action btn red  modal-trigger','value' => '<i class="material-icons">delete</i>' , 'id' => 0],
+            ['link' => '#modal3', 'class'=>'edit btn green modal-trigger','value' =>'<i class = "material-icons">system_update_alt</i>','id'=>$friend->id]
             ]);
 
         if (Request::ajax()) {
