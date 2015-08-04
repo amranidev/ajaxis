@@ -112,11 +112,16 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
     <script type="text/javascript">
+ $(document).on('click','.modal-trigger1',function() {
+     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+     $(this).leanModal();
+     
+  });
  $(document).ready(function() {
      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
      $('.modal-trigger').leanModal();
      
- });
+ }); 
 
  $('.action').click(function() {
      var id = $(this).data('id');
@@ -134,7 +139,6 @@
      });
  });
  $("body").on('click', '.edit', function() {
-     //$('#modal3').openModal();
      var id = $(this).data('id');
      $.ajax({
          method: 'get',
@@ -145,6 +149,7 @@
              
          }
      })
+     //$('#modal3').closeModal();
  })
  $(document).on("click", ".update", function() {
      postData = $(this).parent().parent().serializeArray();
