@@ -12,7 +12,7 @@
         <div class = 'container'>
             <div class = 'row'>
                 <div class = 'col s4'><h2>Persons</h2></div>
-                <div class = 'col s2'><a href = '#modal2' class = 'btn blue modal-trigger' style = 'position:absolute;'>Add New</a href = '#modal2'></div>
+                <div class = 'col s2'><a href = '#modal2' class = 'create btn blue modal-trigger' data-route = 'friends' data-action = 'create'>Add New</a></div>
             </div>
             <table class = 'hoverable centered'>
                 <thead>
@@ -67,41 +67,8 @@
     </div>
     <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
     <div id="modal2" class="modal modal-fixed-footer">
-        <form class="col s12">
-            <div class="modal-content">
-                <h4>Add</h4>
-                <p>Add New Friend</p>
-                <div class="row">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input  id="first_name" type="text" class="validate">
-                            <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input id="last_name" type="text" class="validate">
-                            <label for="last_name">Last Name</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="password" type="text" class="validate">
-                            <label for="password">Birthday</label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="text" class="validate">
-                            <label for="email">phone</label>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
-                <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
-            </div>
-        </form>
+        <div class = "row createModal">
+        </div>
     </div>
     <!--***********************************************************************************************************-->
     <!--Edit Update "MODAL"-->
@@ -168,5 +135,17 @@
     $(document).on("click", ".closeModal", function() {
         $(this).parent().parent().parent().parent().closeModal();
                 });
+
+    $(document).on("click", ".create",function(){
+     $.ajax({
+        type: 'get',
+         url: 'http://localhost:8000/'+$(this).data('route') + '/' + $(this).data('action'),
+      success:function(response){
+         $('.createModal').html(response);
+         }
+     })
+
+
+    })
     </script>
 </html>
