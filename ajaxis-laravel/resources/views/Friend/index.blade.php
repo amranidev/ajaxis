@@ -31,10 +31,10 @@
                         <td>{{$person->birthday}}</td>
                         <td>{{$person->phone}}</td>
                         <td>
-                            <a href = '#modal1' class = 'action btn-floating red  modal-trigger' data-id = '{{$person->id}}'><i class="material-icons">delete</i></a>
+                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$person->id}}'><i class="material-icons">delete</i></a>
                         </td>
                         <td>
-                            <a id = 'RR' href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$person->id}}'><i class = 'material-icons'>system_update_alt</i></a>
+                            <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$person->id}}'><i class = 'material-icons'>system_update_alt</i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -54,13 +54,15 @@
         </div>
     </body>
     <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Remove</h4>
-            <p>Are you sure for remove this line ? test</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
+        <div class 'AjaxisDeleting'>
+            <div class="modal-content">
+                <h4>Remove</h4>
+                <p>Are you sure for remove this line ? test</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+                <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
+            </div>
         </div>
     </div>
     <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -95,11 +97,9 @@
                     <br>
                 </div>
             </div>
-            <div class = "row">
-                <div class="modal-footer col s11">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
-                    <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
-                </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">close</a>
+                <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
             </div>
         </form>
     </div>
@@ -111,62 +111,62 @@
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-    <script type="text/javascript">
- $(document).on('click','.modal-trigger1',function() {
-     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-     $(this).leanModal();
-     
-  });
- $(document).ready(function() {
-     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-     $('.modal-trigger').leanModal();
-     
- }); 
 
- $('.action').click(function() {
-     var id = $(this).data('id');
-     var tr = $(this).parent().parent();
-     $('.remove').click(function() {
-         $.ajax({
-             method: 'get',
-             url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + id,
-             success: function(response) {
-                 console.log(response);
-                 $('#modal1').closeModal();
-                 tr.remove();
-             }
-         });
-     });
- });
- $("body").on('click', '.edit', function() {
-     var id = $(this).data('id');
-     $.ajax({
-         method: 'get',
-         url: 'http://localhost:8000/friends/edit/' + id,
-         success: function(response) {
-             console.log(response);
-             $('.editModal').html(response);
-             
-         }
-     })
-     //$('#modal3').closeModal();
- })
- $(document).on("click", ".update", function() {
-     postData = $(this).parent().parent().serializeArray();
-     var close = $(this).parent().parent().parent().parent();
-     var id = $(this).data('id');
-     $.ajax({
-         type: 'post',
-         url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
-         data: postData,
-         success: function(response) {
-             $('#modal3').closeModal();
-             $('a[data-id=' + id + ']').parent().parent().html(response);
-         }
-     });
- });
- $(document).on("click", ".closeModal", function() {
-     $(this).parent().parent().parent().parent().closeModal();
- });              
+    <script type="text/javascript">
+    $("body").on('click','.modal-edit',function() {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $(this).leanModal();
+    });
+    $(document).ready(function() {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+        
+    });
+    $('body').on('click','.delete',function() {
+        $(this).leanModal();
+        var id = $(this).data('id');
+        var tr = $(this).parent().parent();
+        $('body').on('click','.remove',function() {
+            $.ajax({
+                method: 'get',
+                url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + id,
+                success:function(response) {
+                    console.log(response);
+                    $('#modal1').closeModal();
+                    tr.remove();
+                }
+            });
+        });
+    });
+    $("body").on('click', '.edit', function() {
+        var id = $(this).data('id');
+        $.ajax({
+            method: 'get',
+            url: 'http://localhost:8000/friends/edit/' + id,
+            success: function(response) {
+                console.log(response);
+                $('.editModal').html(response);
+                
+            }
+        })
+        //$('#modal3').closeModal();
+    })
+    $(document).on("click", ".update", function() {
+        postData = $(this).parent().parent().serializeArray();
+        var close = $(this).parent().parent().parent().parent();
+        var id = $(this).data('id');
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost:8000/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
+            data: postData,
+            success: function(response) {
+                $('#modal3').closeModal();
+                $('a[data-id=' + id + ']').parent().parent().html(response);
+            }
+        });
+    });
+    $(document).on("click", ".closeModal", function() {
+        $(this).parent().parent().parent().parent().closeModal();
+                });
     </script>
 </html>

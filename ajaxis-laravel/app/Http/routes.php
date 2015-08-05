@@ -15,6 +15,7 @@
 Route::get('friends','FriendController@index');
 Route::get('friends/remove/{id}','FriendController@destroy');
 Route::get('friends/edit/{id}','FriendController@edit');
+Route::get('friends/create','FriendController@create');
 Route::post('friends/update/{id}','FriendController@update');
 Route::get('/', function () {
     return view('welcome');

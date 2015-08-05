@@ -32,9 +32,17 @@ class FriendController extends Controller
      */
     public function create() {
         
-        //
-        
-        
+      $k = new AjaxisGenerate();
+      $k = $k->simpleModalForm([
+               ['value' => '','name'  => 'firstname','type' => 'text'],
+               ['value' => '' ,'name' =>'lastname','type' => 'text'],
+               ['value' => '','name'  => 'birthday','type'=>'date'],
+               ['value' => '','name'  => 'phone','type' => 'text'],
+               ],null); 
+        if(Request::ajax()){
+            return $k;
+        }
+        return $k;
     }
     
     /**
@@ -110,8 +118,8 @@ class FriendController extends Controller
          $Request = $k->generateRow([$friend->firstname,$friend->lastname,$friend->birthday,$friend->phone]);
          
          $Request .=$k->generateRowBtn([
-            ['link'=>'#modal1','class'=>'action btn-floating red modal-trigger1','value' => '<i class="material-icons">delete</i>' , 'id' => 0],
-            ['link' => '#modal3', 'class'=>'edit btn-floating green modal-trigger1','value' =>'<i class = "material-icons">system_update_alt</i>','id'=>$friend->id]
+            ['link'=>'#modal1','class'=>'delete modal-delete btn-floating red modal-trigger1','value' => '<i class="material-icons">delete</i>' , 'id' => $friend->id],
+            ['link' => '#modal3', 'class'=>'modal-edit edit btn-floating green','value' =>'<i class = "material-icons">system_update_alt</i>','id'=>$friend->id]
             ]);
 
         if (Request::ajax()) {

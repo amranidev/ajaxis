@@ -24,9 +24,22 @@ class AjaxisGenerate
     public function generateRowBtn($input) {
         $this->k = '';
         foreach ($input as $key) {
-            $this->k.= '<td><a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">'.$key['value'].'</a></td>';
+            $this->k.= '<td><a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">' . $key['value'] . '</a></td>';
         }
+        
         //$this->k.= '</td>';
+        return $this->k;
+    }
+    public function DeletingModal($title,$message,$route,$action,$id) {
+        $this->k = '';
+        $this->k.= ' <div class="modal-content">
+            <h4>' . $title . '</h4>
+            <p>' . $message . '</p>
+        </div>';
+        $this->k .= '<div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = "'.$route.'" data-action = "'.$action.'">agree</a>
+        </div>';
         return $this->k;
     }
 }
@@ -37,8 +50,8 @@ function generateTD($value) {
 function generateInput($var, $name, $type) {
     $l = '<div class="row">
             <div class="input-field col s12">
-                    <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
-                    <label for="' . $name . '" class="active">' . $name . '</label>
+                        <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
+                        <label for="' . $name . '" class="active">' . $name . '</label>
             </div>
         </div>
         ';
@@ -48,16 +61,16 @@ function startGenerate() {
     $l = '<form class="col s12 id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
-                        <h4>Edit</h4>
-                        ';
+                            <h4>Edit</h4>
+                            ';
     return $l;
 }
 function endGenerate($id) {
     
     $l = '</div>
             <div class="modal-footer">
-                        <a href="#!" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                        <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
+                            <a href="#!" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
+                            <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
             </div>
     </form>
     ';
