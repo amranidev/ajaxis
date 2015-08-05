@@ -14,7 +14,7 @@
                 <div class = 'col s4'><h2>Persons</h2></div>
                 <div class = 'col s2'><a href = '#modal2' class = 'create btn blue modal-trigger' data-route = 'friends' data-action = 'create'>Add New</a></div>
             </div>
-            <table class = 'hoverable centered'>
+            <table class = 'hoverable centered' id = 'friendTable'>
                 <thead>
                     <th>FirstName</th>
                     <th>LastName</th>
@@ -80,6 +80,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 
     <script type="text/javascript">
+    var mainTable = '#friendTable';
     $("body").on('click','.modal-edit',function() {
         // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
         $(this).leanModal();
@@ -145,7 +146,19 @@
          }
      })
 
+     $(document).on("click",".save",function(){
+    var postData = $(this).parent().parent().serializeArray();
+     $.ajax({
+        type: 'post',
+         url: 'http://localhost:8000/'+$(this).data('route') + '/' + $(this).data('action'),
+         data: postData,
+      success:function(response){
+        var html = '<tr>' +response+'</tr>'
+            $('tbody').append(html);
+         }
+     })
 
-    })
+     })
+})
     </script>
 </html>

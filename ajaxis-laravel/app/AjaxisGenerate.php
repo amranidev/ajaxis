@@ -5,15 +5,26 @@ class AjaxisGenerate
     public function __construct() {
         $this->k = '';
     }
-    public function simpleModalForm($input, $id) {
-        $this->k = startGenerate();
+    public function editModalForm($input, $id,$route,$action) {
+        $this->k = startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['value'], $val['name'], $val['type']);
         }
-        $this->k.= endGenerate($id);
+        $this->k.= endEdit($id,$route,$action);
+        
         return $this->k;
     }
     
+    public function createFormModal($input,$route,$action){
+         $this->k = startCreate();
+         foreach($input as $val){
+         $this->k.= generateInput($val['value'], $val['name'], $val['type']);
+         }
+         $this->k .= endCreate($route,$action);
+        
+         return $this->k;
+    }
+
     public function generateRow($input) {
         $this->k = '';
         foreach ($input as $val) {
@@ -42,6 +53,7 @@ class AjaxisGenerate
         </div>';
         return $this->k;
     }
+
 }
 function generateTD($value) {
     $l = '<td>' . $value . '</td>';
@@ -57,7 +69,7 @@ function generateInput($var, $name, $type) {
         ';
     return $l;
 }
-function startGenerate() {
+function startEdit() {
     $l = '<form class="col s12 id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
@@ -65,12 +77,31 @@ function startGenerate() {
                             ';
     return $l;
 }
-function endGenerate($id) {
+function startCreate() {
+    $l = '<form class="col s12 id = "friendForm" method = "post">
+            <input type = "hidden" name = "_token" value = "' . Session::token() . '">
+            <div class="modal-content">
+                            <h4>Create</h4>
+                            ';
+    return $l;
+}
+function endEdit($id,$route,$action) {
     
     $l = '</div>
             <div class="modal-footer">
                             <a href="#!" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-route = "friends" data-action = "update">agree</a>
+                            <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "'.$id.'" data-route = "'.$route.'" data-action = "'.$action.'">agree</a>
+            </div>
+    </form>
+    ';
+    return $l;
+}
+function endCreate($route,$action) {
+    
+    $l = '</div>
+            <div class="modal-footer">
+                            <a href="#!" class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
+                            <a href="#!" class="waves-effect waves-green btn-flat closeModal save" data-route = "'.$route.'" data-action = "'.$action.'">Create</a>
             </div>
     </form>
     ';
