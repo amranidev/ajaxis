@@ -24,17 +24,17 @@
                     <th>Edit</th>
                 </thead>
                 <tbody>
-                    @foreach ($friends as $person)
+                    @foreach ($friends as $friend)
                     <tr>
-                        <td>{{$person->firstname}}</td>
-                        <td>{{$person->lastname}}</td>
-                        <td>{{$person->birthday}}</td>
-                        <td>{{$person->phone}}</td>
+                        <td>{{$friend->firstname}}</td>
+                        <td>{{$friend->lastname}}</td>
+                        <td>{{$friend->birthday}}</td>
+                        <td>{{$friend->phone}}</td>
                         <td>
-                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$person->id}}'><i class="material-icons">delete</i></a>
+                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}'><i class="material-icons">delete</i></a>
                         </td>
                         <td>
-                            <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$person->id}}'><i class = 'material-icons'>system_update_alt</i></a>
+                            <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}'><i class = 'material-icons'>system_update_alt</i></a>
                         </td>
                     </tr>
                     @endforeach
