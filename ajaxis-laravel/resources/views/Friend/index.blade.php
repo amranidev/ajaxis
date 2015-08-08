@@ -34,7 +34,7 @@
                             <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}'><i class="material-icons">delete</i></a>
                         </td>
                         <td>
-                            <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}'><i class = 'material-icons'>system_update_alt</i></a>
+                            <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
                         </td>
                     </tr>
                     @endforeach

@@ -28,7 +28,7 @@
             var id = $(this).data('id');
             $.ajax({
                     method: 'get',
-                    url: baseURL + '/friends/edit/' + id,
+                    url: baseURL + $(this).data('link') + id,
                     success: function(response) {
                         console.log(response);
                         $('.editModal').html(response);
