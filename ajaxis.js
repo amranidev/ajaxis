@@ -1,5 +1,3 @@
-        //var baseURL = "{{URL::to('/')}}"
-        var mainTable = '#friendTable';
         $("body").on('click', '.modalRow', function() {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $(this).leanModal();
@@ -34,7 +32,6 @@
                         $('.editModal').html(response);
                     }
                 })
-                //$('#modal3').closeModal();
         })
         $(document).on("click", ".update", function() {
             postData = $(this).parent().parent().serializeArray();
