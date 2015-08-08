@@ -5,26 +5,26 @@ class AjaxisGenerate
     public function __construct() {
         $this->k = '';
     }
-    public function editModalForm($input, $id,$route,$action) {
+    public function editModalForm($input, $id, $link) {
         $this->k = startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['value'], $val['name'], $val['type']);
         }
-        $this->k.= endEdit($id,$route,$action);
+        $this->k.= endEdit($id,$link);
         
         return $this->k;
     }
     
-    public function createFormModal($input,$route,$action){
-         $this->k = startCreate();
-         foreach($input as $val){
-         $this->k.= generateInput($val['value'], $val['name'], $val['type']);
-         }
-         $this->k .= endCreate($route,$action);
+    public function createFormModal($input,$link) {
+        $this->k = startCreate();
+        foreach ($input as $val) {
+            $this->k.= generateInput($val['value'], $val['name'], $val['type']);
+        }
+        $this->k.= endCreate($link);
         
-         return $this->k;
+        return $this->k;
     }
-
+    
     public function generateRow($input) {
         $this->k = '';
         foreach ($input as $val) {
@@ -35,25 +35,24 @@ class AjaxisGenerate
     public function generateRowBtn($input) {
         $this->k = '';
         foreach ($input as $key) {
-            $this->k.= '<td><a href="' . $key['href'] . '" class="' . $key['class'] . '" data-id ="' . $key['data-id'] . '" data-link = "'.$key['data-link'].'">' . $key['value'] . '</a></td>';
+            $this->k.= '<td><a href="' . $key['href'] . '" class="' . $key['class'] . '" data-id ="' . $key['data-id'] . '" data-link = "' . $key['data-link'] . '">' . $key['value'] . '</a></td>';
         }
         
         //$this->k.= '</td>';
         return $this->k;
     }
-    public function DeletingModal($title,$message,$route,$action,$id) {
+    public function DeletingModal($title, $message, $route, $action, $id) {
         $this->k = '';
         $this->k.= ' <div class="modal-content">
             <h4>' . $title . '</h4>
             <p>' . $message . '</p>
         </div>';
-        $this->k .= '<div class="modal-footer">
+        $this->k.= '<div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = "'.$route.'" data-action = "'.$action.'">agree</a>
+            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = "' . $route . '" data-action = "' . $action . '">agree</a>
         </div>';
         return $this->k;
     }
-
 }
 function generateTD($value) {
     $l = '<td>' . $value . '</td>';
@@ -85,23 +84,23 @@ function startCreate() {
                             ';
     return $l;
 }
-function endEdit($id,$route,$action) {
+function endEdit($id,$link) {
     
     $l = '</div>
             <div class="modal-footer">
                             <a href="#!" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "'.$id.'" data-route = "'.$route.'" data-action = "'.$action.'">agree</a>
+                            <a href="#!" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "'.$link.'">agree</a>
             </div>
     </form>
     ';
     return $l;
 }
-function endCreate($route,$action) {
+function endCreate($link) {
     
     $l = '</div>
             <div class="modal-footer">
                             <a href="#!" class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a href="#!" class="waves-effect waves-green btn-flat closeModal save" data-route = "'.$route.'" data-action = "'.$action.'">Create</a>
+                            <a href="#!" class="waves-effect waves-green btn-flat closeModal save" data-link = "' . $link . '">Create</a>
             </div>
     </form>
     ';

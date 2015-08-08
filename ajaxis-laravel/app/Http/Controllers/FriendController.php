@@ -31,7 +31,7 @@ class FriendController extends Controller
         $route = 'friends';
         $action = 'store';
         $k = new AjaxisGenerate();
-        $k = $k->createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], $route, $action);
+        $k = $k->createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
         if (Request::ajax()) {
             return $k;
         }
@@ -58,10 +58,7 @@ class FriendController extends Controller
         $k = new AjaxisGenerate();
         $Request = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
-        $Request.= $k->generateRowBtn([
-         ['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id,'data-link' => null],
-         ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']
-         ]);
+        $Request.= $k->generateRowBtn([['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null], ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']]);
         
         if (Request::ajax()) {
             return $Request;
@@ -89,13 +86,12 @@ class FriendController extends Controller
      */
     public function edit($id) {
         $friend = Friend::findOrfail($id);
-        $route = 'friends';
-        $action = 'update';
+        $link = '/friends/update/';
         $id = $friend->id;
         
         $k = new AjaxisGenerate();
         
-        $k = $k->editModalForm([["value" => $friend->firstname, "name" => 'firstname', "type" => "text"], ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"], ["value" => $friend->birthday, "name" => 'birthday', "type" => 'date'], ["value" => $friend->phone, "name" => "phone", "type" => "text"]], $id, $route, $action);
+        $k = $k->editModalForm([["value" => $friend->firstname, "name" => 'firstname', "type" => "text"], ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"], ["value" => $friend->birthday, "name" => 'birthday', "type" => 'date'], ["value" => $friend->phone, "name" => "phone", "type" => "text"]], $id, $link);
         
         if (Request::ajax()) {
             return $k;
@@ -123,10 +119,7 @@ class FriendController extends Controller
         
         $Request = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
-        $Request.= $k->generateRowBtn([
-         ['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id,'data-link' => null],
-         ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']
-         ]);
+        $Request.= $k->generateRowBtn([['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null], ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']]);
         
         if (Request::ajax()) {
             

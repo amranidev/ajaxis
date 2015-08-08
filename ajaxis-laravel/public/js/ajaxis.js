@@ -32,7 +32,6 @@
                         $('.editModal').html(response);
                     }
                 })
-                //$('#modal3').closeModal();
         })
         $(document).on("click", ".update", function() {
             postData = $(this).parent().parent().serializeArray();
@@ -40,7 +39,7 @@
             var id = $(this).data('id');
             $.ajax({
                 type: 'post',
-                url: baseURL + '/' + $(this).data('route') + '/' + $(this).data('action') + '/' + $(this).data('id'),
+                url: baseURL + $(this).data('link')+ $(this).data('id'),
                 data: postData,
                 success: function(response) {
                     $('#modal3').closeModal();
@@ -63,7 +62,7 @@
                 var postData = $(this).parent().parent().serializeArray();
                 $.ajax({
                     type: 'post',
-                    url: baseURL + '/' + $(this).data('route') + '/' + $(this).data('action'),
+                    url: baseURL + $(this).data('link'),
                     data: postData,
                     success: function(response) {
                         var html = '<tr>' + response + '</tr>'
