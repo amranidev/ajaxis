@@ -12,7 +12,7 @@
         <div class = 'container'>
             <div class = 'row'>
                 <div class = 'col s4'><h2>My friends</h2></div>
-                <div class = 'col s2'><a href = '#modal2' class = 'create btn-floating btn-large blue modal-trigger' data-route = 'friends' data-action = 'create'><i class = 'material-icons'>add</i></a></div>
+                <div class = 'col s2'><a href = '#modal2' class = 'create btn-floating btn-large blue modal-trigger' data-link = '/friends/create/'><i class = 'material-icons'>add</i></a></div>
             </div>
             <table class = 'hoverable centered' id = 'friendTable'>
                 <thead>

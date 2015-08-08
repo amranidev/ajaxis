@@ -35,7 +35,7 @@ class AjaxisGenerate
     public function generateRowBtn($input) {
         $this->k = '';
         foreach ($input as $key) {
-            $this->k.= '<td><a href="' . $key['link'] . '" class="' . $key['class'] . '" data-id ="' . $key['id'] . '">' . $key['value'] . '</a></td>';
+            $this->k.= '<td><a href="' . $key['href'] . '" class="' . $key['class'] . '" data-id ="' . $key['data-id'] . '" data-link = "'.$key['data-link'].'">' . $key['value'] . '</a></td>';
         }
         
         //$this->k.= '</td>';

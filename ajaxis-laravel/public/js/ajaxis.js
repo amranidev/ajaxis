@@ -1,6 +1,4 @@
-        //var baseURL = "{{URL::to('/')}}"
-        var mainTable = '#friendTable';
-        $("body").on('click', '.modalRow', function() {
+ $("body").on('click', '.modalRow', function() {
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $(this).leanModal();
         });
@@ -56,7 +54,7 @@
         $(document).on("click", ".create", function() {
             $.ajax({
                 type: 'get',
-                url: baseURL + '/' + $(this).data('route') + '/' + $(this).data('action'),
+                url: baseURL + $(this).data('link'),
                 success: function(response) {
                     $('.createModal').html(response);
                 }
