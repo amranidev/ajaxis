@@ -41,7 +41,7 @@ class AjaxisGenerate
         //$this->k.= '</td>';
         return $this->k;
     }
-    public function DeletingModal($title, $message, $route, $action, $id) {
+    public function DeletingModal($title, $message, $link) {
         $this->k = '';
         $this->k.= ' <div class="modal-content">
             <h4>' . $title . '</h4>
@@ -49,7 +49,7 @@ class AjaxisGenerate
         </div>';
         $this->k.= '<div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = "' . $route . '" data-action = "' . $action . '">agree</a>
+            <a href="#!" class="waves-effect waves-green btn-flat remove" data-link = "' . $link . '">agree</a>
         </div>';
         return $this->k;
     }

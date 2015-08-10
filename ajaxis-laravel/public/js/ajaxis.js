@@ -10,10 +10,17 @@
             $(this).leanModal();
             var id = $(this).data('id');
             var tr = $(this).parent().parent();
-            $('body').on('click', '.remove', function() {
+        $.ajax({
+             type:'get',  
+             url: baseURL + $(this).data('link'),
+             success:function(response){
+             $('.AjaxisDeleting').html(response);  
+             }
+         })
+            $('body').on('click', '.remove', function(){
                 $.ajax({
                     method: 'get',
-                    url: baseURL + '/' + $(this).data('route') + '/' + $(this).data('action') + '/' + id,
+                    url: baseURL + $(this).data('link') + id,
                     success: function(response) {
                         console.log(response);
                         $('#modal1').closeModal();

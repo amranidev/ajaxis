@@ -31,7 +31,7 @@
                         <td>{{$friend->birthday}}</td>
                         <td>{{$friend->phone}}</td>
                         <td>
-                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}'><i class="material-icons">delete</i></a>
+                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/delete/'><i class="material-icons">delete</i></a>
                         </td>
                         <td>
                             <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
@@ -43,15 +43,7 @@
         </div>
     </body>
     <div id="modal1" class="modal">
-        <div class 'AjaxisDeleting'>
-            <div class="modal-content">
-                <h4>Remove</h4>
-                <p>Are you sure for remove this line ? test</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-                <a href="#!" class="waves-effect waves-green btn-flat remove" data-route = 'friends' data-action = 'remove'>agree</a>
-            </div>
+        <div class = 'AjaxisDeleting'>
         </div>
     </div>
     <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
@@ -67,8 +59,8 @@
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-        
+
     <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
     <script type="text/javascript" src = "{{URL::to('js/ajaxis.js')}}"></script>
-    
+
 </html>

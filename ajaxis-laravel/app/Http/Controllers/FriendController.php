@@ -17,8 +17,6 @@ class FriendController extends Controller
      */
     public function index() {
         $friends = Friend::all();
-        
-        //return $friends;
         return view('Friend.index', compact('friends'));
     }
     
@@ -135,6 +133,17 @@ class FriendController extends Controller
      * @param  int  $id
      * @return Response
      */
+    public function delete(){
+    $k = new AjaxisGenerate();
+    $k = $k->DeletingModal('delete','are you sure to delete That Row ? Bla Bla Bla','/friends/remove/');
+     
+     if(Request::ajax()){
+         return $k;
+     }
+
+     return $k;
+
+    }
     public function destroy($id) {
         $f = Friend::findOrfail($id);
         $f->delete();
