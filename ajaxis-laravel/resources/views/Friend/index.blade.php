@@ -47,13 +47,13 @@
         </div>
     </div>
     <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-    <div id="modal2" class="modal modal-fixed-footer">
+    <div id="modal2" class="modal bottom-sheet">
         <div class = "row createModal">
         </div>
     </div>
     <!--***********************************************************************************************************-->
     <!--Edit Update "MODAL"-->
-    <div id="modal3" class="modal modal-fixed-footer">
+    <div id="modal3" class="modal bottom-sheet">
         <div class = "row editModal">
         </div>
     </div>
