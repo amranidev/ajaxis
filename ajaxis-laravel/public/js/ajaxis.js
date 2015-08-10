@@ -49,7 +49,6 @@
                 url: baseURL + $(this).data('link')+ $(this).data('id'),
                 data: postData,
                 success: function(response) {
-                    $('#modal3').closeModal();
                     $('a[data-id=' + id + ']').parent().parent().html(response);
                 }
             });

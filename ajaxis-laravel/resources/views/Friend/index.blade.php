@@ -42,7 +42,7 @@
             </table>
         </div>
     </body>
-    <div id="modal1" class="modal">
+    <div id="modal1" class="modal bottom-sheet">
         <div class = 'AjaxisDeleting'>
         </div>
     </div>
@@ -53,7 +53,7 @@
     </div>
     <!--***********************************************************************************************************-->
     <!--Edit Update "MODAL"-->
-    <div id="modal3" class="modal">
+    <div id="modal3" class="modal modal-fixed-footer">
         <div class = "row editModal">
         </div>
     </div>
