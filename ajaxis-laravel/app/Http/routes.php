@@ -1,5 +1,6 @@
 <?php
-
+//use Ajaxis;
+//use AjaxisGenerate;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,7 +11,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+App::bind('Ajaxis',function(){
 
+	return new AjaxisGenerate;
+})
 
 Route::get('/','FriendController@index');
 Route::get('friends/remove/{id}','FriendController@destroy');
@@ -19,5 +23,9 @@ Route::get('friends/create','FriendController@create');
 Route::post('friends/store','FriendController@store');
 Route::post('friends/update/{id}','FriendController@update');
 Route::get('friends/delete/','FriendController@delete');
+Route::get('tests',function(){
+   
+// $k = Ajaxis::createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');  
 
+});
 

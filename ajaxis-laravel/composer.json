@@ -19,7 +19,8 @@
             "database"
         ],
           "files": [
-    "app/AjaxisGenerate.php"
+    "app/AjaxisGenerate.php",
+    "app/Ajaxis.php"
   ],
         "psr-4": {
             "App\\": "app/"
