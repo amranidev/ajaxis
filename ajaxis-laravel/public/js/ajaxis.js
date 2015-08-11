@@ -22,7 +22,6 @@
                     method: 'get',
                     url: baseURL + $(this).data('link') + id,
                     success: function(response) {
-                        console.log(response);
                         $('#modal1').closeModal();
                         tr.remove();
                     }
@@ -35,7 +34,6 @@
                     method: 'get',
                     url: baseURL + $(this).data('link') + id,
                     success: function(response) {
-                        console.log(response);
                         $('.editModal').html(response);
                     }
                 })
