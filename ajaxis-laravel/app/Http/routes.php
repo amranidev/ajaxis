@@ -13,8 +13,12 @@
 */
 App::bind('Ajaxis',function(){
 
-	return new AjaxisGenerate;
-})
+	return new AjaxisGenerate();
+});
+$k = Ajaxis::generateRowBtn([
+            ['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => 15, 'data-link' => null],
+            ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => 15, 'data-link' => '/friends/edit/']]);
+dd($k);        
 
 Route::get('/','FriendController@index');
 Route::get('friends/remove/{id}','FriendController@destroy');
