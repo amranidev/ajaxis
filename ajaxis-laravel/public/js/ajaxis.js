@@ -80,7 +80,6 @@
      type: 'get',
      url: baseURL + $(this).data('link') + $(this).data('id'),
      success:function(response){
-        console.log(response);
         $('.showModal').html(response);
      }
    })

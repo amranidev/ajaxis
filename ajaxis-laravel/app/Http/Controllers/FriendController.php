@@ -56,7 +56,9 @@ class FriendController extends Controller
         $k = new AjaxisGenerate();
         $Request = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
-        $Request .= $k->generateRowBtn([['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null], ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']]);
+        $Request .= $k->generateRowBtn([['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null],
+         ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
+         ['href' => '#modal4','class' => 'modalRow show btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']]);
         
         if (Request::ajax()) {
             return $Request;
@@ -131,7 +133,8 @@ class FriendController extends Controller
         
         $Request.= $k->generateRowBtn([
             ['href' => '#modal1', 'class' => 'delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null],
-            ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/']]);
+            ['href' => '#modal3', 'class' => 'modalRow edit btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
+            ['href' => '#modal4','class' => 'modalRow show btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']]);
         
         if (Request::ajax()) {
             

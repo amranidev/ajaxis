@@ -57,8 +57,8 @@ class AjaxisGenerate
     public function Show($input) {
         $this->k = '<div class = "row">';
         foreach ($input as $key) {
-            $this->k.= '<div class = "col s6"><p>' . $key['lable'] . '</p></div>';
-            $this->k.= '<div class = "col s6"><p>' . $key['value'] . '</p></div>';
+            $this->k.= '<div class = "col s6"><p class="flow-text">' . $key['lable'] . '</p></div>';
+            $this->k.= '<div class = "col s6"><p class="flow-text">' . $key['value'] . '</p></div>';
         }
         $this->k.= '</div>';
         return $this->k;
