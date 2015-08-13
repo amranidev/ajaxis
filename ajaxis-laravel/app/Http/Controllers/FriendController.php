@@ -70,10 +70,18 @@ class FriendController extends Controller
      * @return Response
      */
     public function show($id) {
+     $friend = Friend::findOrfail($id);
+
+     $k = new AjaxisGenerate();
+
+     $k = $k->Show([['lable' => 'Fristname' , 'value' => $friend->firstname],
+        ['lable' => 'Lastname' , 'value' => $friend->lastname],
+        ['lable' => 'birthday' , 'value' => $friend->birthday]
+        ]);   
         
-        //
-        
-        
+        if(Request::ajax()){
+            return $k;
+        }
     }
     
     /**

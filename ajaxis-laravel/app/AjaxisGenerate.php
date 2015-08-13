@@ -53,6 +53,15 @@ class AjaxisGenerate
         </div>';
         return $this->k;
     }
+
+    public function Show($input){
+     $this->k ='<div>'; 
+     foreach ($input as $key) {
+         $this->k .= '<h1 class = "red">'.$key['val'].'</h1>';
+     }
+     $this->k .= '</div>';
+     return $this->k;
+    }
 }
 function generateTD($value) {
     $l = '<td>' . $value . '</td>';
