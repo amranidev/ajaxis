@@ -38,7 +38,7 @@
                             <a href = '#modal3' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
                         </td>
                         <td>
-                        <a href = '#modal4'  class = 'show btn-floating blue modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/show/'><i class = 'material-icons'>add</i></a>
+                            <a href = '#modal4'  class = 'show btn-floating blue modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/show/'><i class = 'material-icons'>add</i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -65,8 +65,9 @@
         <div class = "row showModal">
         </div>
     </div>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
-    <script type="text/javascript" src = "{{URL::to('js/ajaxis.js')}}"></script>
+    <!-- ***********************************************************************-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+<script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
+<script type="text/javascript" src = "{{URL::to('js/ajaxis.js')}}"></script>
 </html>

@@ -64,6 +64,7 @@
      })
      $(document).on("click", ".save", function() {
          var postData = $(this).parent().parent().serializeArray();
+        //Materialize.toast('an element has been created!', 5000);
          $.ajax({
              type: 'post',
              url: baseURL + $(this).data('link'),
@@ -71,9 +72,12 @@
              success: function(response) {
                  var html = '<tr>' + response + '</tr>'
                  $('tbody').append(html);
+                 
              }
          })
+
      })
+
  })
  $(document).on('click','.show',function(){
    $.ajax({

@@ -32,8 +32,8 @@ class AjaxisGenerate
         }
         return $this->k;
     }
-    public function generateRowBtn($input) {
-        $this->k = '';
+    public function generateRowBtn($input,$string) {
+        $this->k = $string;
         foreach ($input as $key) {
             $this->k.= '<td><a href="' . $key['href'] . '" class="' . $key['class'] . '" data-id ="' . $key['data-id'] . '" data-link = "' . $key['data-link'] . '">' . $key['value'] . '</a></td>';
         }
@@ -57,8 +57,8 @@ class AjaxisGenerate
     public function Show($input) {
         $this->k = '<div class = "row">';
         foreach ($input as $key) {
-            $this->k.= '<div class = "col s6"><p class="flow-text">' . $key['lable'] . '</p></div>';
-            $this->k.= '<div class = "col s6"><p class="flow-text">' . $key['value'] . '</p></div>';
+            $this->k.= '<div class = "col s6"><p class="flow-text z-depth-1">' . $key['lable'] . '</p></div>';
+            $this->k.= '<div class = "col s6"><p class="flow-text z-depth-1">' . $key['value'] . '</p></div>';
         }
         $this->k.= '</div>';
         return $this->k;
