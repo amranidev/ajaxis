@@ -47,6 +47,7 @@
          url: baseURL + $(this).data('link') + $(this).data('id'),
          data: postData,
          success: function(response) {
+            console.log(response)
              $('a[data-id=' + id + ']').parent().parent().html(response);
          }
      });

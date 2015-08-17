@@ -48,8 +48,8 @@ class AjaxisGenerate
             <p>' . $message . '</p>
         </div>';
         $this->k.= '<div class="modal-footer">
-            <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href="" class="waves-effect waves-green btn-flat remove" data-link = "' . $link . '">agree</a>
+            <a  class=" modal-action modal-close waves-effect waves-green btn-flat">close</a>
+            <a  class="waves-effect waves-green btn-flat remove" data-link = "' . $link . '">agree</a>
         </div>';
         return $this->k;
     }
@@ -98,8 +98,8 @@ function endEdit($id, $link) {
     
     $l = '</div>
             <div class="modal-footer">
-                            <a href="" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a href="" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "' . $link . '">agree</a>
+                            <a  class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
+                            <a  class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "' . $link . '">agree</a>
             </div>
     </form>
     ';
@@ -109,8 +109,8 @@ function endCreate($link) {
     
     $l = '</div>
             <div class="modal-footer">
-                            <a href="" class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a href="" class="waves-effect waves-green btn-flat closeModal save" data-link = "' . $link . '">Create</a>
+                            <a class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
+                            <a class="waves-effect waves-green btn-flat closeModal save" data-link = "' . $link . '">Create</a>
             </div>
     </form>
     ';
