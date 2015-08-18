@@ -79,7 +79,7 @@ function generateInput($var, $name, $type) {
     return $l;
 }
 function startEdit() {
-    $l = '<form class="col s12 id = "friendForm" method = "post">
+    $l = '<form class="col s12" id = "friendForm" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
                             <h4>Edit</h4>
@@ -98,8 +98,9 @@ function endEdit($id, $link) {
     
     $l = '</div>
             <div class="modal-footer">
-                            <a  class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                            <a  class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "' . $link . '">agree</a>
+                            <a  href = "#" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
+                            <a  href = "#" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "' . $link . '" type = "submit">agree</a>
+                             
             </div>
     </form>
     ';
