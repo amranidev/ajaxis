@@ -7,27 +7,29 @@
      $('.modal-trigger').leanModal();
  });
  $('body').on('click', '.delete', function() {
-     $(this).leanModal();
+     //$(this).leanModal();
      var id = $(this).data('id');
      var tr = $(this).parent().parent();
      $.ajax({
          async: true,
          type: 'get',
          url: baseURL + $(this).data('link'),
-         success: function(response) {
-            console.log(response);
+         success:function(response) {
+            //console.log(response);
              $('.AjaxisModal').html(response);
          }
      })
      $('body').on('click', '.remove', function() {
         var modal = $(this).parent().parent().parent();
+        modal.closeModal();
          $.ajax({
             async: true,
              method: 'get',
              url: baseURL + $(this).data('link') + id,
              success: function(response) {
+                 console.log(response);
                  tr.remove();
-                 modal.closeModal();
+                 
              }
          });
      });
@@ -82,7 +84,7 @@
              data: postData,
              success: function(response) {
                  var html = '<tr>' + response + '</tr>'
-                 $('tbody').append(html);
+                 $(document.body + '[tbody]').append(html);
              }
          })
      })
@@ -96,4 +98,8 @@
              $('.AjaxisModal').html(response);
          }
      })
+ })
+ $(document).on('click','.deletingModalClose',function(){
+
+    $(this).parent().parent().parent().closeModal();
  })
