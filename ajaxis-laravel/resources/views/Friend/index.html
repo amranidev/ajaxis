@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document Test</title>
+	<style type="text/css">
+     button {
+     	border-radius: solid black 5px;
+     	color:red; 
+     }
+	</style>
+</head>
+<body>
+	<button  class = "do-it">Do it</button>
+	<div class = 'container'>
+        
+	</div>
+	<div class = 'container2'>
+	
+	</div>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+	$('.do-it').click(function(){
+		$('.container').html('<a href = "#" class = "Do-it-again">Do it again</a>');
+		console.log('vvv');
+	})
+    $(document).on('click','.Do-it-again',function(){
+      $('.container2').html('<h1 style = "color:red">Hello World</h1>'); 
+
+    })
+</script>
+</html>

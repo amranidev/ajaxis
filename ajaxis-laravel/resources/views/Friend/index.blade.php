@@ -12,7 +12,7 @@
         <div class = 'container'>
             <div class = 'row'>
                 <div class = 'col s4'><h2>My friends</h2></div>
-                <div class = 'col s2'><a href = '#modal2' class = 'create btn-floating btn-large blue modal-trigger' data-link = '/friends/create/'><i class = 'material-icons'>add</i></a></div>
+                <div class = 'col s2'><a href = '#modal1' class = 'create btn-floating btn-large blue modal-trigger' data-link = '/friends/create/'><i class = 'material-icons'>add</i></a></div>
             </div>
             <table class = 'hoverable centered' id = 'friendTable'>
                 <thead>
@@ -32,13 +32,13 @@
                         <td>{{$friend->birthday}}</td>
                         <td>{{$friend->phone}}</td>
                         <td>
-                            <a href = '#modal2' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/delete/'><i class="material-icons">delete</i></a>
+                            <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/delete/'><i class="material-icons">delete</i></a>
                         </td>
                         <td>
-                            <a href = '#modal2' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
+                            <a href = '#modal1' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
                         </td>
                         <td>
-                            <a href = '#modal2'  class = 'show btn-floating blue modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/show/'><i class = 'material-icons'>add</i></a>
+                            <a href = '#modal1'  class = 'show btn-floating blue modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/show/'><i class = 'material-icons'>add</i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -46,26 +46,13 @@
             </table>
         </div>
     </body>
-    <div id="modal1" class="modal bottom-sheet">
-        <div class = 'deleteModal'>
-        </div>
-    </div>
+
     <!--///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-    <div id="modal2" class="modal bottom-sheet">
+    <div id="modal1" class="modal bottom-sheet">
         <div class = "row AjaxisModal">
         </div>
     </div>
     <!--***********************************************************************************************************-->
-    <!--Edit Update "MODAL"-->
-    <div id="modal3" class="modal bottom-sheet">
-        <div class = "row editModal">
-        </div>
-    </div>
-    <div id="modal4" class="modal">
-        <div class = "row showModal">
-        </div>
-    </div>
-    <!-- ***********************************************************************-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
 <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>

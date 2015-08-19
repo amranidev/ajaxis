@@ -11,18 +11,23 @@
      var id = $(this).data('id');
      var tr = $(this).parent().parent();
      $.ajax({
+         async: true,
          type: 'get',
          url: baseURL + $(this).data('link'),
          success: function(response) {
+            console.log(response);
              $('.AjaxisModal').html(response);
          }
      })
      $('body').on('click', '.remove', function() {
+        var modal = $(this).parent().parent().parent();
          $.ajax({
+            async: true,
              method: 'get',
              url: baseURL + $(this).data('link') + id,
              success: function(response) {
                  tr.remove();
+                 modal.closeModal();
              }
          });
      });
@@ -30,6 +35,7 @@
  $("body").on('click', '.edit', function() {
      var id = $(this).data('id');
      $.ajax({
+        async: true,
          method: 'get',
          url: baseURL + $(this).data('link') + id,
          success: function(response) {
@@ -44,6 +50,7 @@
      var close = $(this).parent().parent().parent().parent();
      var id = $(this).data('id');
      $.ajax({
+        async: true,
          type: 'post',
          url: baseURL + $(this).data('link') + $(this).data('id'),
          data: postData,
@@ -58,6 +65,7 @@
  });
  $(document).on("click", ".create", function() {
      $.ajax({
+        async: true,
          type: 'get',
          url: baseURL + $(this).data('link'),
          success: function(response) {
@@ -68,6 +76,7 @@
          var postData = $(this).parent().parent().serializeArray();
          //Materialize.toast('an element has been created!', 5000);
          $.ajax({
+            async: true,
              type: 'post',
              url: baseURL + $(this).data('link'),
              data: postData,
@@ -80,6 +89,7 @@
  })
  $(document).on('click', '.show', function() {
      $.ajax({
+        async: true,
          type: 'get',
          url: baseURL + $(this).data('link') + $(this).data('id'),
          success: function(response) {
