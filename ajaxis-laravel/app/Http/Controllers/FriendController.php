@@ -56,7 +56,7 @@ class FriendController extends Controller
         $k = new AjaxisGenerate();
         $Row = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         $Request = $k->generateRowBtn([
-         ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null],
+         ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => '/friends/delete/'],
          ['href' => '#modal1', 'class' => 'modalRow edit  btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
          ['href' => '#modal1','class' =>  'modalRow show  btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']],$Row);
         
@@ -134,7 +134,7 @@ class FriendController extends Controller
         $Row = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
         $Request = $k->generateRowBtn([
-            ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => null],
+            ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => '/friends/delete/'],
             ['href' => '#modal1', 'class' => 'edit modalRow btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
             ['href' => '#modal1', 'class' => 'modalRow show btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']],$Row);
        

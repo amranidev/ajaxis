@@ -8,8 +8,10 @@
  });
  $('body').on('click', '.delete', function() {
      //$(this).leanModal();
+     
      var id = $(this).data('id');
      var tr = $(this).parent().parent();
+     console.log(baseURL + $(this).data('link') + id)
      $.ajax({
          async: true,
          type: 'get',
@@ -23,10 +25,10 @@
         var modal = $(this).parent().parent().parent();
         modal.closeModal();
          $.ajax({
-            async: true,
+          async: true,
              method: 'get',
              url: baseURL + $(this).data('link') + id,
-             success: function(response) {
+             success:function(response) {
                  console.log(response);
                  tr.remove();
                  
@@ -57,7 +59,7 @@
          url: baseURL + $(this).data('link') + $(this).data('id'),
          data: postData,
          success: function(response) {
-             console.log(response)
+             //console.log(response)
              $('a[data-id=' + id + ']').parent().parent().html(response);
          }
      });
@@ -84,7 +86,7 @@
              data: postData,
              success: function(response) {
                  var html = '<tr>' + response + '</tr>'
-                 $(document.body + '[tbody]').append(html);
+                 $('tbody').append(html);
              }
          })
      })
