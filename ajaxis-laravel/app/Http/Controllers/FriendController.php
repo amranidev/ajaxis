@@ -30,6 +30,7 @@ class FriendController extends Controller
         $action = 'store';
         $k = new AjaxisGenerate();
         $k = $k->createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
+        
         if (Request::ajax()) {
             return $k;
         }

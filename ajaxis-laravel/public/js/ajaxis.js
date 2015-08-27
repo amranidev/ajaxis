@@ -1,3 +1,5 @@
+ var id = '';
+ var tr = '';
  $("body").on('click', '.modalRow', function() {
      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
      $(this).leanModal();
@@ -6,11 +8,12 @@
      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
      $('.modal-trigger').leanModal();
  });
+ //*************************************** Deleting *******************************************
  $('body').on('click', '.delete', function() {
      //$(this).leanModal();
      
-     var id = $(this).data('id');
-     var tr = $(this).parent().parent();
+      id = $(this).data('id');
+      tr = $(this).parent().parent();
      console.log(baseURL + $(this).data('link') + id)
      $.ajax({
          async: true,
@@ -21,7 +24,8 @@
              $('.AjaxisModal').html(response);
          }
      })
-     $('body').on('click', '.remove', function() {
+ });
+      $('body').on('click', '.remove', function() {
         var modal = $(this).parent().parent().parent();
         modal.closeModal();
          $.ajax({
@@ -35,7 +39,7 @@
              }
          });
      });
- });
+//*****************************************Editing*************************************************
  $("body").on('click', '.edit', function() {
      var id = $(this).data('id');
      $.ajax({
@@ -67,6 +71,7 @@
  $(document).on("click", ".closeModal", function() {
      $(this).parent().parent().parent().parent().closeModal();
  });
+ //******************************************** Creating ******************************************************
  $(document).on("click", ".create", function() {
      $.ajax({
         async: true,
