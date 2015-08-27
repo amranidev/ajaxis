@@ -76,7 +76,8 @@
              $('.AjaxisModal').html(response);
          }
      })
-     $(document).on("click", ".save", function() {
+ })
+      $(document).on("click", ".save", function() {
          var postData = $(this).parent().parent().serializeArray();
          //Materialize.toast('an element has been created!', 5000);
          $.ajax({
@@ -90,7 +91,6 @@
              }
          })
      })
- })
  $(document).on('click', '.show', function() {
      $.ajax({
         async: true,
