@@ -2,19 +2,20 @@
 namespace App\Http\Controllers;
 use Request;
 use Session;
-use AjaxisGenerate;
+//use AjaxisGenerate;
 use Response;
 use App\Friend;
 use App\Http\Controllers\Controller;
 
 class FriendController extends Controller
 {
-    
+  
     /**
      * Display a listing of the resource.
      *
      * @return Response
      */
+
     public function index() {
         $friends = Friend::all();
         return view('Friend.index', compact('friends'));
@@ -26,15 +27,13 @@ class FriendController extends Controller
      * @return Response
      */
     public function create() {
-        $route = 'friends';
-        $action = 'store';
-        $k = new AjaxisGenerate();
+        /*$k = new AjaxisGenerate();
         $k = $k->createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
         
         if (Request::ajax()) {
             return $k;
         }
-        return $k;
+        return $k;*/
     }
     
     /**
@@ -44,7 +43,7 @@ class FriendController extends Controller
      * @return Response
      */
     public function store(Request $request) {
-        
+        /*
         $input = Request::except('_token');
         
         $friend = new Friend();
@@ -65,7 +64,7 @@ class FriendController extends Controller
         if (Request::ajax()) {
             return $Request;
         }
-        return 'false';
+        return 'false';*/
     }
     
     /**
@@ -75,7 +74,7 @@ class FriendController extends Controller
      * @return Response
      */
     public function show($id) {
-     $friend = Friend::findOrfail($id);
+    /* $friend = Friend::findOrfail($id);
 
      $k = new AjaxisGenerate();
 
@@ -86,7 +85,7 @@ class FriendController extends Controller
         
         if(Request::ajax()){
             return $k;
-        }
+        }*/
     }
     
     /**
@@ -96,7 +95,7 @@ class FriendController extends Controller
      * @return Response
      */
     public function edit($id) {
-        $friend = Friend::findOrfail($id);
+        /*$friend = Friend::findOrfail($id);
         $link = '/friends/update/';
         $id = $friend->id;
         
@@ -110,7 +109,7 @@ class FriendController extends Controller
         
         if (Request::ajax()) {
             return $k;
-        }
+        }*/
     }
     
     /**
@@ -122,7 +121,7 @@ class FriendController extends Controller
      */
     public function update(Request $request, $id) {
         
-        $friend = Friend::findOrfail($id);
+       /* $friend = Friend::findOrfail($id);
         $input = Request::except('_token');
         $friend->firstname = $input['firstname'];
         $friend->lastname = $input['lastname'];
@@ -144,7 +143,7 @@ class FriendController extends Controller
             return $Request;
         }
         
-        return 'false';
+        return 'false';*/
     }
     
     /**
@@ -154,7 +153,7 @@ class FriendController extends Controller
      * @return Response
      */
     public function delete(){
-        $link = '/friends/remove/'; 
+      /*  $link = '/friends/remove/'; 
     $k = new AjaxisGenerate();
     $k = $k->DeletingModal('delete','are you sure to delete That Row ? Bla Bla Bla',$link);
      
@@ -163,7 +162,7 @@ class FriendController extends Controller
          return $k;
      }
 
-     return $k;
+     return $k;*/
 
     }
     public function destroy($id) {
@@ -172,4 +171,5 @@ class FriendController extends Controller
         
         return 'Done';
     }
+    
 }

@@ -11,10 +11,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-App::bind('Ajaxis',function(){
+/*App::bind('Ajaxis',function(){
 
 	return new AjaxisGenerate();
-});
+});*/
 
 //dd($k);        
 
