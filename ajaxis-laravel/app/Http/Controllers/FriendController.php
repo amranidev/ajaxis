@@ -29,8 +29,7 @@ class FriendController extends Controller
      * @return Response
      */
     public function create() {
-        $k = new AjaxisGenerate();
-        $k = $k->createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
+        $k = Ajaxis::createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
         
         if (Request::ajax()) {
             return $k;
@@ -55,9 +54,9 @@ class FriendController extends Controller
         $friend->phone = $input['phone'];
         $friend->save();
         
-        $k = new AjaxisGenerate();
-        $Row = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
-        $Request = $k->generateRowBtn([
+        //$k = new AjaxisGenerate();
+        $Row = Ajaxis::generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
+        $Request = Ajaxis::generateRowBtn([
          ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => '/friends/delete/'],
          ['href' => '#modal1', 'class' => 'modalRow edit  btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
          ['href' => '#modal1','class' =>  'modalRow show  btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']],$Row);
@@ -78,9 +77,9 @@ class FriendController extends Controller
     public function show($id) {
     $friend = Friend::findOrfail($id);
 
-     $k = new AjaxisGenerate();
+     //$k = new AjaxisGenerate();
 
-     $k = $k->Show([['lable' => 'Fristname' , 'value' => $friend->firstname],
+     $k = Ajaxis::Show([['lable' => 'Fristname' , 'value' => $friend->firstname],
         ['lable' => 'Lastname' , 'value' => $friend->lastname],
         ['lable' => 'birthday' , 'value' => $friend->birthday]
         ]);   
@@ -101,9 +100,9 @@ class FriendController extends Controller
         $link = '/friends/update/';
         $id = $friend->id;
         
-        $k = new AjaxisGenerate();
+        //$k = new AjaxisGenerate();
         
-        $k = $k->editModalForm([
+        $k = Ajaxis::editModalForm([
             ["value" => $friend->firstname, "name" => 'firstname', "type" => "text"],
              ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"],
               ["value" => $friend->birthday, "name" => 'birthday', "type" => 'date'],
@@ -131,11 +130,11 @@ class FriendController extends Controller
         $friend->phone = $input['phone'];
         $friend->save();
     
-        $k = new AjaxisGenerate();
+        //$k = new AjaxisGenerate();
         
-        $Row = $k->generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
+        $Row = Ajaxis::generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
-        $Request = $k->generateRowBtn([
+        $Request = Ajaxis::generateRowBtn([
             ['href' => '#modal1', 'class' => 'modalRow delete btn-floating red', 'value' => '<i class="material-icons">delete</i>', 'data-id' => $friend->id, 'data-link' => '/friends/delete/'],
             ['href' => '#modal1', 'class' => 'edit modalRow btn-floating green', 'value' => '<i class = "material-icons">system_update_alt</i>', 'data-id' => $friend->id, 'data-link' => '/friends/edit/'],
             ['href' => '#modal1', 'class' => 'modalRow show btn-floating blue', 'value' => '<i class = "material-icons">add</i>', 'data-id' => $friend->id, 'data-link' => '/friends/show/']],$Row);
@@ -156,7 +155,7 @@ class FriendController extends Controller
      */
     public function delete(){
       $link = '/friends/remove/'; 
-    $k = new AjaxisGenerate();
+    //$k = new AjaxisGenerate();
     $k = $k->DeletingModal('delete','are you sure to delete That Row ? Bla Bla Bla',$link);
      
      //dd($k);
