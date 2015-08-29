@@ -18,9 +18,7 @@ class FriendController extends Controller
 
     public function index() {
         $friends = Friend::all();
-        //$ajaxis = Ajaxis::createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
         return view('Friend.index', compact('friends'));
-        //return $ajaxis;
     }
     
     /**
@@ -77,8 +75,6 @@ class FriendController extends Controller
     public function show($id) {
     $friend = Friend::findOrfail($id);
 
-     //$k = new AjaxisGenerate();
-
      $k = Ajaxis::Show([['lable' => 'Fristname' , 'value' => $friend->firstname],
         ['lable' => 'Lastname' , 'value' => $friend->lastname],
         ['lable' => 'birthday' , 'value' => $friend->birthday]
@@ -99,9 +95,7 @@ class FriendController extends Controller
         $friend = Friend::findOrfail($id);
         $link = '/friends/update/';
         $id = $friend->id;
-        
-        //$k = new AjaxisGenerate();
-        
+
         $k = Ajaxis::editModalForm([
             ["value" => $friend->firstname, "name" => 'firstname', "type" => "text"],
              ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"],
@@ -129,8 +123,6 @@ class FriendController extends Controller
         $friend->birthday = $input['birthday'];
         $friend->phone = $input['phone'];
         $friend->save();
-    
-        //$k = new AjaxisGenerate();
         
         $Row = Ajaxis::generateRow([$friend->firstname, $friend->lastname, $friend->birthday, $friend->phone]);
         
@@ -155,8 +147,7 @@ class FriendController extends Controller
      */
     public function delete(){
       $link = '/friends/remove/'; 
-    //$k = new AjaxisGenerate();
-    $k = $k->DeletingModal('delete','are you sure to delete That Row ? Bla Bla Bla',$link);
+    $k = Ajaxis::DeletingModal('delete','are you sure to delete That Row ? Bla Bla Bla',$link);
      
      //dd($k);
      if(Request::ajax()){
