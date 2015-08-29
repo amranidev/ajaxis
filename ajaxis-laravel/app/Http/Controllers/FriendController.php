@@ -18,9 +18,9 @@ class FriendController extends Controller
 
     public function index() {
         $friends = Friend::all();
-        $ajaxis = Ajaxis::createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
-        //return view('Friend.index', compact('friends'));
-        return $ajaxis;
+        //$ajaxis = Ajaxis::createFormModal([['value' => '', 'name' => 'firstname', 'type' => 'text'], ['value' => '', 'name' => 'lastname', 'type' => 'text'], ['value' => '', 'name' => 'birthday', 'type' => 'date'], ['value' => '', 'name' => 'phone', 'type' => 'text'], ], '/friends/store/');
+        return view('Friend.index', compact('friends'));
+        //return $ajaxis;
     }
     
     /**

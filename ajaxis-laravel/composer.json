@@ -29,8 +29,8 @@
         ],
         "files":[
             "app/AjaxisGenerate.php",
-            "app/Ajaxis.php",
-            "app/AjaxisServiceProvider.php"
+            "app/Ajaxis.php"
+
         ]
     },
     "scripts": {

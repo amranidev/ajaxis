@@ -1,4 +1,5 @@
 <?php
+namespace App;
 use Illuminate\Support\ServiceProvider;
 class AjaxisServiceProvider extends ServiceProvider {
     /**
