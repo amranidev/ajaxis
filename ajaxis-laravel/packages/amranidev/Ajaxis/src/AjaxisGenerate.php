@@ -1,4 +1,6 @@
 <?php
+namespace Amranidev\Ajaxis;
+use Session;
 class AjaxisGenerate
 {
     public $k;

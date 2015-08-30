@@ -1,6 +1,7 @@
 <?php
-namespace App;
+namespace Amranidev\Ajaxis;
 use Illuminate\Support\ServiceProvider;
+use Amranidev\Ajaxis\AjaxisGenerate;
 class AjaxisServiceProvider extends ServiceProvider {
     /**
      * Register the service provider.

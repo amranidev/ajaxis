@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Request;
 use Session;
-use Ajaxis;
+use Amranidev\Ajaxis\Ajaxis;
 use Response;
 use App\Friend;
 use App\Http\Controllers\Controller;
