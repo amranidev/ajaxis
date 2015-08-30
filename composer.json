@@ -1,7 +1,7 @@
 {
-  "name": "bestmomo/scafold",
-  "description": "To add scafold to Laravel 5.1",
-  "homepage": "http://github.com/bestmomo/scafold",
+  "name": "amranidev/ajaxis",
+  "description": "To manage your crud in laravel 5.1",
+  "homepage": "http://github.com/amranidev/ajaxis",
   "license": "MIT",
   "authors": [
     {
