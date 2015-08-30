@@ -1,0 +1,25 @@
+{
+  "name": "bestmomo/scafold",
+  "description": "To add scafold to Laravel 5.1",
+  "homepage": "http://github.com/bestmomo/scafold",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Taylor Otwell",
+      "email": "taylorotwell@gmail.com"
+    },
+    {
+      "name": "Amranidev",
+      "email": "amranidev@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "~5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Amranidev\\Ajaxis\\": "src/"
+    }
+  }
+}

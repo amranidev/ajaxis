@@ -1,4 +1,4 @@
-# ajaxis
+# Ajaxis laravel package
 # KEY WORDS
 
 # FrontEnd
