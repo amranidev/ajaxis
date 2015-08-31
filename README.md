@@ -26,6 +26,7 @@ The next required step is to add the service provider to config/app.php :
 ### Instalation the Pulgin ###
  
 Now you need to add the plugin (Ajaxis.js) in your code HTML with the materializecss framework
+you must get ajaxis.js For Materialize [HERE](https://github.com/amranidev/AjaxisMaterialize).
 ```
 .
 .
