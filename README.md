@@ -1,4 +1,4 @@
-# Ajaxis laravel package PHP 
+# Ajaxis PHP package for laravel v5.1 
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
 
@@ -43,7 +43,7 @@ you must get ajaxis.js For Materialize [HERE](https://github.com/amranidev/Ajaxi
 
 ```
 ### Define your modal ###
-Ajaxis allows you to use only an ####ONE#### modal in your project thats used for all Models CRUD Dynamicaly 
+Ajaxis allows you to use only an ####ONE modal in your project thats used for all Models CRUD Dynamicaly 
 you can put that modal in your laravel layout 
 ```
     <div id="modal1" class="modal bottom-sheet">
