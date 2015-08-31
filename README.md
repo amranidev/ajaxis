@@ -23,36 +23,26 @@ The next required step is to add the service provider to config/app.php :
  
 Now you need to add the plugin (Ajaxis.js) in your code HTML with the materializecss framework
 ```
-<!DOCTYPE html>
-  <html lang="en">
-    <head>
-	   <meta charset="UTF-8">
-	   <link rel="stylesheet"         href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!--Let browser know website is optimized for mobile-->
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	   <title>CRUD AJAXIS</title>
-   </head>
-   <body>
-   .
-   .
-   ... your code here ...	
-   .
-   .
-     <!-- Your modal -->
-     
-      <div id="modal1" class="modal">
-        <div class = "row AjaxisModal">
-       </div>
-    </div>
-    
-   </body>
+.
+.
+</body>
    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
-   <!-- you must define your base url firts -->
+   
+   <!-- you must define your base url first -->
    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
+   
    <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
+
 ```
- 
-Congratulations, you have successfully installed Scafold !
+### Define your modal ###
+Ajaxis allows you to use only an ####ONE#### modal in your project thats used for all Models CRUD Dynamicaly 
+you can put that modal in your laravel layout 
+```
+    <div id="modal1" class="modal bottom-sheet">
+        <div class = "row AjaxisModal">
+        </div>
+    </div>
+```
