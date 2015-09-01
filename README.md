@@ -51,3 +51,46 @@ you can put that modal in your laravel layout
         </div>
     </div>
 ```
+### Usage ###
+#### Ajaxis Structures and rules ####
+there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
+for exemple we need to manage crud of friends model laravel 5.1
+
+######First : ######
+your table html structure must be like : 
+
+```
+            <table class = 'hoverable centered' id = 'friendTable'>
+                <thead>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Birthday</th>
+                    <th>Phone</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                    <th>Show</th>
+                </thead>
+                <tbody>
+                    @foreach ($friends as $friend)
+                    <tr>
+                        <td>{{$friend->firstname}}</td>
+                        <td>{{$friend->lastname}}</td>
+                        <td>{{$friend->birthday}}</td>
+                        <td>{{$friend->phone}}</td>
+                        <td>
+ <a href = '#modal1' class = 'delete btn-floating red  modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/delete/'><i class="material-icons">delete</i></a>
+                        </td>
+                        <td>
+<a href = '#modal1' class = 'edit btn-floating green modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/edit/'><i class = 'material-icons'>system_update_alt</i></a>
+                        </td>
+                        <td>
+ <a href = '#modal1'  class = 'show btn-floating blue modal-trigger' data-id = '{{$friend->id}}' data-link = '/friends/show/'><i class = 'material-icons'>add</i></a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+```
+each crud(button) (edit) (show) (delete)
+must have ``` data-id ``` that hold the id of our model friend
+musdt hame ``` data-link ``` that hold the link or route to your routes.php
