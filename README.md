@@ -55,6 +55,7 @@ you can put that modal in your laravel layout
 #### Ajaxis Structures and rules ####
 there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
 for exemple we need to manage crud of friends model laravel 5.1 
+please check our exemple [HERE](https://github.com/amranidev/AjaxisMaterialize).
 
 ######First : ######
 your table html structure must be like : 
@@ -91,9 +92,9 @@ your table html structure must be like :
                 </tbody>
             </table>
 ```
-each crud(button) (edit) (show) (delete) .
-must have ``` data-id ``` that hold the id of our model friend 
-must have ``` data-link ``` that hold the link or route to your routes.php
+#####each crud(button) (edit) (show) (delete) .
+#####must have  ```data-id``` that hold the id of our model friend. 
+#####must have  ```data-link``` that hold the link or route to your routes.php.
 
 ######Second : ######
 in your model controller in our case FiendController.php you must put a ``` use ``` statement for namespacing
@@ -118,3 +119,5 @@ public function edit($id) {
         }
     }
 ```
+
+please check our exemple [HERE](https://github.com/amranidev/AjaxisMaterialize).
