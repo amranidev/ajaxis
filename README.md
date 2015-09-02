@@ -20,7 +20,7 @@ Update Composer :
  
 The next required step is to add the service provider to config/app.php :
 ```
-    'Amranidev\Ajaxis\AjaxisServiceProvider',
+    'Amranidev\Ajaxis\AjaxisServiceProvider:class',
 ```
  
 ### Instalation the Pulgin ###
@@ -54,7 +54,7 @@ you can put that modal in your laravel layout
 ### Usage ###
 #### Ajaxis Structures and rules ####
 there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
-for exemple we need to manage crud of friends model laravel 5.1
+for exemple we need to manage crud of friends model laravel 5.1 
 
 ######First : ######
 your table html structure must be like : 
@@ -91,6 +91,28 @@ your table html structure must be like :
                 </tbody>
             </table>
 ```
-each crud(button) (edit) (show) (delete)
+each crud(button) (edit) (show) (delete) .
 must have ``` data-id ``` that hold the id of our model friend
-musdt hame ``` data-link ``` that hold the link or route to your routes.php
+must have ``` data-link ``` that hold the link or route to your routes.php
+
+######Second : ######
+in your model controller in our case FiendController.php you must put a ``` use ``` statement for namespacing
+``` use Amranidev\Ajaxis\Ajaxis ```
+
+```
+public function edit($id) {
+        $friend = Friend::findOrfail($id);
+        $link = '/friends/update/';
+        $id = $friend->id;
+
+        $k = Ajaxis::editModalForm([
+            ["value" => $friend->firstname, "name" => 'firstname', "type" => "text"],
+             ["value" => $friend->lastname, "name" => 'lastname', "type" => "text"],
+              ["value" => $friend->birthday, "name" => 'birthday', "type" => 'date'],
+               ["value" => $friend->phone, "name" => "phone", "type" => "text"]], $id, $link);
+        
+        if (Request::ajax()) {
+            return $k;
+        }
+    }
+```
