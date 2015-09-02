@@ -92,12 +92,14 @@ your table html structure must be like :
             </table>
 ```
 each crud(button) (edit) (show) (delete) .
-must have ``` data-id ``` that hold the id of our model friend
+must have ``` data-id ``` that hold the id of our model friend 
 must have ``` data-link ``` that hold the link or route to your routes.php
 
 ######Second : ######
 in your model controller in our case FiendController.php you must put a ``` use ``` statement for namespacing
-``` use Amranidev\Ajaxis\Ajaxis ```
+``` 
+use Amranidev\Ajaxis\Ajaxis
+```
 
 ```
 public function edit($id) {
