@@ -3,7 +3,7 @@
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
 
 
-### Package instalation ###
+### Package installation ###
  
 Add Ajaxis to your composer.json file to require Ajaxis :
 ```
@@ -23,7 +23,7 @@ The next required step is to add the service provider to config/app.php :
     'Amranidev\Ajaxis\AjaxisServiceProvider::class',
 ```
  
-### Plugin instalation ###
+### Plugin installation ###
  
 Now you need to add the plugin (Ajaxis.js) in your code HTML with the materializecss framework
 you must get ajaxis.js For Materialize [HERE](https://github.com/amranidev/AjaxisMaterialize).
