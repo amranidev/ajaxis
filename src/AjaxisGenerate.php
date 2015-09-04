@@ -10,7 +10,7 @@ class AjaxisGenerate
     public function editModalForm($input, $id, $link) {
         $this->k = startEdit();
         foreach ($input as $val) {
-            $this->k.= generateInput($val['value'], $val['name'], $val['type']);
+            $this->k.= generateInput($val['label'], $val['name'],$val['value'], $val['type']);
         }
         $this->k.= endEdit($id, $link);
         
@@ -20,7 +20,7 @@ class AjaxisGenerate
     public function createFormModal($input, $link) {
         $this->k = startCreate();
         foreach ($input as $val) {
-            $this->k.= generateInput($val['value'], $val['name'], $val['type']);
+           $this->k.= generateInput($val['label'], $val['name'],$val['value'], $val['type']);
         }
         $this->k.= endCreate($link);
         
@@ -70,11 +70,11 @@ function generateTD($value) {
     $l = '<td>' . $value . '</td>';
     return $l;
 }
-function generateInput($var, $name, $type) {
+function generateInput($label, $name,$value,$type) {
     $l = '<div class="row">
             <div class="input-field col s12">
-                            <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $var . '">
-                            <label for="' . $name . '" class="active">' . $name . '</label>
+                            <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
+                            <label for="' . $name . '" class="active">' . $label . '</label>
             </div>
         </div>
         ';
