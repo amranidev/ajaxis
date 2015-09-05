@@ -34,6 +34,7 @@ class AjaxisGenerate
         }
         return $this->k;
     }
+
     public function generateRowBtn($input, $string) {
         $this->k = $string;
         foreach ($input as $key) {
