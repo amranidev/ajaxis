@@ -1,15 +1,14 @@
 # Ajaxis PHP package for laravel v5.1 
-[![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
+[![Latest Stable Version](https://poser.pugx.org/amranidev/ajaxis/v/stable)](https://packagist.org/packages/amranidev/ajaxis) [![Total Downloads](https://poser.pugx.org/amranidev/ajaxis/downloads)](https://packagist.org/packages/amranidev/ajaxis)
+[![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis) 
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
-
-
 ### Package installation ###
  
 Add Ajaxis to your composer.json file to require Ajaxis :
 ```
     require : {
         "laravel/framework": "5.1.*",
-        "Amranidev/Ajaxis": "dev-master"
+        "Amranidev/Ajaxis": "1.1.*"
     }
 ```
  
@@ -23,6 +22,10 @@ The next required step is to add the service provider to config/app.php :
     'Amranidev\Ajaxis\AjaxisServiceProvider::class',
 ```
  
+ The last required step is to publish views and assets in your application with :
+```
+    php artisan vendor:publish
+```
 ### Plugin installation ###
  
 Now you need to add the plugin (Ajaxis.js) in your code HTML with the materializecss framework
@@ -37,7 +40,7 @@ you must get ajaxis.js For Materialize [HERE](https://github.com/amranidev/Ajaxi
    
    <!-- you must define your base url first -->
    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
-   
+   <script type = "text/javascript">{{URL::to('yourmedelroute')}}</script>
    <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 
@@ -51,9 +54,3 @@ you can put that modal in your laravel layout
         </div>
     </div>
 ```
-### Usage ###
-#### Ajaxis Structures and rules ####
-there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
-for exemple we need to manage crud of friends model laravel 5.1 
-#####please check our exemple [HERE](https://github.com/amranidev/AjaxisMaterialize).
-
