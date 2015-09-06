@@ -8,7 +8,7 @@ Add Ajaxis to your composer.json file to require Ajaxis :
 ```
     require : {
         "laravel/framework": "5.1.*",
-        "Amranidev/Ajaxis": "1.0.*"
+        "Amranidev/Ajaxis": "1.1.*"
     }
 ```
  
@@ -40,7 +40,7 @@ you must get ajaxis.js For Materialize [HERE](https://github.com/amranidev/Ajaxi
    
    <!-- you must define your base url first -->
    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
-   
+   <script type = "text/javascript">{{URL::to('yourmedelroute')}}</script>
    <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 
@@ -58,5 +58,4 @@ you can put that modal in your laravel layout
 #### Ajaxis Structures and rules ####
 there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
 for exemple we need to manage crud of friends model laravel 5.1 
-#####Please check our exemple [HERE](https://github.com/amranidev/AjaxisMaterialize).
 
