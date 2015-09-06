@@ -54,8 +54,5 @@ you can put that modal in your laravel layout
         </div>
     </div>
 ```
-### Usage ###
-#### Ajaxis Structures and rules ####
-there are a couples of rules that you must respect to keep ajaxis working dynamicaly.
-for exemple we need to manage crud of friends model laravel 5.1 
+
 
