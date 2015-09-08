@@ -38,7 +38,7 @@ The next required step is to add the service provider to config/app.php :
    
    <!-- you must define your base url first -->
    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
-   <script type = "text/javascript">{{URL::to('yourmedelroute')}}</script>
+   <script type = "text/javascript">var ModelApi = "{{URL::to('API')}}"</script>
    <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 
