@@ -13,4 +13,10 @@ class AjaxisServiceProvider extends ServiceProvider {
             return new AjaxisGenerate();
         });
     }
+     public function boot()
+    {
+        $this->publishes([
+            __DIR__.'/../public' => public_path(),
+        ], 'public');
+    }
 }
