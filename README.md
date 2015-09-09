@@ -52,8 +52,3 @@ you can put that modal in your laravel layout
         </div>
     </div>
 ```
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 97483e9dc91e362e0ab5d83757258ef9e5cc6e84
