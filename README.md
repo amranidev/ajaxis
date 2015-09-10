@@ -44,7 +44,7 @@ The next required step is to add the service provider to config/app.php :
 
 ```
 ### Define your modal ###
-Ajaxis allows you to use only an ####ONE modal in your project thats used for all Models CRUD Dynamicaly 
+Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly 
 you can put that modal in your laravel layout 
 ```
     <div id="modal1" class="modal bottom-sheet">
