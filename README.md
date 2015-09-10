@@ -8,7 +8,7 @@ Add Ajaxis to your composer.json file to require Ajaxis :
 ```
     require : {
         "laravel/framework": "5.1.*",
-        "Amranidev/Ajaxis": "1.1.*"
+        "Amranidev/Ajaxis": "1.2.*"
     }
 ```
  
