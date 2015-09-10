@@ -7,12 +7,12 @@ class AjaxisGenerate
     public function __construct() {
         $this->k = '';
     }
-    public function editModalForm($input, $id, $link) {
+    public function editModalForm($input, $link) {
         $this->k = startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['label'], $val['name'],$val['value'], $val['type']);
         }
-        $this->k.= endEdit($id, $link);
+        $this->k.= endEdit($link);
         
         return $this->k;
     }
@@ -97,12 +97,12 @@ function startCreate() {
                                         ';
     return $l;
 }
-function endEdit($id, $link) {
+function endEdit($link) {
     
     $l = '</div>
                     <div class="modal-footer">
                                         <a  href = "#" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                                        <a  href = "#" class="waves-effect waves-green btn-flat update closeModal" data-id = "' . $id . '" data-link = "' . $link . '" type = "submit">agree</a>
+                                        <a  href = "#" class="waves-effect waves-green btn-flat update closeModal" data-link = "' . $link . '" type = "submit">agree</a>
                                         
                     </div>
         </form>
