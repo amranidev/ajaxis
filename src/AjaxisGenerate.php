@@ -7,7 +7,7 @@ class AjaxisGenerate
     public function __construct() {
         $this->k = '';
     }
-    public function editModalForm($input,$link) {
+    public function editFormModal($input,$link) {
         $this->k = startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['label'], $val['name'],$val['value'], $val['type']);
