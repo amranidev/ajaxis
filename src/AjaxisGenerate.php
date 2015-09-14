@@ -85,6 +85,7 @@ class AjaxisGenerate
         return $this->k;
     }
 }
+//************************************* Materializecc functions ***************************************
 function generateTD($value) {
     $l = '<td>' . $value . '</td>';
     return $l;
@@ -137,4 +138,39 @@ function startEdit() {
     </form>
     ';
     return $l;
+}
+// ************************************************ BootStrap functions ************************************/
+function BtHeadModal($title){
+    $l = '<div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">'.$title.'</h4>
+      </div>
+      <div class="modal-body">
+      <form  id = "AjaxisForm">
+      <input type = "hidden" name = "_token" value = "' . Session::token() . '">
+      ';
+      return $l;
+}
+function BtGenerateInput($label,$name,$value,$type){
+    $l = '<div class="form-group">
+            <label class="control-label">'.$label.'</label>
+            <input id = "'.$name.'" type="'.$type.'" name = "'.$name.'"" class="form-control" value = "'.$value.'" placeholder = "'.$label.'">
+          </div>';
+    return $l;
+}
+function BtEndCreate($link){
+ $l = '
+        </form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <a class="save btn btn-primary" data-link = "'.$link.'">create</a>
+      </div>
+  </div>
+</div>';
+
+
+return $l;
 }
