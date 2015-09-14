@@ -85,6 +85,7 @@ class AjaxisGenerate
         return $this->k;
     }
 }
+
 //************************************* Materializecc functions ***************************************
 function generateTD($value) {
     $l = '<td>' . $value . '</td>';
@@ -106,19 +107,19 @@ function startEdit() {
             <div class="modal-content">
                                     <h4>Edit</h4>
                                     ';
-        return $l;
-    }
-    function startCreate() {
-        $l = '<form class="col s12 id = "friendForm" method = "post">
+    return $l;
+}
+function startCreate() {
+    $l = '<form class="col s12 id = "friendForm" method = "post">
                             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
                             <div class="modal-content">
                                                     <h4>Create</h4>
                                                     ';
-                return $l;
-            }
-            function endEdit($link) {
-                
-            $l = '</div>
+    return $l;
+}
+function endEdit($link) {
+    
+    $l = '</div>
                             <div class="modal-footer">
                                                     <a  href = "#" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
                                                     <a  href = "#" class="waves-effect waves-green btn-flat update closeModal" data-link = "' . $link . '" type = "submit">agree</a>
@@ -126,10 +127,10 @@ function startEdit() {
                             </div>
             </form>
             ';
-        return $l;
-    }
-    function endCreate($link) {
-        
+    return $l;
+}
+function endCreate($link) {
+    
     $l = '</div>
             <div class="modal-footer">
                                     <a href = "#" class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
@@ -139,38 +140,38 @@ function startEdit() {
     ';
     return $l;
 }
+
 // ************************************************ BootStrap functions ************************************/
-function BtHeadModal($title){
+function BtHeadModal($title) {
     $l = '<div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">'.$title.'</h4>
+        <h4 class="modal-title" id="myModalLabel">' . $title . '</h4>
       </div>
       <div class="modal-body">
       <form  id = "AjaxisForm">
       <input type = "hidden" name = "_token" value = "' . Session::token() . '">
       ';
-      return $l;
+    return $l;
 }
-function BtGenerateInput($label,$name,$value,$type){
+function BtGenerateInput($label, $name, $value, $type) {
     $l = '<div class="form-group">
-            <label class="control-label">'.$label.'</label>
-            <input id = "'.$name.'" type="'.$type.'" name = "'.$name.'"" class="form-control" value = "'.$value.'" placeholder = "'.$label.'">
+            <label class="control-label">' . $label . '</label>
+            <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
           </div>';
     return $l;
 }
-function BtEndCreate($link){
- $l = '
+function BtEndCreate($link) {
+    $l = '
         </form>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a class="save btn btn-primary" data-link = "'.$link.'">create</a>
+        <a class="save btn btn-primary" data-link = "' . $link . '">create</a>
       </div>
   </div>
 </div>';
-
-
-return $l;
+    
+    return $l;
 }
