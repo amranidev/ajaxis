@@ -5,7 +5,7 @@
 ### Package installation ###
  
 Add Ajaxis to your composer.json file to require Ajaxis :
-```
+```json
     require : {
         "laravel/framework": "5.1.*",
         "Amranidev/Ajaxis": "1.2.*"
@@ -28,7 +28,7 @@ The next required step is to add the service provider to config/app.php :
 ```
 ### Plugin Configuration ###
  
-```
+```html
 .
 .
 </body>
@@ -46,7 +46,7 @@ The next required step is to add the service provider to config/app.php :
 ### Define your modal ###
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly 
 you can put that modal in your laravel layout 
-```
+```html
     <div id="modal1" class="modal bottom-sheet">
         <div class = "row AjaxisModal">
         </div>
