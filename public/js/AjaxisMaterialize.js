@@ -94,3 +94,4 @@ $(document).ready(function() {
 
     $(this).parent().parent().parent().closeModal();
  })
+ 

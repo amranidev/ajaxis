@@ -84,6 +84,24 @@ class AjaxisGenerate
         
         return $this->k;
     }
+        public function BtCreateFormModal($input,$link){
+          $this->k = BtHeadModal('Create');
+
+          foreach ($input as $value) {
+             $this->k  .= BtGenerateInput($value['label'],$value['name'],$value['value'],$value['type']); 
+          }
+          $this->k .= BtEndCreate($link,'Create');
+          return $this->k;
+    }
+    public function BtEditFormModal($input,$link){
+          $this->k = BtHeadModal('Edit');
+
+          foreach ($input as $value) {
+             $this->k  .= BtGenerateInput($value['label'],$value['name'],$value['value'],$value['type']); 
+          }
+          $this->k .= BtEndCreate($link,'Update');
+          return $this->k;   
+    }
 }
 
 //************************************* Materializecc functions ***************************************
@@ -162,13 +180,13 @@ function BtGenerateInput($label, $name, $value, $type) {
           </div>';
     return $l;
 }
-function BtEndCreate($link) {
+function BtEndCreate($link,$action) {
     $l = '
         </form>
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a class="save btn btn-primary" data-link = "' . $link . '">create</a>
+        <a class="save btn btn-primary" data-link = "' . $link . '">'.$action.'</a>
       </div>
   </div>
 </div>';
