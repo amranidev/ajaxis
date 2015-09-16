@@ -102,6 +102,20 @@ class AjaxisGenerate
           $this->k .= BtEndCreate($link,'Update');
           return $this->k;   
     }
+        public function BtDisplay($input) {
+        $this->k = BtHeadModal('Show');
+        
+        //$this->k .= '<div class = "row">';
+        $this->k.= '<table class = "table table-bordered table-hover">';
+        foreach ($input as $value) {
+            $this->k.= '<tr><td><h3><b>' . $value['key'] . '</b></h3></td>';
+            $this->k.= '<td><h4><i>' . $value['value'] . '</i></h4></td></tr>';
+        }
+        $this->k.= '</table>';
+        $this->k.= BtEndShow();
+        return $this->k;
+    }
+}
 }
 
 //************************************* Materializecc functions ***************************************
@@ -191,5 +205,15 @@ function BtEndCreate($link,$action) {
   </div>
 </div>';
     
+    return $l;
+}
+function BtEndShow() {
+    $l = '</form>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+  </div>
+</div>';
     return $l;
 }

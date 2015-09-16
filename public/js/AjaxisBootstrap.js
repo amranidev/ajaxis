@@ -53,3 +53,14 @@ $(document).on('click', '.edit', function() {
         }
     })
 })
+$(document).on('click','.display',function(){
+       $.ajax({
+        async: true,
+        type: 'get',
+        url: baseURL + $(this).data('link'),
+        success: function(response) {
+            //console.log(response);
+            $('.AjaxisModal').html(response);
+        }
+    })
+})
