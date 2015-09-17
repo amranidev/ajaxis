@@ -9,7 +9,7 @@ class AjaxisGenerate extends AjaxisTools
         $this->k = '';
     }
     
-    public function editFormModal($input, $link) {
+    public function MteditFormModal($input, $link) {
         $this->k = $this->startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['label'], $val['name'], $val['value'], $val['type']);
@@ -19,7 +19,7 @@ class AjaxisGenerate extends AjaxisTools
         return $this->k;
     }
     
-    public function createFormModal($input, $link) {
+    public function MtcreateFormModal($input, $link) {
         $this->k = $this->startCreate();
         foreach ($input as $val) {
             $this->k.= $this->generateInput($val['label'], $val['name'], $val['value'], $val['type']);
@@ -29,24 +29,7 @@ class AjaxisGenerate extends AjaxisTools
         return $this->k;
     }
     
-    public function generateRow($input) {
-        $this->k = '';
-        foreach ($input as $val) {
-            $this->k.= $this->generateTD($val);
-        }
-        return $this->k;
-    }
-    
-    public function generateRowBtn($input, $string) {
-        $this->k = $string;
-        foreach ($input as $key) {
-            $this->k.= '<td><a href="' . $key['href'] . '" class="' . $key['class'] . '" data-id ="' . $key['data-id'] . '" data-link = "' . $key['data-link'] . '">' . $key['value'] . '</a></td>';
-        }
-        
-        //$this->k.= '</td>';
-        return $this->k;
-    }
-    public function DeletingModal($title, $message, $link) {
+    public function MtDeleting($title, $message, $link) {
         $this->k = '';
         $this->k.= '<div class="modal-content">
             <h4>' . $title . '</h4>
@@ -59,7 +42,7 @@ class AjaxisGenerate extends AjaxisTools
         return $this->k;
     }
     
-    public function Show($input) {
+    public function MtDisplay($input) {
         $this->k = '<div class = "row">';
         foreach ($input as $key) {
             $this->k.= '<div class = "col s6"><p class="flow-text z-depth-1">' . $key['lable'] . '</p></div>';
