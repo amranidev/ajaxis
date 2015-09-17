@@ -1,28 +1,30 @@
 <?php
 namespace Amranidev\Ajaxis;
 use Session;
-class AjaxisGenerate
+use Amranidev\Ajaxis\AjaxisTools;
+class AjaxisGenerate extends AjaxisTools
 {
     public $k;
     public function __construct() {
         $this->k = '';
     }
+    
     public function editFormModal($input, $link) {
-        $this->k = startEdit();
+        $this->k = $this->startEdit();
         foreach ($input as $val) {
             $this->k.= generateInput($val['label'], $val['name'], $val['value'], $val['type']);
         }
-        $this->k.= endEdit($link);
+        $this->k.= $this->endEdit($link);
         
         return $this->k;
     }
     
     public function createFormModal($input, $link) {
-        $this->k = startCreate();
+        $this->k = $this->startCreate();
         foreach ($input as $val) {
-            $this->k.= generateInput($val['label'], $val['name'], $val['value'], $val['type']);
+            $this->k.= $this->generateInput($val['label'], $val['name'], $val['value'], $val['type']);
         }
-        $this->k.= endCreate($link);
+        $this->k.= $this->endCreate($link);
         
         return $this->k;
     }
@@ -30,10 +32,11 @@ class AjaxisGenerate
     public function generateRow($input) {
         $this->k = '';
         foreach ($input as $val) {
-            $this->k.= generateTD($val);
+            $this->k.= $this->generateTD($val);
         }
         return $this->k;
     }
+    
     public function generateRowBtn($input, $string) {
         $this->k = $string;
         foreach ($input as $key) {
@@ -65,45 +68,48 @@ class AjaxisGenerate
         $this->k.= '</div>';
         return $this->k;
     }
+    
     public function BtDeleting($title, $body, $link) {
         $this->k = ' <div class="modal-dialog" role="document">
     <div class="modal-content">
-        <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">' . $title . '</h4>
-        </div>
-        <div class="modal-body">
-                ' . $body . '
-        </div>
-        <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-link = "' . $link . '">Ok</button>
-        </div>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">' . $title . '</h4>
+      </div>
+      <div class="modal-body">
+        ' . $body . '
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="destroy btn btn-primary" data-link = "' . $link . '">Ok</button>
+      </div>
     </div>
-</div>';
+  </div>';
         
         return $this->k;
     }
-        public function BtCreateFormModal($input,$link){
-          $this->k = BtHeadModal('Create');
-
-          foreach ($input as $value) {
-             $this->k  .= BtGenerateInput($value['label'],$value['name'],$value['value'],$value['type']); 
-          }
-          $this->k .= BtEndCreate($link,'Create');
-          return $this->k;
+    
+    public function BtCreateFormModal($input, $link) {
+        $this->k = $this->BtHeadModal('Create');
+        
+        foreach ($input as $value) {
+            $this->k.= $this->BtGenerateInput($value['label'], $value['name'], $value['value'], $value['type']);
+        }
+        $this->k.= $this->BtEndCreate($link, 'Create');
+        return $this->k;
     }
-    public function BtEditFormModal($input,$link){
-          $this->k = BtHeadModal('Edit');
-
-          foreach ($input as $value) {
-             $this->k  .= BtGenerateInput($value['label'],$value['name'],$value['value'],$value['type']); 
-          }
-          $this->k .= BtEndCreate($link,'Update');
-          return $this->k;   
+    public function BtEditFormModal($input, $link) {
+        $this->k = $this->BtHeadModal('Edit');
+        
+        foreach ($input as $value) {
+            $this->k.= $this->BtGenerateInput($value['label'], $value['name'], $value['value'], $value['type']);
+        }
+        $this->k.= $this->BtEndCreate($link, 'Update');
+        return $this->k;
     }
-        public function BtDisplay($input) {
-        $this->k = BtHeadModal('Show');
+    
+    public function BtDisplay($input) {
+        $this->k = $this->BtHeadModal('Show');
         
         //$this->k .= '<div class = "row">';
         $this->k.= '<table class = "table table-bordered table-hover">';
@@ -112,108 +118,7 @@ class AjaxisGenerate
             $this->k.= '<td><h4><i>' . $value['value'] . '</i></h4></td></tr>';
         }
         $this->k.= '</table>';
-        $this->k.= BtEndShow();
+        $this->k.= $this->BtEndShow();
         return $this->k;
     }
-}
-}
-
-//************************************* Materializecc functions ***************************************
-function generateTD($value) {
-    $l = '<td>' . $value . '</td>';
-    return $l;
-}
-function generateInput($label, $name, $value, $type) {
-    $l = '<div class="row">
-            <div class="input-field col s12">
-                                <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
-                                <label for="' . $name . '" class="active">' . $label . '</label>
-            </div>
-        </div>
-        ';
-    return $l;
-}
-function startEdit() {
-    $l = '<form class="col s12" id = "friendForm" method = "post">
-            <input type = "hidden" name = "_token" value = "' . Session::token() . '">
-            <div class="modal-content">
-                                    <h4>Edit</h4>
-                                    ';
-    return $l;
-}
-function startCreate() {
-    $l = '<form class="col s12 id = "friendForm" method = "post">
-                            <input type = "hidden" name = "_token" value = "' . Session::token() . '">
-                            <div class="modal-content">
-                                                    <h4>Create</h4>
-                                                    ';
-    return $l;
-}
-function endEdit($link) {
-    
-    $l = '</div>
-                            <div class="modal-footer">
-                                                    <a  href = "#" class=" modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                                                    <a  href = "#" class="waves-effect waves-green btn-flat update closeModal" data-link = "' . $link . '" type = "submit">agree</a>
-                                                    
-                            </div>
-            </form>
-            ';
-    return $l;
-}
-function endCreate($link) {
-    
-    $l = '</div>
-            <div class="modal-footer">
-                                    <a href = "#" class="modal-action waves-effect waves-green btn-flat closeModal">close</a>
-                                    <a href = "#" class="waves-effect waves-green btn-flat closeModal save" data-link = "' . $link . '">Create</a>
-            </div>
-    </form>
-    ';
-    return $l;
-}
-
-// ************************************************ BootStrap functions ************************************/
-function BtHeadModal($title) {
-    $l = '<div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">' . $title . '</h4>
-      </div>
-      <div class="modal-body">
-      <form  id = "AjaxisForm">
-      <input type = "hidden" name = "_token" value = "' . Session::token() . '">
-      ';
-    return $l;
-}
-function BtGenerateInput($label, $name, $value, $type) {
-    $l = '<div class="form-group">
-            <label class="control-label">' . $label . '</label>
-            <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
-          </div>';
-    return $l;
-}
-function BtEndCreate($link,$action) {
-    $l = '
-        </form>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a class="save btn btn-primary" data-link = "' . $link . '">'.$action.'</a>
-      </div>
-  </div>
-</div>';
-    
-    return $l;
-}
-function BtEndShow() {
-    $l = '</form>
-        </div>
-        <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-  </div>
-</div>';
-    return $l;
 }
