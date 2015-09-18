@@ -93,8 +93,6 @@ class AjaxisGenerate extends AjaxisTools
     
     public function BtDisplay($input) {
         $this->k = $this->BtHeadModal('Show');
-        
-        //$this->k .= '<div class = "row">';
         $this->k.= '<table class = "table table-bordered table-hover">';
         foreach ($input as $value) {
             $this->k.= '<tr><td><h3><b>' . $value['key'] . '</b></h3></td>';

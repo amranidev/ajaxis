@@ -11,13 +11,19 @@ class AjaxisTools
         return $l;
     }
     protected function generateInput($label, $name, $value, $type) {
-        $l = '<div class="row">
-            <div class="input-field col s12">
-                            <input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
-                            <label for="' . $name . '" class="active">' . $label . '</label>
-            </div>
-        </div>
-        ';
+        $l = '<div class="row"><div class="input-field col s12">';
+        if ($type == 'select') {
+            $l.= '<select class = "browser-default">';
+            foreach ($value as $k => $v) {
+                $l.= '<option value = ' . $k . '>' . $v . '</option>';
+            }
+            $l.= '</select>';
+        } 
+        else {
+            $l.= '<input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
+                       <label for="' . $name . '" class="active">' . $label . '</label>';
+        }
+        $l.= '</div></div>';
         return $l;
     }
     protected function startEdit() {
