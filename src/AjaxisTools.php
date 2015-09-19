@@ -81,10 +81,20 @@ class AjaxisTools
         return $l;
     }
     protected function BtGenerateInput($label, $name, $value, $type) {
-        $l = '<div class="form-group">
-            <label class="control-label">' . $label . '</label>
+        $l = '<div class="form-group">';
+            if ($type == 'select')
+            {
+                $l .= '<select class="form-control">';
+            foreach ($value as $k => $v) {
+                $l .= '<option value = ' . $k . '>' . $v . '</option>';
+            }
+            $l .= '</select>';
+            }else{
+            $l .='<label class="control-label">' . $label . '</label>
             <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
-          </div>';
+            ';
+        }
+            $l .='</div>';
         return $l;
     }
     protected function BtEndCreate($link, $action) {

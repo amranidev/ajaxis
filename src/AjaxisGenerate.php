@@ -12,7 +12,7 @@ class AjaxisGenerate extends AjaxisTools
     public function MteditFormModal($input, $link) {
         $this->k = $this->startEdit();
         foreach ($input as $val) {
-            $this->k.= generateInput($val['label'], $val['name'], $val['value'], $val['type']);
+            $this->k.= generateInput($val['key'], $val['name'], $val['value'], $val['type']);
         }
         $this->k.= $this->endEdit($link);
         
@@ -22,7 +22,7 @@ class AjaxisGenerate extends AjaxisTools
     public function MtcreateFormModal($input, $link) {
         $this->k = $this->startCreate();
         foreach ($input as $val) {
-            $this->k.= $this->generateInput($val['label'], $val['name'], $val['value'], $val['type']);
+            $this->k.= $this->generateInput($val['key'], $val['name'], $val['value'], $val['type']);
         }
         $this->k.= $this->endCreate($link);
         
@@ -45,7 +45,7 @@ class AjaxisGenerate extends AjaxisTools
     public function MtDisplay($input) {
         $this->k = '<table class="bordered highlight">';
         foreach ($input as $key) {
-            $this->k.= '<tr><td><h5><b>' . $key['lable'] . '<b></h5></td>';
+            $this->k.= '<tr><td><h5><b>' . $key['key'] . '<b></h5></td>';
             $this->k.= '<td><h6><i>' . $key['value'] . '</i></h6></td></tr>';
         }
         $this->k.= '</table>';
@@ -76,7 +76,7 @@ class AjaxisGenerate extends AjaxisTools
         $this->k = $this->BtHeadModal('Create');
         
         foreach ($input as $value) {
-            $this->k.= $this->BtGenerateInput($value['label'], $value['name'], $value['value'], $value['type']);
+            $this->k.= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
         }
         $this->k.= $this->BtEndCreate($link, 'Create');
         return $this->k;
@@ -85,7 +85,7 @@ class AjaxisGenerate extends AjaxisTools
         $this->k = $this->BtHeadModal('Edit');
         
         foreach ($input as $value) {
-            $this->k.= $this->BtGenerateInput($value['label'], $value['name'], $value['value'], $value['type']);
+            $this->k.= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
         }
         $this->k.= $this->BtEndCreate($link, 'Update');
         return $this->k;
