@@ -13,7 +13,7 @@ class AjaxisTools
     protected function generateInput($label, $name, $value, $type) {
         $l = '<div class="row"><div class="input-field col s12">';
         if ($type == 'select') {
-            $l.= '<select class = "browser-default">';
+            $l.= '<select>';
             foreach ($value as $k => $v) {
                 $l.= '<option value = ' . $k . '>' . $v . '</option>';
             }

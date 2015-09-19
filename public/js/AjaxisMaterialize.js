@@ -35,6 +35,7 @@ $(document).ready(function() {
          url: baseURL + $(this).data('link'),
          success: function(response) {
              $('.AjaxisModal').html(response);
+             $('select').material_select();
          }
      })
  })
@@ -63,6 +64,7 @@ $(document).ready(function() {
          url: baseURL + $(this).data('link'),
          success:function(response) {
              $('.AjaxisModal').html(response);
+             $('select').material_select();
          }
      })
  })

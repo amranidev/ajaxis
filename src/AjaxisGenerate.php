@@ -43,12 +43,12 @@ class AjaxisGenerate extends AjaxisTools
     }
     
     public function MtDisplay($input) {
-        $this->k = '<div class = "row">';
+        $this->k = '<table class="bordered highlight">';
         foreach ($input as $key) {
-            $this->k.= '<div class = "col s6"><p class="flow-text z-depth-1">' . $key['lable'] . '</p></div>';
-            $this->k.= '<div class = "col s6"><p class="flow-text z-depth-1">' . $key['value'] . '</p></div>';
+            $this->k.= '<tr><td><h5><b>' . $key['lable'] . '<b></h5></td>';
+            $this->k.= '<td><h6><i>' . $key['value'] . '</i></h6></td></tr>';
         }
-        $this->k.= '</div>';
+        $this->k.= '</table>';
         return $this->k;
     }
     
