@@ -12,17 +12,7 @@ class AjaxisTools
     }
     protected function generateInput($label, $name, $value, $type) {
         $l = '<div class="row"><div class="input-field col s12">';
-        if ($type == 'select') {
-            $l.= '<select>';
-            foreach ($value as $k => $v) {
-                $l.= '<option value = ' . $k . '>' . $v . '</option>';
-            }
-            $l.= '</select>';
-        } 
-        else {
-            $l.= '<input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
-                       <label for="' . $name . '" class="active">' . $label . '</label>';
-        }
+        $l .= $this->Mtinputcheck($label, $name, $value, $type);
         $l.= '</div></div>';
         return $l;
     }
@@ -82,19 +72,19 @@ class AjaxisTools
     }
     protected function BtGenerateInput($label, $name, $value, $type) {
         $l = '<div class="form-group">';
-            if ($type == 'select')
-            {
-                $l .= '<select class="form-control">';
+        if ($type == 'select') {
+            $l.= '<select class="form-control">';
             foreach ($value as $k => $v) {
-                $l .= '<option value = ' . $k . '>' . $v . '</option>';
+                $l.= '<option value = ' . $k . '>' . $v . '</option>';
             }
-            $l .= '</select>';
-            }else{
-            $l .='<label class="control-label">' . $label . '</label>
+            $l.= '</select>';
+        } 
+        else {
+            $l.= '<label class="control-label">' . $label . '</label>
             <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
             ';
         }
-            $l .='</div>';
+        $l.= '</div>';
         return $l;
     }
     protected function BtEndCreate($link, $action) {
@@ -119,5 +109,25 @@ class AjaxisTools
   </div>
 </div>';
         return $l;
+    }
+    private function Mtinputcheck($label, $name, $value, $type) {
+        if ($type == 'select') {
+            $l = '<select><option value="" disabled selected>Choose your option</option>';
+            foreach ($value as $k => $v) {
+                $l.= '<option value = ' . $k . '>' . $v . '</option>';
+            }
+            $l.= '</select>';
+            return $l;
+        } 
+        elseif ($type == 'range') {
+            return '<p class="range-field">
+                 <input type="range" name="' . $name . '" id = "' . $name . '" min="5" max="100" value = "' . $value . '" /></p>
+                 <label for="' . $name . '" class="active">' . $label . '</label>';
+        } 
+        else {
+            $l = '<input  name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
+                       <label for="' . $name . '" class="active">' . $label . '</label>';
+            return $l;
+        }
     }
 };
