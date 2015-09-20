@@ -36,6 +36,7 @@ $(document).ready(function() {
          success: function(response) {
              $('.AjaxisModal').html(response);
              $('select').material_select();
+             $('.datepicker').pickadate({ selectMonths: true,selectYears: 15 });
          }
      })
  })
@@ -63,8 +64,9 @@ $(document).ready(function() {
          type: 'get',
          url: baseURL + $(this).data('link'),
          success:function(response) {
-             $('.AjaxisModal').html(response);
-             $('select').material_select();
+            $('.AjaxisModal').html(response);
+            $('select').material_select();
+            $('.datepicker').pickadate({ selectMonths: true,selectYears: 15 });
          }
      })
  })
