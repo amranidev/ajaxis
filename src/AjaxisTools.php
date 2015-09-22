@@ -17,7 +17,7 @@ class AjaxisTools
         return $l;
     }
     protected function startEdit() {
-        $l = '<form class="col s12" id = "friendForm" method = "post">
+        $l = '<form class="col s12" method = "post">
             <input type = "hidden" name = "_token" value = "' . Session::token() . '">
             <div class="modal-content">
                                 <h4>Edit</h4>
@@ -143,13 +143,22 @@ class AjaxisTools
                  <input type="range" name="' . $name . '" id = "' . $name . '" min="5" max="100" value = "' . $value . '" /></p>
                  <label for="' . $name . '" class="active">' . $label . '</label>';
         } 
-        } elseif($type == 'checkbox'){
-                        $l = '<p><input  id = "'.$name.'" name="' . $name . '" type="' . $type . '"  '.$value.'>
+        elseif ($type == 'date') {
+            $l = '<input name = "' . $name . '" type="date" class="datepicker" value = "' . $value . '"><label for="' . $name . '" class="active">' . $label . '</label>';
+            return $l;
+        } 
+        elseif ($type == 'checkbox') {
+            $l = '<p><input  id = "' . $name . '" name="' . $name . '" type="' . $type . '"  ' . $value . '>
                        <label for="' . $name . '">' . $label . '</label></p>';
             return $l;
-        }
+        } 
+        elseif ($type == 'radio') {
+            $l = '<p><input name="' . $name . '" type="' . $type . '" id = "' . $value . '">
+                  <label for="' . $value . '">' . $label . '</label></p>';
+            return $l;
+        } 
         else {
-            $l = '<input  id = "'.$name.'" name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
+            $l = '<input  id = "' . $name . '" name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
                        <label for="' . $name . '" class="active">' . $label . '</label>';
             return $l;
         }
