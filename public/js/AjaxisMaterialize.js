@@ -1,3 +1,15 @@
+/*|
+ *| jQuery File Ajaxis Plugin for Materialize
+ *| https://github.com/amranidev/ajaxis
+ *|
+ *| Copyright 2015, Amrani Houssain
+ *| amranidev@gmail.com
+ *|
+ *| Licensed under the MIT license:
+ *| http://www.opensource.org/licenses/MIT
+ *|
+ */
+
 $(document).on('ready', function() {
     $('.modal-trigger').leanModal();
 });
