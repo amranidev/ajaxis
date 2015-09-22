@@ -1,66 +1,48 @@
 $(document).on('click', '.delete', function() {
-    $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(response) {
-            $('.AjaxisModal').html(response);
-        }
-    })
-});
+    GET($(this).data('link'));
+})
+$(document).on('click', '.edit', function() {
+    GET($(this).data('link'));
+})
+$(document).on('click', '.display', function() {
+    GET($(this).data('link'));
+})
+$(document).on('click', '.create', function() {
+    GET($(this).data('link'));
+})
 $(document).on('click', '.destroy', function() {
     $.ajax({
         async: true,
         type: 'get',
         url: baseURL + $(this).data('link'),
         success: function(response) {
-            window.location.replace(ModelApi);
+            window.location.replace(response);
         }
     })
 })
-$(document).on('click', '.create', function() {
+$(document).on('click', '.save', function() {
+    POST($('#AjaxisForm').serializeArray(), $(this).data('link'));
+})
+
+function GET(dataLink) {
     $.ajax({
         async: true,
         type: 'get',
-        url: baseURL + $(this).data('link'),
+        url: baseURL + dataLink,
         success: function(response) {
-            //console.log(response);
             $('.AjaxisModal').html(response);
         }
     })
-})
-$(document).on('click', '.save', function(e) {
-    var postData = $('#AjaxisForm').serializeArray();
-    e.preventDefault();
+}
+
+function POST(postData, dataLink) {
     $.ajax({
         async: true,
         type: 'post',
-        url: baseURL + $(this).data('link'),
+        url: baseURL + dataLink,
         data: postData,
         success: function(response) {
-            window.location.replace(ModelApi);
+            window.location.replace(response);
         }
     })
-})
-$(document).on('click', '.edit', function() {
-    $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(response) {
-            //console.log(response);
-            $('.AjaxisModal').html(response);
-        }
-    })
-})
-$(document).on('click','.display',function(){
-       $.ajax({
-        async: true,
-        type: 'get',
-        url: baseURL + $(this).data('link'),
-        success: function(response) {
-            //console.log(response);
-            $('.AjaxisModal').html(response);
-        }
-    })
-})
+}
