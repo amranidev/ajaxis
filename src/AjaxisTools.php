@@ -86,8 +86,14 @@ class AjaxisTools
                   '.$label.'
                   </label>
                   </div>';
-            
-            return $l;
+        }
+        elseif($type == 'checkbox'){
+            $l .= '<div class="checkbox">
+                   <label>
+                   <input name = "'.$name.'" type="checkbox" value="'.$value.'">
+                  '.$label.'
+                   </label>
+                   </div>';
         } 
         else {
             $l.= '<label class="control-label">' . $label . '</label>
