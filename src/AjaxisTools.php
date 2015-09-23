@@ -78,6 +78,16 @@ class AjaxisTools
                 $l.= '<option value = ' . $k . '>' . $v . '</option>';
             }
             $l.= '</select>';
+        }
+        elseif ($type == 'radio') {
+            $l.= '<div class="radio">
+                  <label>
+                  <input type="radio" name="'.$name.'" id="'.$value.'" value = "'.$value.'">
+                  '.$label.'
+                  </label>
+                  </div>';
+            
+            return $l;
         } 
         else {
             $l.= '<label class="control-label">' . $label . '</label>
