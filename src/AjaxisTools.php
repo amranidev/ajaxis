@@ -94,7 +94,11 @@ class AjaxisTools
                   '.$label.'
                    </label>
                    </div>';
-        } 
+        }
+        elseif($type == 'file'){
+            $l .='    <label for="'.$name.'">'.$label.'</label>
+                       <input type="file" id="'.$name.'">'; 
+        }  
         else {
             $l.= '<label class="control-label">' . $label . '</label>
             <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
