@@ -72,38 +72,7 @@ class AjaxisTools
     }
     protected function BtGenerateInput($label, $name, $value, $type) {
         $l = '<div class="form-group">';
-        if ($type == 'select') {
-            $l.= '<select class="form-control">';
-            foreach ($value as $k => $v) {
-                $l.= '<option value = ' . $k . '>' . $v . '</option>';
-            }
-            $l.= '</select>';
-        }
-        elseif ($type == 'radio') {
-            $l.= '<div class="radio">
-                  <label>
-                  <input type="radio" name="'.$name.'" id="'.$value.'" value = "'.$value.'">
-                  '.$label.'
-                  </label>
-                  </div>';
-        }
-        elseif($type == 'checkbox'){
-            $l .= '<div class="checkbox">
-                   <label>
-                   <input name = "'.$name.'" type="checkbox" value="'.$value.'">
-                  '.$label.'
-                   </label>
-                   </div>';
-        }
-        elseif($type == 'file'){
-            $l .='    <label for="'.$name.'">'.$label.'</label>
-                       <input type="file" id="'.$name.'">'; 
-        }  
-        else {
-            $l.= '<label class="control-label">' . $label . '</label>
-            <input id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
-            ';
-        }
+        $l .= $this->Btinputcheck($label, $name, $value, $type);
         $l.= '</div>';
         return $l;
     }
@@ -182,5 +151,52 @@ class AjaxisTools
                        <label for="' . $name . '" class="active">' . $label . '</label>';
             return $l;
         }
+    }
+        /**
+     * Bootstrap check Input type
+     *
+     * @param  String $label
+     * @param  String $name
+     * @param  String $value
+     * @param  String $type
+     * @return String $l
+     *
+     */   
+    private function Btinputcheck($label, $name, $value, $type) {
+        $l = '';
+        if ($type == 'select') {
+            $l.= '<label class="control-label">' . $label . '</label>';
+            $l.= '<select class="form-control">';
+            foreach ($value as $k => $v) {
+                $l.= '<option value = ' . $k . '>' . $v . '</option>';
+            }
+            $l.= '</select>';
+        } 
+        elseif ($type == 'radio') {
+            $l.= '<div class="radio">
+                  <label>
+                  <input type="radio" name="' . $name . '" id="' . $value . '" value = "' . $value . '">
+                  ' . $label . '
+                  </label>
+                  </div>';
+        } 
+        elseif ($type == 'checkbox') {
+            $l.= '<div class="checkbox">
+                   <label>
+                   <input name = "' . $name . '" type="checkbox" value="' . $value . '">
+                  ' . $label . '
+                   </label>
+                   </div>';
+        } 
+        elseif ($type == 'file') {
+            $l.= '    <label for="' . $name . '">' . $label . '</label>
+                       <input type="file" id="' . $name . '">';
+        } 
+        else {
+            $l.= '<label class="control-label">' . $label . '</label>
+                                <input  id = "' . $name . '" type="' . $type . '" name = "' . $name . '"" class="form-control" value = "' . $value . '" placeholder = "' . $label . '">
+                                ';
+        }
+        return $l;
     }
 };
