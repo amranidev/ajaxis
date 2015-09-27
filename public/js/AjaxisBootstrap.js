@@ -1,3 +1,15 @@
+/*|
+ *| jQuery File Ajaxis Plugin for Bootstrap
+ *| https://github.com/amranidev/ajaxis
+ *|
+ *| Copyright 2015, Amrani Houssain
+ *| amranidev@gmail.com
+ *|
+ *| Licensed under the MIT license:
+ *| http://www.opensource.org/licenses/MIT
+ *|
+ */
+
 $(document).on('click', '.delete', function() {
     GET($(this).data('link'));
 })
