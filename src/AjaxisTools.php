@@ -185,7 +185,18 @@ class AjaxisTools
             $l = '<p><input name="' . $name . '" type="' . $type . '" id = "' . $value . '">
                   <label for="' . $value . '">' . $label . '</label></p>';
             return $l;
-        } 
+        }
+        elseif($type == 'file')
+        {
+            $l = '<div class="btn">
+                  <span>'.$label.'</span>
+                  <input id = "'.$name.'" type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                  </div>';
+            return $l;
+        }  
         else {
             $l = '<input  id = "' . $name . '" name="' . $name . '" type="' . $type . '" class = "validate" value = "' . $value . '">
                   <label for="' . $name . '" class="active">' . $label . '</label>';
