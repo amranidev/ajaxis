@@ -6,8 +6,10 @@
 ### Overview ###
 
 Ajaxis is a PHP package for laravel 5.1 that work with javascript plugins for materialize and bootstrap.
+
 Ajaxis is used for managing CRUD model with AJAX using Materialize or Bootsrap Modals
 that can generate inputs (text,radio,checkbox,file,etc..) automatically.
+
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
 ### Package installation ###
