@@ -10,6 +10,7 @@ class AjaxisGenerate extends AjaxisTools
      * @var String
      */
     protected $k;
+
     public function __construct() {
         $this->k = '';
     }
@@ -22,11 +23,11 @@ class AjaxisGenerate extends AjaxisTools
      * @return Request
      */
     public function MteditFormModal($input, $link) {
-        $this->k = $this->startEdit();
+        $this->k = $this->startHeading('Edit');
         foreach ($input as $val) {
             $this->k.= $this->generateInput($val['key'], $val['name'], $val['value'], $val['type']);
         }
-        $this->k.= $this->endEdit($link);
+        $this->k.= $this->endModal($link,'Update');
         
         return $this->k;
     }
@@ -39,11 +40,11 @@ class AjaxisGenerate extends AjaxisTools
      * @return Request
      */
     public function MtcreateFormModal($input, $link) {
-        $this->k = $this->startCreate();
+        $this->k = $this->startHeading('Create');
         foreach ($input as $val) {
             $this->k.= $this->generateInput($val['key'], $val['name'], $val['value'], $val['type']);
         }
-        $this->k.= $this->endCreate($link);
+        $this->k.= $this->endModal($link,'Save');
         
         return $this->k;
     }
@@ -111,7 +112,7 @@ class AjaxisGenerate extends AjaxisTools
         foreach ($input as $value) {
             $this->k.= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
         }
-        $this->k.= $this->BtEndCreate($link, 'Create');
+        $this->k.= $this->BtEndModal($link, 'Create');
         return $this->k;
     }
     
@@ -127,7 +128,7 @@ class AjaxisGenerate extends AjaxisTools
         foreach ($input as $value) {
             $this->k.= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
         }
-        $this->k.= $this->BtEndCreate($link, 'Update');
+        $this->k.= $this->BtEndModal($link, 'Update');
         return $this->k;
     }
     
