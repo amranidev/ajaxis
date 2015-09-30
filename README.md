@@ -12,6 +12,14 @@ that can generate inputs (text,radio,checkbox,file,etc..) automatically.
 
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
+### Why Use Ajaxis? ###
+
++ Easy to use: Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
+
++ Flexibility and Simplicity: Ajaxis allows you to control a lot of models managing and make it more logical and structured.
+
++ APIs: Ajaxis use APIs (RESTful Resource) for controllig Spicieifd resources by AJAX.
+
 ### Package installation ###
  
 Add Ajaxis to your composer.json file to require Ajaxis :
@@ -32,7 +40,7 @@ The next required step is to add the service provider to config/app.php :
     'Amranidev\Ajaxis\AjaxisServiceProvider::class',
 ```
  
- The last required step is to publish views and assets in your application with :
+ The last required step is to publish assets in your application with :
 ```
     php artisan vendor:publish
 ```
@@ -48,17 +56,28 @@ The next required step is to add the service provider to config/app.php :
    
    <!-- you must define your base url first -->
    <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
-   <script type = "text/javascript">var ModelApi = "{{URL::to('API')}}"</script>
    <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 
 ```
 ### Define your modal ###
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly 
-you can put that modal in your laravel layout 
+you can put that modal in your laravel layout.
+
+### For Materialize ### 
+
 ```html
     <div id="modal1" class="modal bottom-sheet">
         <div class = "row AjaxisModal">
         </div>
     </div>
 ```
+
+### For Bootstrap ###
+
+```html
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class = 'AjaxisModal'>
+        </div>
+    </div>
+ ```   
