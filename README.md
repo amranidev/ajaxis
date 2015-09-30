@@ -64,7 +64,7 @@ The next required step is to add the service provider to config/app.php :
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly 
 you can put that modal in your laravel layout.
 
-### For Materialize ### 
+### For Materialize ###
 
 ```html
     <div id="modal1" class="modal bottom-sheet">
