@@ -81,3 +81,9 @@ you can put that modal in your laravel layout.
         </div>
     </div>
  ```   
+### Usage ###
+Let's talk more about the most basic way to get started.
+
+##### Frontend #####
+in case of Frontend ajax has some rules to apply.
+
