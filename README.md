@@ -87,6 +87,7 @@ Let's talk more about the most basic way to get started.
 ##### Frontend #####
 in case of Frontend ajax has some rules to apply.
 + **Ajaxis class and RESTful Resource**
+
 each button action has an **ajaxis class** that define his (CRUD) role.
 
 each button action has an **data-link** that define his API **RESTful Resource**.
