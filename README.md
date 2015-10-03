@@ -11,6 +11,7 @@ Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a mod
 + **Easy to use:** Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
 + **Flexibility and Simplicity:** Ajaxis allows you to control a lot of models managing and make it more logical and structured.
 + **APIs:** Ajaxis use APIs (RESTful Resource) for controllig Spicieifd resources by AJAX.
+
 ### Package installation ###
 
 Add Ajaxis to your composer.json file to require Ajaxis :
@@ -71,7 +72,7 @@ you can put that modal in your laravel layout.
 ### Usage ###
 Let's talk more about the most basic way to get started.
 
-##### Frontend #####
+#### Frontend ####
 in case of Frontend ajax has some rules to apply.
 
 + **Ajaxis class and RESTful Resource**
@@ -87,7 +88,7 @@ edit    |  Show the form for editing the specified resource
 delete  |  Show delete confirmation message
 display |  Display the specified resource
 
-#### Example ####
+##### Example #####
 
 this is an example that show you how to use **class** and **data-link** 
 
@@ -115,5 +116,39 @@ this is an example that show you how to use **class** and **data-link**
 </tbody>
 .
 .
+
+```
+
+#### Backend ####
+
+Now let's talk about backend.
+
+Ajaxis has alot of methods to use to generate forms and inputs.
+
+if you want to use Materailize just add in first method Mt or Bt in bootstrap.
+
+Method                             |  description
+---------------------------------- |  ------------------------------------------------
+MtCreateFormModal($array(),$api)   |  generate form and inputs for creating resource
+MtDisplay($array)                  |  generate the form for displaying the specified resource
+MtEditFormModal($array,$api)       |  generate form and inputs for editing resource
+MtDeleting($title,$body,$api)      |  generate delete confirmation message
+
+##### Example #####
+
+```php
+   // to generate form for crating a new recource and return the request to the frontend
+  $Api = '/test/store/';
+  $request = Ajaxis::MtCreateFormModal(
+    [
+    ['name' => 'nom' ,'type' => 'text' , 'value' => '','key' => 'First name :' ],
+    ['name' => 'prenom' , 'type' => 'text' , 'value' => '','key' => 'Lastname :'],
+    ['name' => 'date1', 'type' => 'date', 'value' => '1993-08-20' , 'key' => 'datePicker']
+    ],$Api);
+         
+    if (Request::ajax()){
+
+      return $request;
+    }
 
 ```
