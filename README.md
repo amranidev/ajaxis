@@ -52,6 +52,7 @@ php artisan vendor:publish
 ```
 ### Define your modal ###
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly
+
 you can put that modal in your laravel layout.
 #### For Materialize ####
 ```html
@@ -69,11 +70,16 @@ you can put that modal in your laravel layout.
 ```
 ### Usage ###
 Let's talk more about the most basic way to get started.
+
 ##### Frontend #####
 in case of Frontend ajax has some rules to apply.
+
 + **Ajaxis class and RESTful Resource**
+
 each button action has an **ajaxis class** that define his (CRUD) role.
+
 each button action has an **data-link** that define his API **RESTful Resource**.
+
 Class   |  Action
 ------  |  ------------------------------------------------
 create  |  Show the form for creating a new resource
