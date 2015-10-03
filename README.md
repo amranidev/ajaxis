@@ -106,9 +106,9 @@ this is an example that show you how to use **class** and **data-link**
     <td>{{$test->firstname}}</td>
     <td>{{$test->lastname}}</td>
     <td>
-        <a href = '#modal1' class = 'delete btn-floating modal-trigger' data-link = '/test/{{$test->id}}/delete/'></a>
-        <a href = '#modal1' class = 'edit btn-floating modal-trigger'  data-link = '/test/{{$test->id}}/edit/'></a>
-        <a href = '#modal1'  class = 'display btn-floating modal-trigger'  data-link = '/test/{{$test->id}}/show/'></a>
+        <a href = '#modal1' class = 'delete btn-floating modal-trigger' data-link = '/test/{{$test->id}}/delete/'>Delete</a>
+        <a href = '#modal1' class = 'edit btn-floating modal-trigger'  data-link = '/test/{{$test->id}}/edit/'>Edit</a>
+        <a href = '#modal1'  class = 'display btn-floating modal-trigger'  data-link = '/test/{{$test->id}}/show/'>Display</a>
     </td>
 </tr>
 @endforeach
