@@ -155,7 +155,7 @@ MtDeleting($title,$body,$api)      |  generate delete confirmation message
 we just define target action by $api . and we call MtCreateFormModal to generate Form with input that we put in array (name,type,value,key)
 then we need to return our form to the frontend by using **Request::ajax()** to pull it into our modal.
 
-if you're using bootstrap all you gonna use is just add Mt.
+if you're using bootstrap all you gonna use is just add **Bt**.
 
 example.
 
