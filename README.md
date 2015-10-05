@@ -5,8 +5,10 @@
 ### Overview ###
 Ajaxis is a PHP package for laravel 5.1 that work with javascript plugins for materialize and bootstrap.
 Ajaxis is used for managing CRUD model with AJAX using Materialize or Bootsrap Modals
-that can generate inputs (text,radio,checkbox,file,etc..) automatically.
+that can generates inputs (text,radio,checkbox,file,etc..) automatically.
+
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
+
 ### Why Use Ajaxis? ###
 + **Easy to use:** Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
 + **Flexibility and Simplicity:** Ajaxis allows you to control a lot of models managing and make it more logical and structured.
@@ -77,20 +79,20 @@ in case of Frontend ajax has some rules to apply.
 
 + **Ajaxis class and RESTful Resource**
 
-each button action has an **ajaxis class** that define his (CRUD) role.
+each button action has an **ajaxis class** that defines his (CRUD) role.
 
-each button action has an **data-link** that define his API **RESTful Resource**.
+each button action has an **data-link** that defines his API **RESTful Resource**.
 
-Class   |  Action
-------  |  ------------------------------------------------
-create  |  Show the form for creating a new resource
-edit    |  Show the form for editing the specified resource
-delete  |  Show delete confirmation message
-display |  Display the specified resource
+Classes   |  Action
+--------- |  ------------------------------------------------
+create    |  Show the form for creating a new resource
+edit      |  Show the form for editing the specified resource
+delete    |  Show delete confirmation message
+display   |  Display the specified resource
 
 ##### Example #####
 
-this is an example that show you how to use **class** and **data-link** 
+this is an example that shows you how to use **class** and **data-link** 
 
 ```html
 .
@@ -125,7 +127,7 @@ Now let's talk about backend.
 
 Ajaxis has alot of methods to use to generate forms and inputs.
 
-if you want to use Materailize just add in first method Mt or Bt in bootstrap.
+if you want to use Materailize just add in first method Mt or Bt (bootstrap).
 
 Method                             |  description
 ---------------------------------- |  ------------------------------------------------
@@ -152,10 +154,10 @@ MtDeleting($title,$body,$api)      |  generate delete confirmation message
     }
 
 ```
-we just define target action by $api . and we call MtCreateFormModal to generate Form with input that we put in array (name,type,value,key)
-then we need to return our form to the frontend by using **Request::ajax()** to pull it into our modal.
+we just define target action by $api . and we call **MtCreateFormModal** to generate Form with inputs that we put in array (name,type,value,key)
+then we need to return our form to the frontend using **Request::ajax()** to pull it into our modal.
 
-if you're using bootstrap all you gonna use is just add **Bt**.
+if you're using bootstrap all you gonna use is add **Bt**.
 
 example.
 
