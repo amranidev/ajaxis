@@ -12,7 +12,6 @@
   "require": {
     "php": ">=5.4.0",
     "illuminate/support": "~5.1",
-     "Armanidev/Ajaxis": "2.0.*"
   },
   "autoload": {
     "psr-4": {
