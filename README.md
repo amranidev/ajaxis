@@ -31,7 +31,7 @@ composer update
 
 The next required step is to add the service provider to config/app.php :
 ```php
-'Amranidev\Ajaxis\AjaxisServiceProvider::class',
+Amranidev\Ajaxis\AjaxisServiceProvider::class,
 ```
 
 The last required step is to publish assets in your application with :
