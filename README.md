@@ -9,6 +9,10 @@ that can generates inputs (text,radio,checkbox,file,etc..) automatically.
 
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
+### An example ###
+to understand better pleas try our example.
+#####[AjaxisTest](https://github.com/amranidev/ajaxistest)#####
+
 ### Why Use Ajaxis? ###
 + **Easy to use:** Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
 + **Flexibility and Simplicity:** Ajaxis allows you to control a lot of models managing and make it more logical and structured.
