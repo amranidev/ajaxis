@@ -166,10 +166,39 @@ if you're using bootstrap all you gonna use is add **Bt**.
 example.
 
 ```php
-  $request = Ajaxis::BtCreateFormModal(
-    [
-    ['name' => 'nom' ,'type' => 'text' , 'value' => '','key' => 'First name :' ],
-    ['name' => 'prenom' , 'type' => 'text' , 'value' => '','key' => 'Lastname :'],
-    ['name' => 'date1', 'type' => 'date', 'value' => '1993-08-20' , 'key' => 'datePicker']
-    ],$Api);
+    public function create()
+    {
+        $api = '/ContactBt/store/';
+        $Ajaxis = Ajaxis::BtCreateFormModal([
+        ['type' => 'text' , 'value' => '', 'name' => 'firstname' , 'key' => 'First Name :'],
+        ['type' => 'text' , 'value' => '', 'name' => 'lastname' , 'key' => 'Last Name :'],
+        ['type' => 'date' , 'value' => '', 'name' => 'date' , 'key' => 'Date :'],
+        ['type' => 'text' , 'value' => '', 'name' => 'phone' , 'key' => 'Phone :']
+        ],$api);
+
+        if(Request::ajax()){
+            return $Ajaxis;
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $input = Request::except('_token');
+        $contact = new Contact();
+        $contact->firstname = $input['firstname'];
+        $contact->lastname = $input['lastname'];
+        $contact->date = $input['date'];
+        $contact->phone = $input['phone'];
+        $contact->save();
+          // Reload View
+        return URL::To('ContactBt');
+
+    }
 ```
+
