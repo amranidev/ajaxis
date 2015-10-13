@@ -202,3 +202,14 @@ example.
     }
 ```
 
+#####Delete Confirmation Message#####
+*Ajaxis::Btdeleting* has 3 parameters 
+*Title* , *Body* , *API*.  
+```php
+      $api = '/ContactBt/'.$id.'/destroy';
+      $Ajaxis = Ajaxis::BtDeleting('Delete','Are you sure to delete this contact ?',$api);      
+      
+      if(Request::ajax()){
+        return $Ajaxis;
+      }
+``` 
