@@ -79,7 +79,7 @@ you can put that modal in your laravel layout.
 Let's talk more about the most basic way to get started.
 
 #### Frontend ####
-in case of Frontend ajax has some rules to apply.
+in case of Frontend ajaxis has some rules to apply.
 
 + **Ajaxis class and RESTful Resource**
 
