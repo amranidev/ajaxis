@@ -18,7 +18,8 @@ to understand better pleas try our example.
 + **Flexibility and Simplicity:** Ajaxis allows you to control a lot of models managing and make it more logical and structured.
 + **APIs:** Ajaxis use APIs (RESTful Resource) for controllig Spicieifd resources by AJAX.
 + **Economize:** that is the most important thing in Ajaxis, if you work in a project that contains alot of "models" you need for that alot of views. each model has 4 or 5 views
-index, create,show, . . . in this case ajaxis allows you to use just one view for each model using modals.   
+index, create,show, . . . in this case ajaxis allows you to use just one view for each model using modals.
+   
 ### Package installation ###
 
 Add Ajaxis to your composer.json file to require Ajaxis :
