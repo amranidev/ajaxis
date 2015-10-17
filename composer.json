@@ -2,6 +2,7 @@
   "name": "amranidev/ajaxis",
   "description": "To manage your crud in laravel 5.1",
   "homepage": "http://github.com/amranidev/ajaxis",
+  "keywords": ["laravel", "framework", "files", "Ajax", "Ajaxis", "laravel ajax post", "laravel ajax reqeust", "laravel ajax token", "Laravel ajax get","laravel modals","laravel ajax modal","laravel bootstrap","laravel materialize", "amranidev", "Amrani Houssain", "amrnaihoussain"],
   "license": "MIT",
   "authors": [
     {
