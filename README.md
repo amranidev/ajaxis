@@ -208,6 +208,9 @@ example.
     }
 ```
 
+### Ajaxis input elements ###
+**types:** text , radio , checkbox , combobox , datepicker(Materialize) , range(materialize)
+
 #####Delete Confirmation Message#####
 **Ajaxis::Btdeleting** has 3 parameters 
 **Title** , **Body** , **API**.  
@@ -220,5 +223,3 @@ example.
       }
 ``` 
 
-### Ajaxis input elements ###
-types : text , radio , checkbox , combobox , datepicker(Materialize) , range(materialize)
