@@ -219,3 +219,6 @@ example.
         return $Ajaxis;
       }
 ``` 
+
+### Ajaxis input elements ###
+types : text , radio , checkbox , combobox , datepicker(Materialize) , range(materialize)
