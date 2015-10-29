@@ -22,7 +22,9 @@ to understand better pleas try our example.
 + **APIs:** Ajaxis use APIs (RESTful Resource) for controllig Spicieifd resources by AJAX.
 
 + **Economize:** that is the most important thing in Ajaxis, if you work in a project that contains alot of "models" you need for that alot of views. each model has 4 or 5 views
-index, create,show,etc. in this case ajaxis allows you to use just one view for each model using just one modal.
+index, create,show,etc.
+
+ in this case ajaxis allows you to use just one view for each model using just one modal.
 
 ### Package installation ###
 
