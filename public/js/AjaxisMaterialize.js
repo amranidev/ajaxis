@@ -22,10 +22,10 @@ $(document).on("click", ".closeModal", function() {
 $(document).on('click', '.show', function() {
     GET($(this).data('link'));
 })
-$('body').on('click', '.delete', function() {
+$(document).on('click', '.delete', function() {
     GET($(this).data('link'));
 });
-$("body").on('click', '.edit', function() {
+$(document).on('click', '.edit', function() {
     GET($(this).data('link'));
 })
 $(document).on("click", ".create", function() {
@@ -39,7 +39,7 @@ $(document).on("click", ".save", function() {
     POST($(this).parent().parent().serializeArray(), $(this).data('link'));
 })
 
-$('body').on('click', '.remove', function() {
+$(document).on('click', '.remove', function() {
     $.ajax({
         async: true,
         method: 'get',
