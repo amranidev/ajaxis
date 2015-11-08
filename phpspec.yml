@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Amranidev\Ajaxis
+        psr4_prefix: Amranidev\Ajaxis
+        src_path: src
