@@ -1,4 +1,5 @@
 # Ajaxis PHP package for laravel v5.1
+[![Build Status](https://travis-ci.org/amranidev/ajaxis.svg?branch=master)](https://travis-ci.org/amranidev/ajaxis)
 [![Latest Stable Version](https://poser.pugx.org/amranidev/ajaxis/v/stable)](https://packagist.org/packages/amranidev/ajaxis) [![Total Downloads](https://poser.pugx.org/amranidev/ajaxis/downloads)](https://packagist.org/packages/amranidev/ajaxis)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
