@@ -1,150 +1,174 @@
 <?php
 namespace Amranidev\Ajaxis;
+
 use Amranidev\Ajaxis\AjaxisTools;
+use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
+use Amranidev\Ajaxis\Materialize\Builders\MaterializeDeleteConfirmationMessage;
+use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
+use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
+use Amranidev\Ajaxis\Materialize\MaterializeModalDirector;
 
-class AjaxisGenerate extends AjaxisTools {
-	/**
-	 * the content request.
-	 *
-	 * @var String
-	 */
-	protected $k;
+class AjaxisGenerate extends AjaxisTools
+{
 
-	public function __construct() {
-		$this->k = '';
-	}
+    /**
+     * the content request.
+     *
+     * @var String
+     */
+    protected $k;
 
-	/**
-	 * Show Ajaxis materialize form for editing the specified resource.
-	 *
-	 * @param  Array $input
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function MteditFormModal($input, $link) {
-		$this->k = $this->startHeading('Edit');
-		foreach ($input as $val) {
-			$this->k .= $this->generateInput($val['key'], $val['name'], $val['value'], $val['type']);
-		}
-		$this->k .= $this->endModal($link, 'Update');
+    public function __construct()
+    {
+        $this->k = '';
+    }
 
-		return $this->k;
-	}
+    /**
+     * Show Ajaxis materialize form for editing the specified resource.
+     *
+     * @param  Array $input
+     * @param  String $link
+     * @return Request
+     */
+    public function MteditFormModal($input, $link)
+    {
+        $modalDirector = new MaterializeModalDirector();
 
-	/**
-	 * Show Ajaxis materialize form for creating the specified resource.
-	 *
-	 * @param  Array $input
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function MtcreateFormModal($input, $link) {
-		$this->k = $this->startHeading('Create');
-		foreach ($input as $val) {
-			$this->k .= $this->generateInput($val['key'], $val['name'], $val['value'], $val['type']);
-		}
-		$this->k .= $this->endModal($link, 'Save');
+        $modal = new MaterializeModalBuilder();
 
-		return $this->k;
-	}
+        $modalresult = $modalDirector->build('Edit', 'update', $input, $link, $modal);
 
-	/**
-	 * Show materialize confirmation message for deleting the specified resource.
-	 *
-	 * @param  String $title
-	 * @param  String $message
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function MtDeleting($title, $message, $link) {
-		$this->k = '';
-		$this->k .= '<div class="modal-content">
-            <h4>' . $title . '</h4>
-            <p>' . $message . '</p>
-        </div>';
-		$this->k .= '<div class="modal-footer">
-            <a href = "#" class="deletingModalClose modal-action modal-close waves-effect waves-green btn-flat">close</a>
-            <a href = "#" class="waves-effect waves-green btn-flat remove" data-link = "' . $link . '">agree</a>
-        </div>';
-		return $this->k;
-	}
+        return $modalresult->modalHead . $modalresult->modalInput . $modalresult->modalFooter;
+    }
 
-	/**
-	 * Show materialize modal for displaying specified resource.
-	 *
-	 * @param  Array $input
-	 * @return Request
-	 */
-	public function MtDisplay($input) {
-		$this->k = '<table class="bordered highlight">';
-		foreach ($input as $key) {
-			$this->k .= '<tr><td><h5><b>' . $key['key'] . '<b></h5></td>';
-			$this->k .= '<td><h6><i>' . $key['value'] . '</i></h6></td></tr>';
-		}
-		$this->k .= '</table>';
-		return $this->k;
-	}
+    /**
+     * Show Ajaxis materialize form for creating the specified resource.
+     *
+     * @param  Array $input
+     * @param  String $link
+     * @return Request
+     */
+    public function MtcreateFormModal($input, $link)
+    {
 
-	/**
-	 * Show bootsrap modal for deleting specified resource.
-	 *
-	 * @param  String $title
-	 * @param  String $body
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function BtDeleting($title, $body, $link) {
-		$this->k = $this->BtDl($title, $body, $link);
-		return $this->k;
-	}
+        $modalDirector = new MaterializeModalDirector();
 
-	/**
-	 * Show Ajaxis bootstrap form for creating the specified resource.
-	 *
-	 * @param  Array $input
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function BtCreateFormModal($input, $link) {
-		$this->k = $this->BtHeadModal('Create');
+        $modal = new MaterializeModalBuilder();
 
-		foreach ($input as $value) {
-			$this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
-		}
-		$this->k .= $this->BtEndModal($link, 'Create');
-		return $this->k;
-	}
+        $modalresult = $modalDirector->build('Edit', 'update', $input, $link, $modal);
 
-	/**
-	 * Show Ajaxis bootstrap form for editing the specified resource.
-	 * @param  Array $input
-	 * @param  String $link
-	 * @return Request
-	 */
-	public function BtEditFormModal($input, $link) {
-		$this->k = $this->BtHeadModal('Edit');
+        return $modalresult->modalHead . $modalresult->modalInput . $modalresult->modalFooter;
+    }
 
-		foreach ($input as $value) {
-			$this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
-		}
-		$this->k .= $this->BtEndModal($link, 'Update');
-		return $this->k;
-	}
+    /**
+     * Show materialize confirmation message for deleting the specified resource.
+     *
+     * @param  String $title
+     * @param  String $message
+     * @param  String $link
+     * @return Request
+     */
+    public function MtDeleting($title, $message, $link)
+    {
 
-	/**
-	 * Show bootstrap modal for displaying specified resource.
-	 * @param  Array $input
-	 * @return Request
-	 */
-	public function BtDisplay($input) {
-		$this->k = $this->BtHeadModal('Show');
-		$this->k .= '<table class = "table table-bordered table-hover">';
-		foreach ($input as $value) {
-			$this->k .= '<tr><td><h3><b>' . $value['key'] . '</b></h3></td>';
-			$this->k .= '<td><h4><i>' . $value['value'] . '</i></h4></td></tr>';
-		}
-		$this->k .= '</table>';
-		$this->k .= $this->BtEndShow();
-		return $this->k;
-	}
+        $modalDirector = new MaterializeModalDirector();
+
+        $modal = new MaterializeDeleteConfirmationMessage();
+
+        $modal = $modalDirector->build($title, 'Delete', $message, $link, $modal);
+
+        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+    }
+
+    /**
+     * Show materialize modal for displaying specified resource.
+     *
+     * @param  Array $input
+     * @return Request
+     */
+    public function MtDisplay($input)
+    {
+        $modalDirector = new MaterializeModalDirector();
+
+        $modal = new MaterializeDisplayBuilder();
+
+        $modal = $modalDirector->build(null, null, $input, null, $modal);
+
+        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+    }
+
+    /**
+     * Show bootsrap modal for deleting specified resource.
+     *
+     * @param  String $title
+     * @param  String $body
+     * @param  String $link
+     * @return Request
+     */
+    public function BtDeleting($title, $body, $link)
+    {
+        $this->k = $this->BtDl($title, $body, $link);
+        return $this->k;
+    }
+
+    /**
+     * Show Ajaxis bootstrap form for creating the specified resource.
+     *
+     * @param  Array $input
+     * @param  String $link
+     * @return Request
+     */
+    public function BtCreateFormModal($input, $link)
+    {
+
+        /*
+        $this->k = $this->BtHeadModal('Create');
+
+        foreach ($input as $value) {
+        $this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
+        }
+        $this->k .= $this->BtEndModal($link, 'Create');
+        return $this->k;*/
+
+        $director = new MaterializeModalDirector();
+        $modal = new BootstrapModalBuilder();
+        $modal = $director->build('New', 'Create', $input, $link, $modal);
+
+        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+    }
+
+    /**
+     * Show Ajaxis bootstrap form for editing the specified resource.
+     * @param  Array $input
+     * @param  String $link
+     * @return Request
+     */
+    public function BtEditFormModal($input, $link)
+    {
+        $this->k = $this->BtHeadModal('Edit');
+
+        foreach ($input as $value) {
+            $this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
+        }
+        $this->k .= $this->BtEndModal($link, 'Update');
+        return $this->k;
+    }
+
+    /**
+     * Show bootstrap modal for displaying specified resource.
+     * @param  Array $input
+     * @return Request
+     */
+    public function BtDisplay($input)
+    {
+        $this->k = $this->BtHeadModal('Show');
+        $this->k .= '<table class = "table table-bordered table-hover">';
+        foreach ($input as $value) {
+            $this->k .= '<tr><td><h3><b>' . $value['key'] . '</b></h3></td>';
+            $this->k .= '<td><h4><i>' . $value['value'] . '</i></h4></td></tr>';
+        }
+        $this->k .= '</table>';
+        $this->k .= $this->BtEndShow();
+        return $this->k;
+    }
 }
