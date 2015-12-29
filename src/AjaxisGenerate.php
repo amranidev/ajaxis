@@ -1,28 +1,16 @@
 <?php
 namespace Amranidev\Ajaxis;
 
-use Amranidev\Ajaxis\AjaxisTools;
+use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
+use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDisplayBuilder;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
-use Amranidev\Ajaxis\Materialize\MaterializeModalDirector;
+use Amranidev\Ajaxis\Modal\ModalDirector;
 
-class AjaxisGenerate extends AjaxisTools
+class AjaxisGenerate
 {
-
-    /**
-     * the content request.
-     *
-     * @var String
-     */
-    protected $k;
-
-    public function __construct()
-    {
-        $this->k = '';
-    }
-
     /**
      * Show Ajaxis materialize form for editing the specified resource.
      *
@@ -32,13 +20,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function MteditFormModal($input, $link)
     {
-        $modalDirector = new MaterializeModalDirector();
+        $modalDirector = new ModalDirector();
 
         $modal = new MaterializeModalBuilder();
 
         $modalresult = $modalDirector->build('Edit', 'update', $input, $link, $modal);
 
-        return $modalresult->modalHead . $modalresult->modalInput . $modalresult->modalFooter;
+        return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
     }
 
     /**
@@ -50,14 +38,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function MtcreateFormModal($input, $link)
     {
-
-        $modalDirector = new MaterializeModalDirector();
+        $modalDirector = new ModalDirector();
 
         $modal = new MaterializeModalBuilder();
 
-        $modalresult = $modalDirector->build('Edit', 'update', $input, $link, $modal);
+        $modalresult = $modalDirector->build('New', 'create', $input, $link, $modal);
 
-        return $modalresult->modalHead . $modalresult->modalInput . $modalresult->modalFooter;
+        return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
     }
 
     /**
@@ -70,14 +57,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function MtDeleting($title, $message, $link)
     {
-
-        $modalDirector = new MaterializeModalDirector();
+        $modalDirector = new ModalDirector();
 
         $modal = new MaterializeDeleteConfirmationMessage();
 
         $modal = $modalDirector->build($title, 'Delete', $message, $link, $modal);
 
-        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -88,13 +74,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function MtDisplay($input)
     {
-        $modalDirector = new MaterializeModalDirector();
+        $modalDirector = new ModalDirector();
 
         $modal = new MaterializeDisplayBuilder();
 
         $modal = $modalDirector->build(null, null, $input, null, $modal);
 
-        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -107,8 +93,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function BtDeleting($title, $body, $link)
     {
-        $this->k = $this->BtDl($title, $body, $link);
-        return $this->k;
+        $director = new ModalDirector();
+
+        $modal = new BootstrapDeleteConfirmationMessage();
+
+        $modal = $director->build($title, 'Agree', $body, $link, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -120,21 +111,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function BtCreateFormModal($input, $link)
     {
+        $director = new ModalDirector();
 
-        /*
-        $this->k = $this->BtHeadModal('Create');
-
-        foreach ($input as $value) {
-        $this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
-        }
-        $this->k .= $this->BtEndModal($link, 'Create');
-        return $this->k;*/
-
-        $director = new MaterializeModalDirector();
         $modal = new BootstrapModalBuilder();
+
         $modal = $director->build('New', 'Create', $input, $link, $modal);
 
-        return $modal->modalHead . $modal->modalInput . $modal->modalFooter;
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -145,13 +128,13 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function BtEditFormModal($input, $link)
     {
-        $this->k = $this->BtHeadModal('Edit');
+        $director = new ModalDirector();
 
-        foreach ($input as $value) {
-            $this->k .= $this->BtGenerateInput($value['key'], $value['name'], $value['value'], $value['type']);
-        }
-        $this->k .= $this->BtEndModal($link, 'Update');
-        return $this->k;
+        $modal = new BootstrapModalBuilder();
+
+        $modal = $director->build('Edit', 'update', $input, $link, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -161,14 +144,12 @@ class AjaxisGenerate extends AjaxisTools
      */
     public function BtDisplay($input)
     {
-        $this->k = $this->BtHeadModal('Show');
-        $this->k .= '<table class = "table table-bordered table-hover">';
-        foreach ($input as $value) {
-            $this->k .= '<tr><td><h3><b>' . $value['key'] . '</b></h3></td>';
-            $this->k .= '<td><h4><i>' . $value['value'] . '</i></h4></td></tr>';
-        }
-        $this->k .= '</table>';
-        $this->k .= $this->BtEndShow();
-        return $this->k;
+        $director = new ModalDirector();
+
+        $modal = new BootstrapDisplayBuilder();
+
+        $modal = $director->build('Dsiplay', 'ok', $input, null, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 }
