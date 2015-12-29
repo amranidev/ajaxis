@@ -2,12 +2,17 @@
 
 namespace Amranidev\Ajaxis\Bootstrap\Builders;
 
+/**
+ * page de garde
+ *
+ *
+ */
 use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 class BootstrapDeleteConfirmationMessage implements ModalInterface
 {
-    private $Modal;
+    public $Modal;
 
     public function __construct()
     {
@@ -19,9 +24,9 @@ class BootstrapDeleteConfirmationMessage implements ModalInterface
         $this->Modal->modalHead = view('Ajaxis::bootstrap.get.head', compact('title'))->render();
     }
 
-    public function buildBody($a, $b, $c, $d)
+    public function buildBody($a, $b, $c, $input)
     {
-        $this->Modal->modalInput .= $input;
+        $this->Modal->modalBody .= '<div class="modal-body">' . $input . '</div>';
     }
     public function buildFooter($link, $action)
     {
