@@ -10,9 +10,22 @@ namespace Amranidev\Ajaxis\Modal;
  */
 class Modal
 {
+    /**
+     * modal head
+     * @var modalHead
+     */
     public $modalHead = '';
 
-    public $modalInput = '';
+    /**
+     * modal body
+     *
+     * @var modalBody
+     */
+    public $modalBody = '';
 
+    /**
+     * modal footer
+     */
     public $modalFooter = '';
+
 }
