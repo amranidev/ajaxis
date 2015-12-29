@@ -7,7 +7,7 @@ use Amranidev\Ajaxis\Modal\ModalInterface;
 
 class BootstrapDisplayBuilder implements ModalInterface
 {
-    private $Modal;
+    public $Modal;
 
     public function __construct()
     {
@@ -16,19 +16,18 @@ class BootstrapDisplayBuilder implements ModalInterface
 
     public function buildHead($title)
     {
-        $this->Modal->modalHead = '';
-
+        $this->Modal->modalHead = view('Ajaxis::bootstrap.get.head', compact('title'));
     }
 
-    public function buildBody($a, $b, $c, $type)
+    public function buildBody($a, $b, $c, $input)
     {
-        $this->Modal->modalInput .= view('Ajaxis::bootstrap.display.body', compact('input'))->render();
+        $this->Modal->modalBody .= view('Ajaxis::bootstrap.display.body', compact('input'))->render();
 
     }
 
     public function buildFooter($link, $action)
     {
-        $this->Modal->modalFooter = '';
+        $this->Modal->modalFooter = '</div></div></div></div>';
     }
 
     public function getResult()
