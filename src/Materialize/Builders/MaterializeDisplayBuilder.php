@@ -7,7 +7,7 @@ use Amranidev\Ajaxis\Modal\ModalInterface;
 
 class MaterializeDisplayBuilder implements ModalInterface
 {
-    private $Modal;
+    public $Modal;
 
     public function __construct()
     {
@@ -21,7 +21,7 @@ class MaterializeDisplayBuilder implements ModalInterface
 
     public function buildBody($a, $b, $c, $input)
     {
-        $this->Modal->modalInput .= view('Ajaxis::materialize.display.body', compact('input'))->render();
+        $this->Modal->modalBody .= view('Ajaxis::materialize.display.body', compact('input'))->render();
     }
 
     public function buildFooter($link, $action)
