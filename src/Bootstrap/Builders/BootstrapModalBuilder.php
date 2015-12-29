@@ -7,7 +7,7 @@ use Amranidev\Ajaxis\Modal\ModalInterface;
 
 class BootstrapModalBuilder implements ModalInterface
 {
-    private $Modal;
+    public $Modal;
 
     public function __construct()
     {
@@ -23,17 +23,17 @@ class BootstrapModalBuilder implements ModalInterface
     {
         switch ($type) {
             case 'text':
-                $this->Modal->modalInput .= view('Ajaxis::bootstrap.types.text',
+                $this->Modal->modalBody .= view('Ajaxis::bootstrap.types.text',
                     compact('label', 'name', 'value', 'type'))->render();
                 break;
 
             case 'date':
-                $this->Modal->modalInput .=
+                $this->Modal->modalBody .=
                 view('Ajaxis::bootstrap.types.date', compact('name', 'value', 'label'))->render();
                 break;
 
             case 'select':
-                $this->Modal->modalInput .=
+                $this->Modal->modalBody .=
                 view('Ajaxis::bootstrap.types.select', compact('value'))->render();
                 break;
 
