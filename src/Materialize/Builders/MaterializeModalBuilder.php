@@ -23,17 +23,17 @@ class MaterializeModalBuilder implements ModalInterface
     {
         switch ($type) {
             case 'text':
-                $this->Modal->modalInput .= view('Ajaxis::materialize.types.text',
+                $this->Modal->modalBody .= view('Ajaxis::materialize.types.text',
                     compact('label', 'name', 'value', 'type'))->render();
                 break;
 
             case 'date':
-                $this->Modal->modalInput .=
+                $this->Modal->modalBody .=
                 view('Ajaxis::materialize.types.date', compact('name', 'value', 'label'))->render();
                 break;
 
             case 'select':
-                $this->Modal->modalInput .=
+                $this->Modal->modalBody .=
                 view('Ajaxis::materialize.types.select', compact('value'))->render();
                 break;
 
