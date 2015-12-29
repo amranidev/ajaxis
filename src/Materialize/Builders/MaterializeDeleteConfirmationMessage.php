@@ -21,7 +21,7 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
 
     public function buildBody($a, $b, $c, $input)
     {
-        $this->Modal->modalInput .= $input;
+        $this->Modal->modalBody .= $input;
     }
 
     public function buildfooter($link, $action)
