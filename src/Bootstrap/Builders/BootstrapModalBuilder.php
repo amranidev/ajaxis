@@ -29,20 +29,22 @@ class BootstrapModalBuilder implements ModalInterface
 
             case 'date':
                 $this->Modal->modalBody .=
-                view('Ajaxis::bootstrap.types.date', compact('name', 'value', 'label'))->render();
+                view('Ajaxis::bootstrap.types.text', compact('name', 'value', 'label', 'type'))->render();
                 break;
 
             case 'select':
                 $this->Modal->modalBody .=
-                view('Ajaxis::bootstrap.types.select', compact('value'))->render();
+                view('Ajaxis::bootstrap.types.select', compact('value', 'label'))->render();
                 break;
 
-            case 'check':
-                $i = 2;
+            case 'radio':
+                $this->Modal->modalBody .=
+                view('Ajaxis::bootstrap.types.radio', compact('name', 'value', 'label'))->render();
                 break;
 
-            case 'file':
-                $i = 3;
+            case 'checkbox':
+                $this->Modal->modalBody .=
+                view('Ajaxis::bootstrap.types.checkbox', compact('name', 'value', 'label'))->render();
                 break;
 
             default:
