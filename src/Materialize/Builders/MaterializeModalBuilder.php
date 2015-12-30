@@ -42,12 +42,13 @@ class MaterializeModalBuilder implements ModalInterface
                 view('Ajaxis::materialize.types.checkbox', compact('value', 'type', 'name', 'label'))->render();
                 break;
 
-            case 'file':
-                $i = 3;
+            case 'radio':
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.radio', compact('type', 'name', 'label'))->render();
                 break;
 
             default:
-                throw new \Exception('Type not found');
+                throw new \Exception('Type not found ' . $type);
         }
     }
 
