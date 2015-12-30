@@ -23,8 +23,8 @@ class MaterializeModalBuilder implements ModalInterface
     {
         switch ($type) {
             case 'text':
-                $this->Modal->modalBody .= view('Ajaxis::materialize.types.text',
-                    compact('label', 'name', 'value', 'type'))->render();
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.text', compact('label', 'name', 'value', 'type'))->render();
                 break;
 
             case 'date':
@@ -34,11 +34,12 @@ class MaterializeModalBuilder implements ModalInterface
 
             case 'select':
                 $this->Modal->modalBody .=
-                view('Ajaxis::materialize.types.select', compact('value'))->render();
+                view('Ajaxis::materialize.types.select', compact('value', 'name'))->render();
                 break;
 
-            case 'check':
-                $i = 2;
+            case 'checkbox':
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.checkbox', compact('value', 'type', 'name', 'label'))->render();
                 break;
 
             case 'file':
