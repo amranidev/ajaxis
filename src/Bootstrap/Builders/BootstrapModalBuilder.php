@@ -34,7 +34,7 @@ class BootstrapModalBuilder implements ModalInterface
 
             case 'select':
                 $this->Modal->modalBody .=
-                view('Ajaxis::bootstrap.types.select', compact('value', 'label'))->render();
+                view('Ajaxis::bootstrap.types.select', compact('value', 'label', 'name'))->render();
                 break;
 
             case 'radio':
