@@ -5,20 +5,47 @@ namespace Amranidev\Ajaxis\Materialize\Builders;
 use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
+/**
+ * class MaterializeModalBuilder
+ *
+ * @package ajaxis/Materialize/Builders
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class MaterializeModalBuilder implements ModalInterface
 {
+    /**
+     * Modal Instance
+     *
+     * @var $Modal
+     */
     public $Modal;
 
+    /**
+     * Create new BootstrapModalBuilder instance
+     */
     public function __construct()
     {
         $this->Modal = new Modal();
     }
 
+    /**
+     * Build modal head
+     *
+     * @param $title String
+     */
     public function buildHead($title)
     {
         $this->Modal->modalHead = view('Ajaxis::materialize.head', compact('title'))->render();
     }
 
+    /**
+     * Build modal body
+     *
+     * @param $lable String
+     * @param $name String
+     * @param $value String
+     * @param $type String
+     */
     public function buildBody($label, $name, $value, $type)
     {
         switch ($type) {
@@ -52,11 +79,22 @@ class MaterializeModalBuilder implements ModalInterface
         }
     }
 
+    /**
+     * Build modal footer
+     *
+     * @param $link String
+     * @param $action String
+     */
     public function buildFooter($link, $action)
     {
         $this->Modal->modalFooter = view('Ajaxis::materialize.footer', compact('link', 'action'))->render();
     }
 
+    /**
+     * Get Modal instance
+     *
+     * @return Modal
+     */
     public function getResult()
     {
         return $this->Modal;
