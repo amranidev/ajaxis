@@ -1,12 +1,18 @@
 <?php
+
 namespace Amranidev\Ajaxis;
 
 use Amranidev\Ajaxis\AjaxisGenerate;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * class AjaxisServiceProvider
+ *
+ * @package ajaxis
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class AjaxisServiceProvider extends ServiceProvider
 {
-
     /**
      * Register the service provider.
      *
