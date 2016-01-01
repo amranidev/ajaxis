@@ -1,4 +1,5 @@
 <?php
+
 namespace Amranidev\Ajaxis;
 
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
@@ -9,14 +10,20 @@ use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
 use Amranidev\Ajaxis\Modal\ModalDirector;
 
+/**
+ * class AjaxisGenerate
+ *
+ * @package ajaxis
+ * @author Amrani Houssain <amranidev@gmail.com>
+ */
 class AjaxisGenerate
 {
     /**
-     * Show Ajaxis materialize form for editing the specified resource.
+     * Show Ajaxis materialize form to edit specified resource.
      *
      * @param  Array $input
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function MteditFormModal($input, $link)
     {
@@ -30,11 +37,11 @@ class AjaxisGenerate
     }
 
     /**
-     * Show Ajaxis materialize form for creating the specified resource.
+     * Show Ajaxis materialize form to create specified resource.
      *
      * @param  Array $input
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function MtcreateFormModal($input, $link)
     {
@@ -48,12 +55,12 @@ class AjaxisGenerate
     }
 
     /**
-     * Show materialize confirmation message for deleting the specified resource.
+     * Show materialize confirmation message to delete  specified resource.
      *
      * @param  String $title
      * @param  String $message
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function MtDeleting($title, $message, $link)
     {
@@ -67,10 +74,10 @@ class AjaxisGenerate
     }
 
     /**
-     * Show materialize modal for displaying specified resource.
+     * Show materialize modal to displa specified resource.
      *
      * @param  Array $input
-     * @return Request
+     * @return String
      */
     public function MtDisplay($input)
     {
@@ -84,7 +91,7 @@ class AjaxisGenerate
     }
 
     /**
-     * Show bootsrap modal for deleting specified resource.
+     * Show bootsrap modal to delete specified resource.
      *
      * @param  String $title
      * @param  String $body
@@ -103,11 +110,11 @@ class AjaxisGenerate
     }
 
     /**
-     * Show Ajaxis bootstrap form for creating the specified resource.
+     * Show Ajaxis bootstrap form to create specified resource.
      *
      * @param  Array $input
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function BtCreateFormModal($input, $link)
     {
@@ -121,10 +128,10 @@ class AjaxisGenerate
     }
 
     /**
-     * Show Ajaxis bootstrap form for editing the specified resource.
+     * Show Ajaxis bootstrap form to edite specified resource.
      * @param  Array $input
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function BtEditFormModal($input, $link)
     {
@@ -138,9 +145,9 @@ class AjaxisGenerate
     }
 
     /**
-     * Show bootstrap modal for displaying specified resource.
+     * Show bootstrap modal to display specified resource.
      * @param  Array $input
-     * @return Request
+     * @return String
      */
     public function BtDisplay($input)
     {
