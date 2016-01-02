@@ -1,11 +1,12 @@
-# Ajaxis PHP package for laravel v5.1
+Ajaxis PHP package for laravel v5.1
+===================================
+
 [![Build Status](https://travis-ci.org/amranidev/ajaxis.svg?branch=master)](https://travis-ci.org/amranidev/ajaxis)
 [![Latest Stable Version](https://poser.pugx.org/amranidev/ajaxis/v/stable)](https://packagist.org/packages/amranidev/ajaxis) [![Total Downloads](https://poser.pugx.org/amranidev/ajaxis/downloads)](https://packagist.org/packages/amranidev/ajaxis)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
 
-### Overview
-============
+## Overview
 
 Ajaxis is a PHP package for laravel 5.1 that work with javascript plugins for materialize and bootstrap.
 Ajaxis is used for managing CRUD model with AJAX using Materialize or Bootsrap Modals
@@ -13,15 +14,12 @@ that can generates inputs (text,radio,checkbox,file,etc..) automatically.
 
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
-### An example
-==============
+## An example
 
 to understand better pleas try our example.
 #####[AjaxisTest](https://github.com/amranidev/ajaxistest)#####
 
-### Why Use Ajaxis?
-===================
-
+## Why Use Ajaxis?
 
 + **Easy to use:** Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
 
@@ -34,8 +32,7 @@ index, create,show,etc.
 
  in this case ajaxis allows you to use just one view for each model using just one modal.
 
-### Package installation
-========================
+## Package installation
 
 Add Ajaxis to your composer.json file to require Ajaxis :
 ```json
@@ -75,8 +72,9 @@ php artisan vendor:publish
 <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 ```
-### Define your modal
-=====================
+
+## Define your modal
+
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly
 
 you can put that modal in your laravel layout.
@@ -98,11 +96,12 @@ you can put that modal in your laravel layout.
 </div>
 ```
 
-### Usage ###
-=============
+## Usage
+
 Let's talk more about the most basic way to get started.
 
-#### Frontend ####
+#### Frontend
+
 in case of Frontend ajaxis has some rules to apply.
 
 + **Ajaxis class and RESTful Resource**
@@ -118,7 +117,7 @@ edit      |  Show the form to edit a specified resource
 delete    |  Show delete confirmation message
 display   |  Display a specified resource
 
-##### Example #####
+##### Example
 
 this is an example that shows you how to use **class** and **data-link** 
 
@@ -149,7 +148,7 @@ this is an example that shows you how to use **class** and **data-link**
 
 ```
 
-#### Backend ####
+#### Backend
 
 Now let's talk about backend.
 
@@ -164,7 +163,7 @@ MtDisplay($array)                  |  generate the form for displaying the speci
 MtEditFormModal($array,$api)       |  generate form and inputs for editing resource
 MtDeleting($title,$body,$api)      |  generate delete confirmation message
 
-##### Example #####
+##### Example
 
 ```php
    // to generate form for crating a new recource and return the request to the frontend
@@ -226,11 +225,12 @@ example.
     }
 ```
 
-### Ajaxis input elements
-=========================
+## Ajaxis input elements
+
 **types:** text , radio , checkbox , combobox , datepicker(Materialize)
 
-#####Delete Confirmation Message#####
+#####Delete Confirmation Message
+
 **Ajaxis::Btdeleting** has 3 parameters 
 **Title** , **Body** , **API**.
 
@@ -243,9 +243,9 @@ example.
       }
 ``` 
 
-#### Contribution
-=================
+## Contribution
+
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
-#### contact : amranidev@gmail.com
+## contact : amranidev@gmail.com
 
