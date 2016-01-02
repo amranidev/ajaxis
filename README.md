@@ -3,18 +3,25 @@
 [![Latest Stable Version](https://poser.pugx.org/amranidev/ajaxis/v/stable)](https://packagist.org/packages/amranidev/ajaxis) [![Total Downloads](https://poser.pugx.org/amranidev/ajaxis/downloads)](https://packagist.org/packages/amranidev/ajaxis)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
 [![License](https://poser.pugx.org/amranidev/ajaxis/license)](https://packagist.org/packages/amranidev/ajaxis)
-### Overview ###
+
+### Overview
+============
+
 Ajaxis is a PHP package for laravel 5.1 that work with javascript plugins for materialize and bootstrap.
 Ajaxis is used for managing CRUD model with AJAX using Materialize or Bootsrap Modals
 that can generates inputs (text,radio,checkbox,file,etc..) automatically.
 
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
-### An example ###
+### An example
+==============
+
 to understand better pleas try our example.
 #####[AjaxisTest](https://github.com/amranidev/ajaxistest)#####
 
-### Why Use Ajaxis? ###
+### Why Use Ajaxis?
+===================
+
 
 + **Easy to use:** Anybody with just basic knowledge of MVC,laravel and PHP array can start using Ajaxis.
 
@@ -27,13 +34,14 @@ index, create,show,etc.
 
  in this case ajaxis allows you to use just one view for each model using just one modal.
 
-### Package installation ###
+### Package installation
+========================
 
 Add Ajaxis to your composer.json file to require Ajaxis :
 ```json
 require : {
 "laravel/framework": "5.1.*",
-"Amranidev/Ajaxis": "2.0.*"
+"Amranidev/Ajaxis": "2.1.*"
 }
 ```
 
@@ -51,7 +59,8 @@ The last required step is to publish assets in your application with :
 ```
 php artisan vendor:publish
 ```
-### Plugin Configuration ###
+### Plugin Configuration
+========================
 
 ```html
 .
@@ -66,25 +75,33 @@ php artisan vendor:publish
 <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
 ```
-### Define your modal ###
+### Define your modal
+=====================
+
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly
 
 you can put that modal in your laravel layout.
-#### For Materialize ####
+
+#### For Materialize
+
 ```html
 <div id="modal1" class="modal bottom-sheet">
 <div class = "row AjaxisModal">
 </div>
 </div>
 ```
-#### For Bootstrap ####
+#### For Bootstrap
+
 ```html
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class = 'AjaxisModal'>
 </div>
 </div>
 ```
+
 ### Usage ###
+=============
+
 Let's talk more about the most basic way to get started.
 
 #### Frontend ####
@@ -98,10 +115,10 @@ each button action has an **data-link** that defines his API **RESTful Resource*
 
 Classes   |  Action
 --------- |  ------------------------------------------------
-create    |  Show the form for creating a new resource
-edit      |  Show the form for editing the specified resource
+create    |  Show the form to create a new resource
+edit      |  Show the form to edit a specified resource
 delete    |  Show delete confirmation message
-display   |  Display the specified resource
+display   |  Display a specified resource
 
 ##### Example #####
 
@@ -140,7 +157,7 @@ Now let's talk about backend.
 
 Ajaxis has alot of methods to use to generate forms and inputs.
 
-if you want to use Materailize just add in first method Mt or Bt (bootstrap).
+if you want to use Materailize just add at first Mt or (Bt for bootstrap).
 
 Method                             |  description
 ---------------------------------- |  ------------------------------------------------
@@ -211,12 +228,15 @@ example.
     }
 ```
 
-### Ajaxis input elements ###
-**types:** text , radio , checkbox , combobox , datepicker(Materialize) , range(materialize)
+### Ajaxis input elements
+=========================
+
+**types:** text , radio , checkbox , combobox , datepicker(Materialize)
 
 #####Delete Confirmation Message#####
 **Ajaxis::Btdeleting** has 3 parameters 
-**Title** , **Body** , **API**.  
+**Title** , **Body** , **API**.
+
 ```php
       $api = '/ContactBt/'.$id.'/destroy';
       $Ajaxis = Ajaxis::BtDeleting('Delete','Are you sure to delete this contact ?',$api);      
@@ -225,4 +245,11 @@ example.
         return $Ajaxis;
       }
 ``` 
+
+#### Contribution
+=================
+
+ Any ideas are welcome. Feel free to submit any issues or pull requests.
+
+#### contact : amranidev@gmail.com
 
