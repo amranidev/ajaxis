@@ -77,7 +77,6 @@ php artisan vendor:publish
 ```
 ### Define your modal
 =====================
-
 Ajaxis allows you to use only ONE modal in your project thats used for all Models CRUD Dynamicaly
 
 you can put that modal in your laravel layout.
@@ -101,7 +100,6 @@ you can put that modal in your laravel layout.
 
 ### Usage ###
 =============
-
 Let's talk more about the most basic way to get started.
 
 #### Frontend ####
@@ -230,7 +228,6 @@ example.
 
 ### Ajaxis input elements
 =========================
-
 **types:** text , radio , checkbox , combobox , datepicker(Materialize)
 
 #####Delete Confirmation Message#####
@@ -248,7 +245,6 @@ example.
 
 #### Contribution
 =================
-
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
 #### contact : amranidev@gmail.com
