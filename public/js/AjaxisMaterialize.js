@@ -13,9 +13,6 @@
 $(document).on('ready', function() {
     $('.modal-trigger').leanModal();
 });
-$(document).on('click', '.deletingModalClose', function() {
-    $(this).parent().parent().parent().closeModal();
-})
 $(document).on("click", ".closeModal", function() {
     $(this).parent().parent().parent().parent().closeModal();
 });
