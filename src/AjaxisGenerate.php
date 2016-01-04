@@ -19,6 +19,21 @@ use Amranidev\Ajaxis\Modal\ModalDirector;
 class AjaxisGenerate
 {
     /**
+     * ModalDirector instance
+     *
+     * @var $modalDirector
+     */
+    private $modalDirector;
+
+    /**
+     * create new AjaxsisGenerate instance
+     */
+    public function __construct()
+    {
+        $this->modalDirector = new ModalDirector();
+    }
+
+    /**
      * Show Ajaxis materialize form to edit specified resource.
      *
      * @param  Array $input
@@ -27,11 +42,9 @@ class AjaxisGenerate
      */
     public function MteditFormModal($input, $link)
     {
-        $modalDirector = new ModalDirector();
-
         $modal = new MaterializeModalBuilder();
 
-        $modalresult = $modalDirector->build('Edit', 'update', $input, $link, $modal);
+        $modalresult = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
 
         return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
     }
@@ -45,11 +58,9 @@ class AjaxisGenerate
      */
     public function MtcreateFormModal($input, $link)
     {
-        $modalDirector = new ModalDirector();
-
         $modal = new MaterializeModalBuilder();
 
-        $modalresult = $modalDirector->build('New', 'create', $input, $link, $modal);
+        $modalresult = $$this->modalDirector->build('New', 'create', $input, $link, $modal);
 
         return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
     }
@@ -64,11 +75,9 @@ class AjaxisGenerate
      */
     public function MtDeleting($title, $message, $link)
     {
-        $modalDirector = new ModalDirector();
-
         $modal = new MaterializeDeleteConfirmationMessage();
 
-        $modal = $modalDirector->build($title, 'Delete', $message, $link, $modal);
+        $modal = $this->modalDirector->build($title, 'Delete', $message, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -81,11 +90,9 @@ class AjaxisGenerate
      */
     public function MtDisplay($input)
     {
-        $modalDirector = new ModalDirector();
-
         $modal = new MaterializeDisplayBuilder();
 
-        $modal = $modalDirector->build(null, null, $input, null, $modal);
+        $modal = $this->modalDirector->build(null, null, $input, null, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -100,11 +107,9 @@ class AjaxisGenerate
      */
     public function BtDeleting($title, $body, $link)
     {
-        $director = new ModalDirector();
-
         $modal = new BootstrapDeleteConfirmationMessage();
 
-        $modal = $director->build($title, 'Agree', $body, $link, $modal);
+        $modal = $$this->modalDirector->build($title, 'Agree', $body, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -118,11 +123,9 @@ class AjaxisGenerate
      */
     public function BtCreateFormModal($input, $link)
     {
-        $director = new ModalDirector();
-
         $modal = new BootstrapModalBuilder();
 
-        $modal = $director->build('New', 'Create', $input, $link, $modal);
+        $modal = $$this->modalDirector->build('New', 'Create', $input, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -135,11 +138,9 @@ class AjaxisGenerate
      */
     public function BtEditFormModal($input, $link)
     {
-        $director = new ModalDirector();
-
         $modal = new BootstrapModalBuilder();
 
-        $modal = $director->build('Edit', 'update', $input, $link, $modal);
+        $modal = $$this->modalDirector->build('Edit', 'update', $input, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -151,11 +152,9 @@ class AjaxisGenerate
      */
     public function BtDisplay($input)
     {
-        $director = new ModalDirector();
-
         $modal = new BootstrapDisplayBuilder();
 
-        $modal = $director->build('Dsiplay', 'ok', $input, null, $modal);
+        $modal = $$this->modalDirector->build('Dsiplay', 'ok', $input, null, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
