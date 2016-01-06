@@ -2,6 +2,7 @@
 
 namespace Amranidev\Ajaxis;
 
+use Amranidev\Ajaxis\Autoarray\MtAutoArray;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDisplayBuilder;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
@@ -21,12 +22,12 @@ class AjaxisGenerate
     /**
      * ModalDirector instance
      *
-     * @var $modalDirector
+     * @var $modalDorector
      */
     private $modalDirector;
 
     /**
-     * create new AjaxsisGenerate instance
+     * create new AjaxisGenerate instrance
      */
     public function __construct()
     {
@@ -42,6 +43,7 @@ class AjaxisGenerate
      */
     public function MteditFormModal($input, $link)
     {
+
         $modal = new MaterializeModalBuilder();
 
         $modalresult = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
@@ -60,7 +62,7 @@ class AjaxisGenerate
     {
         $modal = new MaterializeModalBuilder();
 
-        $modalresult = $$this->modalDirector->build('New', 'create', $input, $link, $modal);
+        $modalresult = $this->modalDirector->build('New', 'create', $input, $link, $modal);
 
         return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
     }
@@ -107,9 +109,10 @@ class AjaxisGenerate
      */
     public function BtDeleting($title, $body, $link)
     {
+
         $modal = new BootstrapDeleteConfirmationMessage();
 
-        $modal = $$this->modalDirector->build($title, 'Agree', $body, $link, $modal);
+        $modal = $this->modalDirector->build($title, 'Agree', $body, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -125,7 +128,7 @@ class AjaxisGenerate
     {
         $modal = new BootstrapModalBuilder();
 
-        $modal = $$this->modalDirector->build('New', 'Create', $input, $link, $modal);
+        $modal = $this->modalDirector->build('New', 'Create', $input, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -140,7 +143,7 @@ class AjaxisGenerate
     {
         $modal = new BootstrapModalBuilder();
 
-        $modal = $$this->modalDirector->build('Edit', 'update', $input, $link, $modal);
+        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -154,7 +157,21 @@ class AjaxisGenerate
     {
         $modal = new BootstrapDisplayBuilder();
 
-        $modal = $$this->modalDirector->build('Dsiplay', 'ok', $input, null, $modal);
+        $modal = $this->modalDirector->build('Dsiplay', 'ok', $input, null, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+    }
+
+    /**
+     * Test v3.0.x-dev
+     */
+    public function MtGet($input, $link)
+    {
+        $Mtquick = new MtAutoArray($input);
+
+        $modal = new MaterializeModalBuilder();
+
+        $modal = $this->modalDirector->build('New', 'Create', $Mtquick->merge(), $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
