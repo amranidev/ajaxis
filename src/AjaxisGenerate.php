@@ -16,6 +16,8 @@ use Amranidev\Ajaxis\Modal\ModalDirector;
  *
  * @package ajaxis
  * @author Amrani Houssain <amranidev@gmail.com>
+ *
+ * @todo Test Mget
  */
 class AjaxisGenerate
 {
