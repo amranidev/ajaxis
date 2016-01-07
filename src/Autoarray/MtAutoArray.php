@@ -10,7 +10,7 @@ use Amranidev\Ajaxis\Attributes\Attributes;
  * @package ajaxis\quick
  * @author Amrani Houssain <amranidev@gmail.com>
  *
- * @todo Test
+ * @todo Test AutoArray
  */
 class MtAutoArray
 {
