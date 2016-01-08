@@ -2,7 +2,7 @@
 
 namespace Amranidev\Ajaxis;
 
-use Amranidev\Ajaxis\Autoarray\MtAutoArray;
+use Amranidev\Ajaxis\Autoarray\AutoArray;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDisplayBuilder;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
@@ -10,14 +10,13 @@ use Amranidev\Ajaxis\Materialize\Builders\MaterializeDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
 use Amranidev\Ajaxis\Modal\ModalDirector;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * class AjaxisGenerate
  *
  * @package ajaxis
  * @author Amrani Houssain <amranidev@gmail.com>
- *
- * @todo Test Mget
  */
 class AjaxisGenerate
 {
@@ -165,15 +164,40 @@ class AjaxisGenerate
     }
 
     /**
-     * Test v3.0.x-dev
+     * build MAterialize modal quickly by a table name
+     *
+     * @var String $table
+     * @var String $link
+     *
+     * @return String
      */
-    public function MtGet($input, $link)
+    public function MtGet($table, $link)
     {
-        $Mtquick = new MtAutoArray($input);
+        $result = new AutoArray($table);
 
         $modal = new MaterializeModalBuilder();
 
-        $modal = $this->modalDirector->build('New', 'Create', $Mtquick->merge(), $link, $modal);
+        $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+    }
+
+    /**
+     * build modal quickly by model
+     *
+     * @var Model $model
+     * @var String $link
+     *
+     *  @return String
+     */
+    public function MteditText(Model $model, $link)
+    {
+
+        $result = new AutoArray('');
+
+        $modal = new MaterializeModalBuilder();
+
+        $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
