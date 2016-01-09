@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package ajaxis\Autoarray
  * @author Amrani Houssain <amranidev@gmail.com>
  *
- * @todo Test
+ * @todo test if its more practical
  */
 class AutoArray
 {
