@@ -6,7 +6,7 @@ use Amranidev\Ajaxis\Attributes\Attributes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * class AutoArray (Test v3.0.x-dev)
+ * class AutoArray
  *
  * @package ajaxis\Autoarray
  * @author Amrani Houssain <amranidev@gmail.com>
@@ -15,21 +15,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class AutoArray
 {
-
     /**
      * Result Array
      *
      * @var $result
      */
     public $result = [];
-
     /**
      * Get Table Attribute (an Attributes Instance)
      *
      * @var $attributes
      */
     private $attributes;
-
     /**
      * create new AutoArray instance
      *
@@ -39,7 +36,6 @@ class AutoArray
     {
         $this->attributes = new Attributes($table);
     }
-
     /**
      * arrayAnalyser . add specified types from attributes
      *
@@ -50,7 +46,6 @@ class AutoArray
     private function arrayAnalyzer($input)
     {
         $result = [];
-
         foreach ($input as $key => $value) {
             if ($key == "Field") {
                 $result[] = $value;
@@ -64,10 +59,8 @@ class AutoArray
                 }
             }
         }
-
         return $result;
     }
-
     /**
      * get result from attributes and arrayAnalyzer
      *
@@ -76,14 +69,11 @@ class AutoArray
     private function getResult()
     {
         $result = [];
-
         foreach ($this->attributes->getAttributes() as $key) {
             $result[] = $this->arrayAnalyzer($key);
         }
-
         return $result;
     }
-
     /**
      * merge : get the final result and inject (name,type,key,value)
      *
@@ -92,7 +82,6 @@ class AutoArray
     public function merge()
     {
         $array = $this->getResult();
-
         foreach ($array as $key => $value) {
             $value['name'] = $value['0'];
             $value['type'] = $value['1'];
@@ -102,10 +91,8 @@ class AutoArray
             unset($value['0']);
             $this->result[] = $value;
         }
-
         return $this->result;
     }
-
     /**
      * get simple array from Model
      *
@@ -116,13 +103,10 @@ class AutoArray
     public function getModelArray(Model $model)
     {
         $result = [];
-
         foreach ($model->getAttributes() as $key => $value) {
             $result[] = ['type' => 'text', 'name' => $key, 'key' => $key . ' :', 'value' => $value];
         }
-
         unset($result[0]);
-
         return $result;
     }
 }
