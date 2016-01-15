@@ -164,7 +164,7 @@ class AjaxisGenerate
     }
 
     /**
-     * build MAterialize modal quickly by a table name
+     * build Materialize modal quickly by a table name
      *
      * @var String $table
      * @var String $link
@@ -183,7 +183,7 @@ class AjaxisGenerate
     }
 
     /**
-     * build modal quickly by model
+     * build modal quickly by Eloquent model
      *
      * @var Model $model
      * @var String $link
@@ -200,5 +200,42 @@ class AjaxisGenerate
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+    }
+
+    /**
+     * build Bootstrap modal quickly by a table name
+     *
+     * @var String $table
+     * @var String $link
+     *
+     * @return String
+     */
+    public function BtGet($table, $link)
+    {
+        $result = new AutoArray($table);
+
+        $modal = new MaterializeModalBuilder();
+
+        $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+
+    }
+
+    /**
+     * build modal quickly by Eloquent model
+     *
+     * @var Model $model
+     * @var String $link
+     *
+     *  @return String
+     */
+    public function BteditText(Model $model, $link)
+    {
+        $result = new AutoArray('');
+
+        $modal = new BootstrapModalBuilder();
+
+        $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $modal);
     }
 }
