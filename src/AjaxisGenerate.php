@@ -214,7 +214,7 @@ class AjaxisGenerate
     {
         $result = new AutoArray($table);
 
-        $modal = new MaterializeModalBuilder();
+        $modal = new BootstrapModalBuilder();
 
         $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $modal);
 
@@ -237,5 +237,7 @@ class AjaxisGenerate
         $modal = new BootstrapModalBuilder();
 
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $modal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 }
