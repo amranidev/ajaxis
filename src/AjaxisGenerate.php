@@ -62,10 +62,9 @@ class AjaxisGenerate
      */
     public function MteditFormModal($input, $link)
     {
+        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
 
-        $modalresult = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
-
-        return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -77,9 +76,9 @@ class AjaxisGenerate
      */
     public function MtcreateFormModal($input, $link)
     {
-        $modalresult = $this->modalDirector->build('New', 'create', $input, $link, $this->MtModal);
+        $modal = $this->modalDirector->build('New', 'create', $input, $link, $this->MtModal);
 
-        return $modalresult->modalHead . $modalresult->modalBody . $modalresult->modalFooter;
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 
     /**
@@ -120,11 +119,10 @@ class AjaxisGenerate
      * @param  String $title
      * @param  String $body
      * @param  String $link
-     * @return Request
+     * @return String
      */
     public function BtDeleting($title, $body, $link)
     {
-
         $modal = new BootstrapDeleteConfirmationMessage();
 
         $modal = $this->modalDirector->build($title, 'Agree', $body, $link, $modal);
@@ -200,7 +198,6 @@ class AjaxisGenerate
      */
     public function MteditText(Model $model, $link)
     {
-
         $result = new AutoArray('');
 
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->MtModal);
@@ -223,7 +220,6 @@ class AjaxisGenerate
         $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $this->BtModal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
-
     }
 
     /**
