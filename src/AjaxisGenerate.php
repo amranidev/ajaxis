@@ -6,6 +6,7 @@ use Amranidev\Ajaxis\Autoarray\AutoArray;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDisplayBuilder;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
+use Amranidev\Ajaxis\Materialize\Builders\MaterializeDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
 use Amranidev\Ajaxis\Modal\ModalDirector;
@@ -91,7 +92,9 @@ class AjaxisGenerate
      */
     public function MtDeleting($title, $message, $link)
     {
-        $modal = $this->modalDirector->build($title, 'Delete', $message, $link, $this->MtModal);
+        $modal = new MaterializeDeleteConfirmationMessage();
+
+        $modal = $this->modalDirector->build($title, 'Delete', $message, $link, $modal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
@@ -236,5 +239,7 @@ class AjaxisGenerate
         $result = new AutoArray('');
 
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->BtModal);
+
+        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
 }
