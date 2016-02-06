@@ -42,7 +42,7 @@ $('body').on('click', '.remove', function() {
         method: 'get',
         url: baseURL + $(this).data('link'),
         success: function(response) {
-            window.location.replace(response);
+            window.location = response;
         }
     });
 });
@@ -54,7 +54,7 @@ function POST(postData, dataLink) {
         url: baseURL + dataLink,
         data: postData,
         success: function(response) {
-            window.location.replace(response);
+            window.location = response;
         }
     })
 }
