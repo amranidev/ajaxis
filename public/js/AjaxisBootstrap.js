@@ -54,7 +54,7 @@ function POST(postData, dataLink) {
         url: baseURL + dataLink,
         data: postData,
         success: function(response) {
-            window.location.replace(response);
+            window.location = response;
         }
     })
 }
