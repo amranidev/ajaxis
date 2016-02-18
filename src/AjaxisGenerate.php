@@ -228,7 +228,7 @@ class AjaxisGenerate
      * @var Model $model
      * @var String $link
      *
-     *  @return String
+     * @return String
      */
     public function BteditText(Model $model, $link)
     {
