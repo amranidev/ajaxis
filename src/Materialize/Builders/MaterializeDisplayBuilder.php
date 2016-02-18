@@ -9,7 +9,7 @@ use Amranidev\Ajaxis\Modal\ModalInterface;
  * class MAterializeDisplayBuilder
  *
  * @package ajaxis/Materialize/Builders
- * @author Amrani Houssain <amranidev@gmail.com>
+ * @author  Amrani Houssain <amranidev@gmail.com>
  */
 class MaterializeDisplayBuilder implements ModalInterface
 {
@@ -31,7 +31,7 @@ class MaterializeDisplayBuilder implements ModalInterface
     /**
      * Build modal head
      *
-     * @param $title String
+     * @param String $title
      */
     public function buildHead($title)
     {
@@ -41,7 +41,7 @@ class MaterializeDisplayBuilder implements ModalInterface
     /**
      * Build modal body
      *
-     * @param $input Array
+     * @param Array $input
      */
     public function buildBody($a, $b, $c, $input)
     {
@@ -51,8 +51,8 @@ class MaterializeDisplayBuilder implements ModalInterface
     /**
      * Build modal footer
      *
-     * @param $link String
-     * @param $action String
+     * @param String $link
+     * @param String $action
      */
     public function buildFooter($link, $action)
     {
