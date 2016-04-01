@@ -74,6 +74,16 @@ class MaterializeModalBuilder implements ModalInterface
                 view('Ajaxis::materialize.types.radio', compact('type', 'name', 'label'))->render();
                 break;
 
+            case 'hidden':
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.text', compact('label', 'name', 'value', 'type'))->render();
+                break;
+
+            case 'password':
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.text', compact('label', 'name', 'value', 'type'))->render();
+                break;
+
             default:
                 throw new \Exception('Type not found ' . $type);
         }
