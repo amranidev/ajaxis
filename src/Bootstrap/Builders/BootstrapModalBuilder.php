@@ -74,6 +74,15 @@ class BootstrapModalBuilder implements ModalInterface
                 view('Ajaxis::bootstrap.types.checkbox', compact('name', 'value', 'label'))->render();
                 break;
 
+            case 'hidden':
+                $this->Modal->modalBody .=
+                view('Ajaxis::bootstrap.types.text', compact('label', 'name', 'value', 'type'))->render();
+                break;
+
+            case 'password':
+                $this->Modal->modalBody .=
+                view('Ajaxis::bootstrap.types.text', compact('label', 'name', 'value', 'type'))->render();
+                break;
             default:
                 throw new \Exception('Type not found' . $type);
         }
