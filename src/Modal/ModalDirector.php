@@ -39,7 +39,7 @@ class ModalDirector
             /**
              * check if name key exists
              */
-            if (array_key_exists('name', $input[1])) {
+            if (array_key_exists('name', $input[0])) {
                 foreach ($input as $val) {
                     $modal->buildBody($val['key'], $val['name'], $val['value'], $val['type']);
                 }
