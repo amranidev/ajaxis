@@ -1,6 +1,6 @@
 <?php
 
-use Amranidev\Ajaxis\Ajaxis;
+use Amranidev\Ajaxis\AjaxisGenerate;
 use Amranidev\Ajaxis\Tests\TestCase;
 
 class AjaxisTest extends TestCase
@@ -17,9 +17,11 @@ class AjaxisTest extends TestCase
      */
     public function testExample()
     {
-        $ajaxis = Ajaxis::BtCreateFormModal([
-            ['type' => 'text', 'name' => 'name1', 'key' => 'name1', 'value' => ''],
-        ], "api");
+        $ajaxis = new AjaxisGenerate();
+
+        $ajaxis = $ajaxis->BtCreateFormModal([
+            ['type' => 'Text', 'name' => 'firstname', 'key' => 'Firstname : ', 'value' => ''],
+        ], "Api");
 
         $this->assertInternalType("string", $ajaxis);
     }
