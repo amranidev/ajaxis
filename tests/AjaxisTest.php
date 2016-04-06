@@ -1,13 +1,25 @@
 <?php
-use PHPUnit_Framework_TestCase;
 
-class AjaxisTest extends PHPUnit_Framework_TestCase
+use Amranidev\Ajaxis\Ajaxis;
+
+class AjaxisTest extends TestCase
 {
 
+    public function __construct()
+    {
+        parent::setUp();
+    }
+    /*
+     * A basic test example.
+     *
+     * @return void
+     */
     public function testExample()
     {
-        $a = 15;
-        $this->assertEquals(16, $a + 1);
-    }
+        $ajaxis = Ajaxis::BtCreateFormModal([
+            ['type' => 'text', 'name' => 'name1', 'key' => 'name1', 'value' => ''],
+        ], "api");
 
+        $this->assertInternalType("string", $ajaxis);
+    }
 }
