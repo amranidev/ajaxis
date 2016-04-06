@@ -1,5 +1,6 @@
 <?php
 
+use Amranidev\Ajaixs\Tests\TestCase;
 use Amranidev\Ajaxis\Ajaxis;
 
 class AjaxisTest extends TestCase
