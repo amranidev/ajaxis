@@ -21,7 +21,7 @@ class MaterializeModalBuilder implements ModalInterface
     public $Modal;
 
     /**
-     * Create new BootstrapModalBuilder instance
+     * Create new MaterializeModalBuilder instance
      */
     public function __construct()
     {
