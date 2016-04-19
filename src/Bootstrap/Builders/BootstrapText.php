@@ -20,7 +20,7 @@ class BootstrapText implements ModalInterface
     public $Modal;
 
     /**
-     * create new BootstrapDeleteConfitmationMessage instance
+     * create new BootstrapText instance
      */
     public function __construct()
     {
