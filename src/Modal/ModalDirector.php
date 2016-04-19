@@ -16,11 +16,11 @@ class ModalDirector
     /**
      * build modal
      *
-     * @param $title String
-     * @param $action String
-     * @param $input Array/String
-     * @param $link String
-     * @param $modal Modal
+     * @param String $title
+     * @param String $action
+     * @param Mixed  $input
+     * @param String $link
+     * @param Modal  $modal
      *
      * $input may be a string or an array.
      */
