@@ -6,6 +6,7 @@ use Amranidev\Ajaxis\Autoarray\AutoArray;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapDisplayBuilder;
 use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapModalBuilder;
+use Amranidev\Ajaxis\Bootstrap\Builders\BootstrapText;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDeleteConfirmationMessage;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeDisplayBuilder;
 use Amranidev\Ajaxis\Materialize\Builders\MaterializeModalBuilder;
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * class AjaxisGenerate
  *
  * @package ajaxis
+ *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class AjaxisGenerate
@@ -58,6 +60,7 @@ class AjaxisGenerate
      *
      * @param  Array $input
      * @param  String $link
+     *
      * @return String
      */
     public function MteditFormModal($input, $link)
@@ -72,6 +75,7 @@ class AjaxisGenerate
      *
      * @param  Array $input
      * @param  String $link
+     *
      * @return String
      */
     public function MtcreateFormModal($input, $link)
@@ -87,6 +91,7 @@ class AjaxisGenerate
      * @param  String $title
      * @param  String $message
      * @param  String $link
+     *
      * @return String
      */
     public function MtDeleting($title, $message, $link)
@@ -102,6 +107,7 @@ class AjaxisGenerate
      * Show materialize modal to displa specified resource.
      *
      * @param  Array $input
+     *
      * @return String
      */
     public function MtDisplay($input)
@@ -119,6 +125,7 @@ class AjaxisGenerate
      * @param  String $title
      * @param  String $body
      * @param  String $link
+     *
      * @return String
      */
     public function BtDeleting($title, $body, $link)
@@ -135,6 +142,7 @@ class AjaxisGenerate
      *
      * @param  Array $input
      * @param  String $link
+     * 
      * @return String
      */
     public function BtCreateFormModal($input, $link)
@@ -146,8 +154,10 @@ class AjaxisGenerate
 
     /**
      * Show Ajaxis bootstrap form to edite specified resource.
+     *
      * @param  Array $input
      * @param  String $link
+     * 
      * @return String
      */
     public function BtEditFormModal($input, $link)
@@ -159,7 +169,9 @@ class AjaxisGenerate
 
     /**
      * Show bootstrap modal to display specified resource.
+     *
      * @param  Array $input
+     * 
      * @return String
      */
     public function BtDisplay($input)
@@ -174,8 +186,8 @@ class AjaxisGenerate
     /**
      * build Materialize modal quickly by a table name
      *
-     * @var String $table
-     * @var String $link
+     * @param String $table
+     * @param String $link
      *
      * @return String
      */
@@ -208,8 +220,8 @@ class AjaxisGenerate
     /**
      * build Bootstrap modal quickly by a table name
      *
-     * @var String $table
-     * @var String $link
+     * @param String $table
+     * @param String $link
      *
      * @return String
      */
@@ -225,8 +237,8 @@ class AjaxisGenerate
     /**
      * build modal quickly by Eloquent model
      *
-     * @var Model $model
-     * @var String $link
+     * @param Model $model
+     * @param String $link
      *
      * @return String
      */
@@ -242,8 +254,8 @@ class AjaxisGenerate
     /**
      * build simple modal with text
      * 
-     * @var String $input
-     * @var String $link
+     * @param String $input
+     * @param String $link
      * 
      * @return String 
      */
