@@ -28,7 +28,7 @@ $(document).on('click', '.destroy', function() {
         type: 'get',
         url: baseURL + $(this).data('link'),
         success: function(response) {
-            window.location(response);
+            window.location = response;
         }
     })
 })
