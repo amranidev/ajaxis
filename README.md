@@ -1,4 +1,4 @@
-Ajaxis PHP package for laravel v5.1
+Ajaxis PHP package for laravel
 ===================================
 
 [![Build Status](https://travis-ci.org/amranidev/ajaxis.svg?branch=master)](https://travis-ci.org/amranidev/ajaxis)
@@ -8,7 +8,7 @@ Ajaxis PHP package for laravel v5.1
 
 ## Overview
 
-Ajaxis is a PHP package for laravel 5.1 that work with javascript plugins for materialize and bootstrap.
+Ajaxis is a PHP package for laravel that work with javascript plugins for materialize and bootstrap.
 Ajaxis is used for managing CRUD model with AJAX using Materialize or Bootsrap Modals
 that can generates inputs (text,radio,checkbox,file,etc..) automatically.
 
@@ -17,7 +17,6 @@ Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a mod
 ## What's new in v3.0.x
 
    Possibility to generate HTML modal elements by just one line of code instead an array to be more easier.
-  > Ajaxis v3.0.x coming soon
 
 ## An example
 
@@ -43,7 +42,7 @@ Add Ajaxis to your composer.json file to require Ajaxis :
 ```json
 require : {
 "laravel/framework": "5.1.*",
-"Amranidev/Ajaxis": "2.1.*"
+"Amranidev/Ajaxis": "3.0.*"
 }
 ```
 
@@ -252,5 +251,5 @@ example.
 
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
-## contact : amranidev@gmail.com
+## Contact : amranidev@gmail.com
 
