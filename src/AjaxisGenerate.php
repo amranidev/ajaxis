@@ -65,7 +65,7 @@ class AjaxisGenerate
      */
     public function MteditFormModal($input, $link)
     {
-        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $modal);
+        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->MtModal);
 
         return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
     }
