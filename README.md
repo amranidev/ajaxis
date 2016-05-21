@@ -1,6 +1,8 @@
 Ajaxis PHP package for laravel
 ===================================
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/de72e940-3c06-4664-b84c-425838cd68ea/big.png)](https://insight.sensiolabs.com/projects/de72e940-3c06-4664-b84c-425838cd68ea)
+
 [![Build Status](https://travis-ci.org/amranidev/ajaxis.svg?branch=master)](https://travis-ci.org/amranidev/ajaxis)
 [![Latest Stable Version](https://poser.pugx.org/amranidev/ajaxis/v/stable)](https://packagist.org/packages/amranidev/ajaxis) [![Total Downloads](https://poser.pugx.org/amranidev/ajaxis/downloads)](https://packagist.org/packages/amranidev/ajaxis)
 [![Latest Unstable Version](https://poser.pugx.org/amranidev/ajaxis/v/unstable)](https://packagist.org/packages/amranidev/ajaxis)
