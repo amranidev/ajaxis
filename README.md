@@ -39,27 +39,32 @@ index, create,show,etc.
 ## Package installation
 
 Add Ajaxis to your composer.json file to require Ajaxis :
+
 ```json
+
 require : {
 "laravel/framework": "5.1.*",
 "Amranidev/Ajaxis": "3.0.*"
 }
+
 ```
 
 Update Composer :
-```
-composer update
-```
+
+`composer update`
+
 
 The next required step is to add the service provider to config/app.php :
 ```php
+
 Amranidev\Ajaxis\AjaxisServiceProvider::class,
+
 ```
 
 The last required step is to publish assets in your application with :
-```
-php artisan vendor:publish
-```
+
+`php artisan vendor:publish`
+
 ### Plugin Configuration
 ========================
 
@@ -75,6 +80,7 @@ php artisan vendor:publish
 <script type="text/javascript">var baseURL = "{{URL::to('/')}}"</script>
 <script type = "text/javasctipt" src = "ajaxis.js"></script>
 </html>
+
 ```
 
 ## Define your modal
@@ -86,18 +92,22 @@ you can put that modal in your laravel layout.
 #### For Materialize
 
 ```html
+
 <div id="modal1" class="modal bottom-sheet">
 <div class = "row AjaxisModal">
 </div>
 </div>
+
 ```
 #### For Bootstrap
 
 ```html
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 <div class = 'AjaxisModal'>
 </div>
 </div>
+
 ```
 
 ## Usage
@@ -170,9 +180,10 @@ MtDeleting($title,$body,$api)      |  generate delete confirmation message
 ##### Example
 
 ```php
-   // to generate form for crating a new recource and return the request to the frontend
-  $Api = '/test/store/';
-  $request = Ajaxis::MtCreateFormModal(
+
+    // to generate form for crating a new recource and return the request to the frontend
+    $Api = '/test/store/';
+    $request = Ajaxis::MtCreateFormModal(
     [
     ['name' => 'nom' ,'type' => 'text' , 'value' => '','key' => 'First name :' ],
     ['name' => 'prenom' , 'type' => 'text' , 'value' => '','key' => 'Lastname :'],
@@ -185,6 +196,7 @@ MtDeleting($title,$body,$api)      |  generate delete confirmation message
     }
 
 ```
+
 we just define target action by $api . and we call **MtCreateFormModal** to generate Form with inputs that we need to put in array (name,type,value,key)
 then we need to return our form to the frontend using **Request::ajax()** to pull it into our modal.
 
@@ -193,6 +205,7 @@ if you're using bootstrap all you gonna do is to add **Bt**.
 example.
 
 ```php
+
     public function create()
     {
         $api = '/ContactBt/store/';
@@ -239,12 +252,14 @@ example.
 **Title** , **Body** , **API**.
 
 ```php
+
       $api = '/ContactBt/'.$id.'/destroy';
       $Ajaxis = Ajaxis::BtDeleting('Delete','Are you sure to delete this contact ?',$api);      
       
       if(Request::ajax()){
         return $Ajaxis;
       }
+
 ``` 
 
 ## Contribution
