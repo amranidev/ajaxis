@@ -6,12 +6,12 @@ use Amranidev\Ajaxis\Attributes\Attributes;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * class AutoArray
+ * class AutoArray.
  *
  * @package ajaxis\Autoarray
+ * 
  * @author Amrani Houssain <amranidev@gmail.com>
  *
- * @todo test if its more practical
  */
 class AutoArray
 {
