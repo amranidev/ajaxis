@@ -44,7 +44,7 @@ class AjaxisGenerate
     private $BtModal;
 
     /**
-     * create new AjaxisGenerate instrance
+     * create new AjaxisGenerate instrance.
      */
     public function __construct()
     {
@@ -58,12 +58,12 @@ class AjaxisGenerate
     /**
      * Show Ajaxis materialize form to edit specified resource.
      *
-     * @param  Array $input
-     * @param  String $link
+     * @param  array $input
+     * @param  string $link
      *
-     * @return String
+     * @return string
      */
-    public function MteditFormModal($input, $link)
+    public function mtEditFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->MtModal);
 
@@ -72,13 +72,13 @@ class AjaxisGenerate
 
     /**
      * Show Ajaxis materialize form to create specified resource.
+     * 
+     * @param  srray $input
+     * @param  string $link
      *
-     * @param  Array $input
-     * @param  String $link
-     *
-     * @return String
+     * @return string
      */
-    public function MtcreateFormModal($input, $link)
+    public function mtCreateFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('New', 'create', $input, $link, $this->MtModal);
 
@@ -88,13 +88,13 @@ class AjaxisGenerate
     /**
      * Show materialize confirmation message to delete  specified resource.
      *
-     * @param  String $title
-     * @param  String $message
-     * @param  String $link
+     * @param  string $title
+     * @param  string $message
+     * @param  string $link
      *
-     * @return String
+     * @return string
      */
-    public function MtDeleting($title, $message, $link)
+    public function mtDeleting($title, $message, $link)
     {
         $modal = new MaterializeDeleteConfirmationMessage();
 
@@ -106,11 +106,11 @@ class AjaxisGenerate
     /**
      * Show materialize modal to displa specified resource.
      *
-     * @param  Array $input
+     * @param  array $input
      *
-     * @return String
+     * @return string
      */
-    public function MtDisplay($input)
+    public function mtDisplay($input)
     {
         $modal = new MaterializeDisplayBuilder();
 
@@ -122,13 +122,13 @@ class AjaxisGenerate
     /**
      * Show bootsrap modal to delete specified resource.
      *
-     * @param  String $title
-     * @param  String $body
-     * @param  String $link
+     * @param  string $title
+     * @param  string $body
+     * @param  string $link
      *
-     * @return String
+     * @return string
      */
-    public function BtDeleting($title, $body, $link)
+    public function btDeleting($title, $body, $link)
     {
         $modal = new BootstrapDeleteConfirmationMessage();
 
@@ -140,12 +140,12 @@ class AjaxisGenerate
     /**
      * Show Ajaxis bootstrap form to create specified resource.
      *
-     * @param  Array $input
-     * @param  String $link
+     * @param  array $input
+     * @param  string $link
      * 
-     * @return String
+     * @return string
      */
-    public function BtCreateFormModal($input, $link)
+    public function btCreateFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('New', 'Create', $input, $link, $this->BtModal);
 
@@ -155,12 +155,12 @@ class AjaxisGenerate
     /**
      * Show Ajaxis bootstrap form to edite specified resource.
      *
-     * @param  Array $input
-     * @param  String $link
+     * @param  array $input
+     * @param  string $link
      * 
-     * @return String
+     * @return string
      */
-    public function BtEditFormModal($input, $link)
+    public function btEditFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->BtModal);
 
@@ -170,11 +170,11 @@ class AjaxisGenerate
     /**
      * Show bootstrap modal to display specified resource.
      *
-     * @param  Array $input
+     * @param  array $input
      * 
-     * @return String
+     * @return string
      */
-    public function BtDisplay($input)
+    public function btDisplay($input)
     {
         $modal = new BootstrapDisplayBuilder();
 
@@ -184,14 +184,14 @@ class AjaxisGenerate
     }
 
     /**
-     * build Materialize modal quickly by a table name
+     * build Materialize modal quickly by a table name.
      *
-     * @param String $table
-     * @param String $link
+     * @param string $table
+     * @param string $link
      *
-     * @return String
+     * @return string
      */
-    public function MtGet($table, $link)
+    public function mtGet($table, $link)
     {
         $result = new AutoArray($table);
 
@@ -201,14 +201,14 @@ class AjaxisGenerate
     }
 
     /**
-     * build modal quickly by Eloquent model
+     * build modal quickly by Eloquent model.
      *
-     * @var Model $model
-     * @var String $link
+     * @var model $model
+     * @var string $link
      *
-     *  @return String
+     *  @return string
      */
-    public function MteditText(Model $model, $link)
+    public function mtEditText(Model $model, $link)
     {
         $result = new AutoArray('');
 
@@ -218,14 +218,14 @@ class AjaxisGenerate
     }
 
     /**
-     * build Bootstrap modal quickly by a table name
+     * build Bootstrap modal quickly by a table name.
      *
-     * @param String $table
-     * @param String $link
+     * @param string $table
+     * @param string $link
      *
-     * @return String
+     * @return string
      */
-    public function BtGet($table, $link)
+    public function btGet($table, $link)
     {
         $result = new AutoArray($table);
 
@@ -235,14 +235,14 @@ class AjaxisGenerate
     }
 
     /**
-     * build modal quickly by Eloquent model
+     * build modal quickly by Eloquent model.
      *
-     * @param Model $model
-     * @param String $link
+     * @param Illuminate\Database\Eloquent\Model $model
+     * @param string $link
      *
-     * @return String
+     * @return string
      */
-    public function BteditText(Model $model, $link)
+    public function btEditText(Model $model, $link)
     {
         $result = new AutoArray('');
 
@@ -252,14 +252,14 @@ class AjaxisGenerate
     }
 
     /**
-     * build simple modal with text
+     * build simple modal with text.
      * 
-     * @param String $input
-     * @param String $link
+     * @param string $input
+     * @param string $link
      * 
-     * @return String 
+     * @return string 
      */
-        public function BtText($input, $link)
+        public function btText($input, $link)
         {
             $director = new ModalDirector();
 
