@@ -252,4 +252,3 @@ example.
  Any ideas are welcome. Feel free to submit any issues or pull requests.
 
 ## Contact : amranidev@gmail.com
-
