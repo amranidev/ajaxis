@@ -14,32 +14,31 @@ use Amranidev\Ajaxis\Modal\ModalDirector;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * class AjaxisGenerate
+ * class AjaxisGenerate.
  *
- * @package ajaxis
  *
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class AjaxisGenerate
 {
     /**
-     * ModalDirector instance
+     * ModalDirector instance.
      *
-     * @var $modalDorector
+     * @var
      */
     private $modalDirector;
 
     /**
-     * Materialize Modal Content
+     * Materialize Modal Content.
      *
      * @var MtModal
      */
     private $MtModal;
 
     /**
-     * Bootstrap Modal Content
+     * Bootstrap Modal Content.
      *
-     * @var $btModal;
+     * @var;
      */
     private $BtModal;
 
@@ -58,8 +57,8 @@ class AjaxisGenerate
     /**
      * Show Ajaxis materialize form to edit specified resource.
      *
-     * @param  array $input
-     * @param  string $link
+     * @param array  $input
+     * @param string $link
      *
      * @return string
      */
@@ -67,14 +66,14 @@ class AjaxisGenerate
     {
         $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->MtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show Ajaxis materialize form to create specified resource.
-     * 
-     * @param  srray $input
-     * @param  string $link
+     *
+     * @param srray  $input
+     * @param string $link
      *
      * @return string
      */
@@ -82,15 +81,15 @@ class AjaxisGenerate
     {
         $modal = $this->modalDirector->build('New', 'create', $input, $link, $this->MtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show materialize confirmation message to delete  specified resource.
      *
-     * @param  string $title
-     * @param  string $message
-     * @param  string $link
+     * @param string $title
+     * @param string $message
+     * @param string $link
      *
      * @return string
      */
@@ -100,13 +99,13 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build($title, 'Delete', $message, $link, $modal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show materialize modal to displa specified resource.
      *
-     * @param  array $input
+     * @param array $input
      *
      * @return string
      */
@@ -116,15 +115,15 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build(null, null, $input, null, $modal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show bootsrap modal to delete specified resource.
      *
-     * @param  string $title
-     * @param  string $body
-     * @param  string $link
+     * @param string $title
+     * @param string $body
+     * @param string $link
      *
      * @return string
      */
@@ -134,44 +133,44 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build($title, 'Agree', $body, $link, $modal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show Ajaxis bootstrap form to create specified resource.
      *
-     * @param  array $input
-     * @param  string $link
-     * 
+     * @param array  $input
+     * @param string $link
+     *
      * @return string
      */
     public function btCreateFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('New', 'Create', $input, $link, $this->BtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show Ajaxis bootstrap form to edite specified resource.
      *
-     * @param  array $input
-     * @param  string $link
-     * 
+     * @param array  $input
+     * @param string $link
+     *
      * @return string
      */
     public function btEditFormModal($input, $link)
     {
         $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->BtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * Show bootstrap modal to display specified resource.
      *
-     * @param  array $input
-     * 
+     * @param array $input
+     *
      * @return string
      */
     public function btDisplay($input)
@@ -180,7 +179,7 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build('Dsiplay', 'ok', $input, null, $modal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
@@ -197,13 +196,13 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $this->MtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * build modal quickly by Eloquent model.
      *
-     * @var model $model
+     * @var model
      * @var string $link
      *
      *  @return string
@@ -214,7 +213,7 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->MtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
@@ -231,14 +230,14 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $this->BtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
     /**
      * build modal quickly by Eloquent model.
      *
      * @param Illuminate\Database\Eloquent\Model $model
-     * @param string $link
+     * @param string                             $link
      *
      * @return string
      */
@@ -248,17 +247,17 @@ class AjaxisGenerate
 
         $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->BtModal);
 
-        return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
-    /**
-     * build simple modal with text.
-     * 
-     * @param string $input
-     * @param string $link
-     * 
-     * @return string 
-     */
+        /**
+         * build simple modal with text.
+         *
+         * @param string $input
+         * @param string $link
+         *
+         * @return string
+         */
         public function btText($input, $link)
         {
             $director = new ModalDirector();
@@ -267,6 +266,6 @@ class AjaxisGenerate
 
             $modal = $director->build('Has Role', 'Ok', $input, $link, $modal);
 
-            return $modal->modalHead . $modal->modalBody . $modal->modalFooter;
+            return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
         }
 }

@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class BootstrapDeleteConfirmationMessage
+ * class BootstrapDeleteConfirmationMessage.
  *
- * @package ajaxis/Bootstrap/Builders
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class BootstrapDeleteConfirmationMessage implements ModalInterface
 {
     /**
-     * modal instance
+     * modal instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * create new BootstrapDeleteConfitmationMessage instance
+     * create new BootstrapDeleteConfitmationMessage instance.
      */
     public function __construct()
     {
@@ -29,7 +28,7 @@ class BootstrapDeleteConfirmationMessage implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -39,17 +38,17 @@ class BootstrapDeleteConfirmationMessage implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $input Array
      */
     public function buildBody($a, $b, $c, $input)
     {
-        $this->Modal->modalBody .= '<div class="modal-body">' . $input . '</div>';
+        $this->Modal->modalBody .= '<div class="modal-body">'.$input.'</div>';
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
      * @param $link String
      * @param $action String
@@ -57,11 +56,10 @@ class BootstrapDeleteConfirmationMessage implements ModalInterface
     public function buildFooter($link, $action)
     {
         $this->Modal->modalFooter = view('Ajaxis::bootstrap.get.footer', compact('link', 'action'))->render();
-
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */
@@ -69,5 +67,4 @@ class BootstrapDeleteConfirmationMessage implements ModalInterface
     {
         return $this->Modal;
     }
-
 }

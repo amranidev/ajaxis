@@ -1,4 +1,5 @@
 <?php
+
 namespace Amranidev\Ajaxis\Tests;
 
 use PHPUnit_Framework_TestCase;

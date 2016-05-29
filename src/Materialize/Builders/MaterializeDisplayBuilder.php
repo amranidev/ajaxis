@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class MAterializeDisplayBuilder
+ * class MAterializeDisplayBuilder.
  *
- * @package ajaxis/Materialize/Builders
  * @author  Amrani Houssain <amranidev@gmail.com>
  */
 class MaterializeDisplayBuilder implements ModalInterface
 {
     /**
-     * Modal Instance
+     * Modal Instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * Create new MaterializeDisplayBuilder instance
+     * Create new MaterializeDisplayBuilder instance.
      */
     public function __construct()
     {
@@ -29,9 +28,9 @@ class MaterializeDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
-     * @param String $title
+     * @param string $title
      */
     public function buildHead($title)
     {
@@ -39,9 +38,9 @@ class MaterializeDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
-     * @param Array $input
+     * @param array $input
      */
     public function buildBody($a, $b, $c, $input)
     {
@@ -49,10 +48,10 @@ class MaterializeDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
-     * @param String $link
-     * @param String $action
+     * @param string $link
+     * @param string $action
      */
     public function buildFooter($link, $action)
     {
@@ -60,7 +59,7 @@ class MaterializeDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */

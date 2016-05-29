@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class BootstrapDisplayBuilder
+ * class BootstrapDisplayBuilder.
  *
- * @package ajaxis/Bootstrap/Builders
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class BootstrapDisplayBuilder implements ModalInterface
 {
     /**
-     * Modal Instance
+     * Modal Instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * Create new BootstrapDisplayBuilder instance
+     * Create new BootstrapDisplayBuilder instance.
      */
     public function __construct()
     {
@@ -29,7 +28,7 @@ class BootstrapDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -39,18 +38,17 @@ class BootstrapDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $input Array
      */
     public function buildBody($a, $b, $c, $input)
     {
         $this->Modal->modalBody .= view('Ajaxis::bootstrap.display.body', compact('input'))->render();
-
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
      * @param $link String
      * @param $action String
@@ -61,7 +59,7 @@ class BootstrapDisplayBuilder implements ModalInterface
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */
@@ -69,5 +67,4 @@ class BootstrapDisplayBuilder implements ModalInterface
     {
         return $this->Modal;
     }
-
 }

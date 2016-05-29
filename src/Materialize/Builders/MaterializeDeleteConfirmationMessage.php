@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class MaterializeDeleteConfirmationMessage
+ * class MaterializeDeleteConfirmationMessage.
  *
- * @package ajaxis/Materialize/Builders
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class MaterializeDeleteConfirmationMessage implements ModalInterface
 {
     /**
-     * Modal Instance
+     * Modal Instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * Create new MaterializeDeleteConfirmationMessage
+     * Create new MaterializeDeleteConfirmationMessage.
      */
     public function __construct()
     {
@@ -29,7 +28,7 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -39,7 +38,7 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $input Array
      */
@@ -48,18 +47,19 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
         $this->Modal->modalBody .= $input;
     }
 
-    /**
-     * Build modal footer
-     *
-     * @param $link String
-     * @param $action String
-     */public function buildfooter($link, $action)
-    {
-        $this->Modal->modalFooter = view('Ajaxis::materialize.get.footer', compact('link', 'action'))->render();
-    }
+/**
+ * Build modal footer.
+ *
+ * @param $link String
+ * @param $action String
+ */
+public function buildfooter($link, $action)
+{
+    $this->Modal->modalFooter = view('Ajaxis::materialize.get.footer', compact('link', 'action'))->render();
+}
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */
