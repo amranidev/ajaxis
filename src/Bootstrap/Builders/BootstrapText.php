@@ -6,21 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * Class BootstrapText
- * 
+ * Class BootstrapText.
+ *
  * @author Amrani Houssain <amranidev@gmail.com
  */
 class BootstrapText implements ModalInterface
 {
     /**
-     * modal instance
+     * modal instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * create new BootstrapText instance
+     * create new BootstrapText instance.
      */
     public function __construct()
     {
@@ -28,7 +28,7 @@ class BootstrapText implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -38,7 +38,7 @@ class BootstrapText implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $input Array
      */
@@ -48,7 +48,7 @@ class BootstrapText implements ModalInterface
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
      * @param $link String
      * @param $action String
@@ -59,7 +59,7 @@ class BootstrapText implements ModalInterface
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */

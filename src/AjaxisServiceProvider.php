@@ -2,13 +2,11 @@
 
 namespace Amranidev\Ajaxis;
 
-use Amranidev\Ajaxis\AjaxisGenerate;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * class AjaxisServiceProvider
+ * class AjaxisServiceProvider.
  *
- * @package ajaxis
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class AjaxisServiceProvider extends ServiceProvider
@@ -24,13 +22,13 @@ class AjaxisServiceProvider extends ServiceProvider
             return new AjaxisGenerate();
         });
     }
+
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../public' => public_path(),
+            __DIR__.'/../public' => public_path(),
         ], 'public');
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'Ajaxis');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'Ajaxis');
     }
-
 }
