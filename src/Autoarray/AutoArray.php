@@ -8,38 +8,38 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * class AutoArray.
  *
- * @package ajaxis\Autoarray
- * 
- * @author Amrani Houssain <amranidev@gmail.com>
  *
+ * @author Amrani Houssain <amranidev@gmail.com>
  */
 class AutoArray
 {
     /**
-     * Result Array
+     * Result Array.
      *
-     * @var $result
+     * @var
      */
     public $result = [];
     /**
-     * Get Table Attribute (an Attributes Instance)
+     * Get Table Attribute (an Attributes Instance).
      *
-     * @var $attributes
+     * @var
      */
     private $attributes;
+
     /**
-     * create new AutoArray instance
+     * create new AutoArray instance.
      *
-     * @var $table String
+     * @var String
      */
     public function __construct($table)
     {
         $this->attributes = new Attributes($table);
     }
+
     /**
-     * arrayAnalyser . add specified types from attributes
+     * arrayAnalyser . add specified types from attributes.
      *
-     * @var $input Array
+     * @var Array
      *
      * @return $result
      */
@@ -47,11 +47,11 @@ class AutoArray
     {
         $result = [];
         foreach ($input as $key => $value) {
-            if ($key == "Field") {
+            if ($key == 'Field') {
                 $result[] = $value;
-            } elseif ($key == "Type") {
+            } elseif ($key == 'Type') {
                 if (str_contains($value, 'int')) {
-                    $result[] = "text";
+                    $result[] = 'text';
                 } elseif (str_contains($value, 'char')) {
                     $result[] = 'text';
                 } elseif ($value = 'date') {
@@ -59,10 +59,12 @@ class AutoArray
                 }
             }
         }
+
         return $result;
     }
+
     /**
-     * get result from attributes and arrayAnalyzer
+     * get result from attributes and arrayAnalyzer.
      *
      * @return $result
      */
@@ -72,10 +74,12 @@ class AutoArray
         foreach ($this->attributes->getAttributes() as $key) {
             $result[] = $this->arrayAnalyzer($key);
         }
+
         return $result;
     }
+
     /**
-     * merge : get the final result and inject (name,type,key,value)
+     * merge : get the final result and inject (name,type,key,value).
      *
      * @return $this->result
      */
@@ -85,16 +89,18 @@ class AutoArray
         foreach ($array as $key => $value) {
             $value['name'] = $value['0'];
             $value['type'] = $value['1'];
-            $value['key'] = $value['0'] . ' :';
+            $value['key'] = $value['0'].' :';
             $value['value'] = '';
             unset($value['1']);
             unset($value['0']);
             $this->result[] = $value;
         }
+
         return $this->result;
     }
+
     /**
-     * get simple array from Model
+     * get simple array from Model.
      *
      * @param Model $model
      *
@@ -104,9 +110,10 @@ class AutoArray
     {
         $result = [];
         foreach ($model->getAttributes() as $key => $value) {
-            $result[] = ['type' => 'text', 'name' => $key, 'key' => $key . ' :', 'value' => $value];
+            $result[] = ['type' => 'text', 'name' => $key, 'key' => $key.' :', 'value' => $value];
         }
         unset($result[0]);
+
         return $result;
     }
 }

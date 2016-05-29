@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class MaterializeModalBuilder
+ * class MaterializeModalBuilder.
  *
- * @package ajaxis/Materialize/Builders
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class MaterializeModalBuilder implements ModalInterface
 {
     /**
-     * Modal Instance
+     * Modal Instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * Create new MaterializeModalBuilder instance
+     * Create new MaterializeModalBuilder instance.
      */
     public function __construct()
     {
@@ -29,7 +28,7 @@ class MaterializeModalBuilder implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -39,7 +38,7 @@ class MaterializeModalBuilder implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $lable String
      * @param $name String
@@ -85,12 +84,12 @@ class MaterializeModalBuilder implements ModalInterface
                 break;
 
             default:
-                throw new \Exception('Type not found ' . $type);
+                throw new \Exception('Type not found '.$type);
         }
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
      * @param $link String
      * @param $action String
@@ -101,7 +100,7 @@ class MaterializeModalBuilder implements ModalInterface
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */
@@ -109,5 +108,4 @@ class MaterializeModalBuilder implements ModalInterface
     {
         return $this->Modal;
     }
-
 }

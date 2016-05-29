@@ -5,27 +5,27 @@ namespace Amranidev\Ajaxis\Attributes;
 use Illuminate\Support\Facades\DB;
 
 /**
- * class Attributes
+ * class Attributes.
  *
- * @package ajaxis\Parser
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class Attributes
 {
     /**
-     * table name
+     * table name.
      *
-     * @var $table String
+     * @var String
      */
     private $table;
     /**
-     * Result
+     * Result.
      *
-     * @var $Result[]
+     * @var[]
      */
     public $result = [];
+
     /**
-     * create new Attrebutes
+     * create new Attrebutes.
      *
      * @param $table
      */
@@ -33,13 +33,14 @@ class Attributes
     {
         $this->table = $table;
     }
+
     /**
-     * Get attributes from table
+     * Get attributes from table.
      */
     public function getAttributes()
     {
         //select all the Attributes from table
-        $this->result = DB::select(DB::raw('show columns from `' . $this->table . '`;'));
+        $this->result = DB::select(DB::raw('show columns from `'.$this->table.'`;'));
         //delete the first element.(ignore the id section)
         unset($this->result[0]);
         //get result

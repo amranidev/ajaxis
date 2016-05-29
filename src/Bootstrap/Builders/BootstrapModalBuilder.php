@@ -6,22 +6,21 @@ use Amranidev\Ajaxis\Modal\Modal;
 use Amranidev\Ajaxis\Modal\ModalInterface;
 
 /**
- * class BootsrtapModalBuilder
+ * class BootsrtapModalBuilder.
  *
- * @package ajaxis/Bootstrap/Builders
  * @author Amrani Houssain <amranidev@gmail.com>
  */
 class BootstrapModalBuilder implements ModalInterface
 {
     /**
-     * Modal Instance
+     * Modal Instance.
      *
-     * @var $Modal
+     * @var
      */
     public $Modal;
 
     /**
-     * Create new BootstrapModalBuilder instance
+     * Create new BootstrapModalBuilder instance.
      */
     public function __construct()
     {
@@ -29,7 +28,7 @@ class BootstrapModalBuilder implements ModalInterface
     }
 
     /**
-     * Build modal head
+     * Build modal head.
      *
      * @param $title String
      */
@@ -39,7 +38,7 @@ class BootstrapModalBuilder implements ModalInterface
     }
 
     /**
-     * Build modal body
+     * Build modal body.
      *
      * @param $lable String
      * @param $name String
@@ -84,12 +83,12 @@ class BootstrapModalBuilder implements ModalInterface
                 view('Ajaxis::bootstrap.types.text', compact('label', 'name', 'value', 'type'))->render();
                 break;
             default:
-                throw new \Exception('Type not found' . $type);
+                throw new \Exception('Type not found'.$type);
         }
     }
 
     /**
-     * Build modal footer
+     * Build modal footer.
      *
      * @param $link String
      * @param $action String
@@ -100,7 +99,7 @@ class BootstrapModalBuilder implements ModalInterface
     }
 
     /**
-     * Get Modal instance
+     * Get Modal instance.
      *
      * @return Modal
      */
@@ -108,5 +107,4 @@ class BootstrapModalBuilder implements ModalInterface
     {
         return $this->Modal;
     }
-
 }
