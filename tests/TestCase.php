@@ -2,9 +2,12 @@
 
 namespace Amranidev\Ajaxis\Tests;
 
-use PHPUnit_Framework_TestCase;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends OrchestraTestCase
 {
-    //
+    protected function getPackageProviders($app)
+    {
+        return ['Amranidev\Ajaxis\AjaxisServiceProvider'];
+    }
 }
