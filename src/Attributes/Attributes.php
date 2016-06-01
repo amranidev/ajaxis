@@ -14,7 +14,7 @@ class Attributes
     /**
      * table name.
      *
-     * @var String
+     * @var string
      */
     private $table;
     /**

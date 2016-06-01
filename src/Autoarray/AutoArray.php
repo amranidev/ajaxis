@@ -29,7 +29,7 @@ class AutoArray
     /**
      * create new AutoArray instance.
      *
-     * @var String
+     * @var string
      */
     public function __construct($table)
     {
@@ -39,7 +39,7 @@ class AutoArray
     /**
      * arrayAnalyser . add specified types from attributes.
      *
-     * @var Array
+     * @var array
      *
      * @return $result
      */
