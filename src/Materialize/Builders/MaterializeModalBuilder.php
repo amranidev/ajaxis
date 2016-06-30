@@ -82,7 +82,10 @@ class MaterializeModalBuilder implements ModalInterface
                 $this->Modal->modalBody .=
                 view('Ajaxis::materialize.types.text', compact('label', 'name', 'value', 'type'))->render();
                 break;
-
+            case 'file':
+                $this->Modal->modalBody .=
+                view('Ajaxis::materialize.types.text', compact('label', 'name', 'value', 'type'))->render();
+                break;
             default:
                 throw new \Exception('Type not found '.$type);
         }
