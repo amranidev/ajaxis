@@ -25,7 +25,7 @@ class ModalDirector
         /*
          * build modal head
          */
-        $modal->buildHead($title,$link);
+        $modal->buildHead($title, $link);
 
         /**
          * check if $input is an array.
