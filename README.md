@@ -23,7 +23,7 @@ Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a mod
 
 ## An example
 
-to understand better pleas try our example.
+To understand better pleas try our example.
 #####[AjaxisTest](https://github.com/amranidev/ajaxistest)#####
 
 ## Why Use Ajaxis?  
