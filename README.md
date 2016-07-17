@@ -243,7 +243,7 @@ example.
 
 ## Ajaxis input elements
 
-**types:** text , radio , checkbox , combobox , datepicker(Materialize)
+**Types:** text , radio , checkbox , combobox , datepicker(Materialize)
 
 #####Delete Confirmation Message
 
