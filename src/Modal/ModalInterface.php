@@ -14,7 +14,7 @@ interface ModalInterface
      *
      * @param $title String
      */
-    public function buildHead($title,$link);
+    public function buildHead($title, $link);
 
     /**
      * build body of a modal.

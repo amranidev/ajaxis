@@ -32,7 +32,7 @@ class BootstrapModalBuilder implements ModalInterface
      *
      * @param $title String
      */
-    public function buildHead($title,$link)
+    public function buildHead($title, $link)
     {
         $this->Modal->modalHead = view('Ajaxis::bootstrap.head', compact('title'))->render();
     }
