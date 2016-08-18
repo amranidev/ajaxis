@@ -32,7 +32,7 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
      *
      * @param $title String
      */
-    public function buildHead($title)
+    public function buildHead($title,$link)
     {
         $this->Modal->modalHead = view('Ajaxis::materialize.get.head', compact('title'))->render();
     }
