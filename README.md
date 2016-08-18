@@ -17,13 +17,9 @@ that can generates inputs (text,radio,checkbox,file,etc..) automatically.
 
 Ajaxis allows you to controlle your HTML inputs,APIs,CRUD methods, through a model controller and define just one HTML block to define your modal that Ajaxis can use it for all operations of CRUD managing.
 
-## What's new in v3.0.x
-
-   Possibility to generate HTML modal elements by just one line of code instead an array to be more easier.
-
 ## An example
 
-to understand better pleas try our example.
+To understand better pleas try our example.
 #####[AjaxisTest](https://github.com/amranidev/ajaxistest)#####
 
 ## Why Use Ajaxis?  
@@ -247,7 +243,7 @@ example.
 
 ## Ajaxis input elements
 
-**types:** text , radio , checkbox , combobox , datepicker(Materialize)
+**Types:** text , radio , checkbox , combobox , datepicker(Materialize)
 
 #####Delete Confirmation Message
 
