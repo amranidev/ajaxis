@@ -32,7 +32,7 @@ class MaterializeDisplayBuilder implements ModalInterface
      *
      * @param string $title
      */
-    public function buildHead($title,$link)
+    public function buildHead($title, $link)
     {
         $this->Modal->modalHead = '';
     }
