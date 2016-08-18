@@ -62,9 +62,9 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtEditFormModal($input, $link)
+    public function mtEditFormModal($input, $link ,$title)
     {
-        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->MtModal);
+        $modal = $this->modalDirector->build($title, 'update', $input, $link, $this->MtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -77,9 +77,9 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtCreateFormModal($input, $link)
+    public function mtCreateFormModal($input, $link,$title)
     {
-        $modal = $this->modalDirector->build('New', 'create', $input, $link, $this->MtModal);
+        $modal = $this->modalDirector->build($title, 'create', $input, $link, $this->MtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -144,9 +144,9 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btCreateFormModal($input, $link)
+    public function btCreateFormModal($input, $link , $title)
     {
-        $modal = $this->modalDirector->build('New', 'Create', $input, $link, $this->BtModal);
+        $modal = $this->modalDirector->build($title, 'Create', $input, $link, $this->BtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -159,9 +159,9 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btEditFormModal($input, $link)
+    public function btEditFormModal($input, $link ,$title)
     {
-        $modal = $this->modalDirector->build('Edit', 'update', $input, $link, $this->BtModal);
+        $modal = $this->modalDirector->build($title, 'update', $input, $link, $this->BtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -190,11 +190,11 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtGet($table, $link)
+    public function mtGet($table, $link , $title)
     {
         $result = new AutoArray($table);
 
-        $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $this->MtModal);
+        $modal = $this->modalDirector->build($title, 'Create', $result->merge(), $link, $this->MtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -207,11 +207,11 @@ class AjaxisGenerate
      *
      *  @return string
      */
-    public function mtEditText(Model $model, $link)
+    public function mtEditText(Model $model, $link , $title)
     {
         $result = new AutoArray('');
 
-        $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->MtModal);
+        $modal = $this->modalDirector->build($title, 'Update', $result->getModelArray($model), $link, $this->MtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -224,11 +224,11 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btGet($table, $link)
+    public function btGet($table, $link , $title)
     {
         $result = new AutoArray($table);
 
-        $modal = $this->modalDirector->build('New', 'Create', $result->merge(), $link, $this->BtModal);
+        $modal = $this->modalDirector->build($title, 'Create', $result->merge(), $link, $this->BtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
@@ -241,11 +241,11 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btEditText(Model $model, $link)
+    public function btEditText(Model $model, $link, $title)
     {
         $result = new AutoArray('');
 
-        $modal = $this->modalDirector->build('Edit', 'Update', $result->getModelArray($model), $link, $this->BtModal);
+        $modal = $this->modalDirector->build($title, 'Update', $result->getModelArray($model), $link, $this->BtModal);
 
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
