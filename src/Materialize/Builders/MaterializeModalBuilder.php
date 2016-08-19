@@ -32,9 +32,9 @@ class MaterializeModalBuilder implements ModalInterface
      *
      * @param $title String
      */
-    public function buildHead($title,$link)
+    public function buildHead($title, $link)
     {
-        $this->Modal->modalHead = view('Ajaxis::materialize.head', compact('title','link'))->render();
+        $this->Modal->modalHead = view('Ajaxis::materialize.head', compact('title', 'link'))->render();
     }
 
     /**

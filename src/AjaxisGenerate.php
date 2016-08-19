@@ -62,7 +62,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtEditFormModal($input, $link ,$title)
+    public function mtEditFormModal($input, $link, $title)
     {
         $modal = $this->modalDirector->build($title, 'update', $input, $link, $this->MtModal);
 
@@ -77,7 +77,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtCreateFormModal($input, $link,$title)
+    public function mtCreateFormModal($input, $link, $title)
     {
         $modal = $this->modalDirector->build($title, 'create', $input, $link, $this->MtModal);
 
@@ -144,7 +144,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btCreateFormModal($input, $link , $title)
+    public function btCreateFormModal($input, $link, $title)
     {
         $modal = $this->modalDirector->build($title, 'Create', $input, $link, $this->BtModal);
 
@@ -159,7 +159,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btEditFormModal($input, $link ,$title)
+    public function btEditFormModal($input, $link, $title)
     {
         $modal = $this->modalDirector->build($title, 'update', $input, $link, $this->BtModal);
 
@@ -190,7 +190,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function mtGet($table, $link , $title)
+    public function mtGet($table, $link, $title)
     {
         $result = new AutoArray($table);
 
@@ -207,7 +207,7 @@ class AjaxisGenerate
      *
      *  @return string
      */
-    public function mtEditText(Model $model, $link , $title)
+    public function mtEditText(Model $model, $link, $title)
     {
         $result = new AutoArray('');
 
@@ -224,7 +224,7 @@ class AjaxisGenerate
      *
      * @return string
      */
-    public function btGet($table, $link , $title)
+    public function btGet($table, $link, $title)
     {
         $result = new AutoArray($table);
 
