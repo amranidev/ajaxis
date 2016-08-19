@@ -3,8 +3,8 @@
         <select name = "{{$name}}">
             <option value="" disabled selected>Choose your option</option>
             @if($value)
-            @foreach($value as $k => $v)
-            <option value = '{{$k}}'>{{$v}}</option>
+            @foreach($value as $v)
+            <option value = '{{$v}}'>{{$v}}</option>
             @endforeach
             @endif
         </select>
