@@ -5,5 +5,5 @@
             <h4 class="modal-title" id="myModalLabel">{{$title}}</h4>
         </div>
         <div class="modal-body">
-            <form  enctype="multipart/form-data" id = "AjaxisForm" method = 'post' action = "{{$link}}">
+            <form  enctype="multipart/form-data" id = "AjaxisForm" method = 'post' action = "{{url('/')}}{{$link}}">
                 <input type = "hidden" name = "_token" value = "{{csrf_token()}}">
