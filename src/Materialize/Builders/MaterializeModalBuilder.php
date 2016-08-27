@@ -60,7 +60,7 @@ class MaterializeModalBuilder implements ModalInterface
 
             case 'select':
                 $this->Modal->modalBody .=
-                view('Ajaxis::materialize.types.select', compact('value', 'name' , 'label'))->render();
+                view('Ajaxis::materialize.types.select', compact('value', 'name', 'label'))->render();
                 break;
 
             case 'checkbox':
