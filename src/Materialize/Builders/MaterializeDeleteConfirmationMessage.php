@@ -47,16 +47,16 @@ class MaterializeDeleteConfirmationMessage implements ModalInterface
         $this->Modal->modalBody .= $input;
     }
 
-/**
- * Build modal footer.
- *
- * @param $link String
- * @param $action String
- */
-public function buildfooter($link, $action)
-{
-    $this->Modal->modalFooter = view('Ajaxis::materialize.get.footer', compact('link', 'action'))->render();
-}
+    /**
+     * Build modal footer.
+     *
+     * @param $link String
+     * @param $action String
+     */
+    public function buildfooter($link, $action)
+    {
+        $this->Modal->modalFooter = view('Ajaxis::materialize.get.footer', compact('link', 'action'))->render();
+    }
 
     /**
      * Get Modal instance.
