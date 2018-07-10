@@ -250,22 +250,22 @@ class AjaxisGenerate
         return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
     }
 
-        /**
-         * build simple modal with text.
-         *
-         * @param string $input
-         * @param string $link
-         *
-         * @return string
-         */
-        public function btText($input, $link)
-        {
-            $director = new ModalDirector();
+    /**
+     * build simple modal with text.
+     *
+     * @param string $input
+     * @param string $link
+     *
+     * @return string
+     */
+    public function btText($input, $link)
+    {
+        $director = new ModalDirector();
 
-            $modal = new BootstrapText();
+        $modal = new BootstrapText();
 
-            $modal = $director->build('Has Role', 'Ok', $input, $link, $modal);
+        $modal = $director->build('Has Role', 'Ok', $input, $link, $modal);
 
-            return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
-        }
+        return $modal->modalHead.$modal->modalBody.$modal->modalFooter;
+    }
 }
